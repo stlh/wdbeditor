@@ -12,8 +12,8 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="372"/>
 			<integer value="81"/>
+			<integer value="372"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -59,12 +59,12 @@
 						</object>
 						<string key="NSAction">submenuAction:</string>
 						<object class="NSMenu" key="NSSubmenu" id="110575045">
-							<string key="NSTitle">Editor</string>
+							<string key="NSTitle">Wdb Editor</string>
 							<object class="NSMutableArray" key="NSMenuItems">
 								<bool key="EncodedWithXMLCoder">YES</bool>
 								<object class="NSMenuItem" id="238522557">
 									<reference key="NSMenu" ref="110575045"/>
-									<string key="NSTitle">About WdbEditor</string>
+									<string key="NSTitle">关于 WdbEditor</string>
 									<string key="NSKeyEquiv"/>
 									<int key="NSMnemonicLoc">2147483647</int>
 									<reference key="NSOnImage" ref="35465992"/>
@@ -149,7 +149,7 @@
 								</object>
 								<object class="NSMenuItem" id="632727374">
 									<reference key="NSMenu" ref="110575045"/>
-									<string key="NSTitle">Quit WdbWditor</string>
+									<string key="NSTitle">退出 WdbWditor</string>
 									<string key="NSKeyEquiv">q</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -170,12 +170,12 @@
 						<reference key="NSMixedImage" ref="600405430"/>
 						<string key="NSAction">submenuAction:</string>
 						<object class="NSMenu" key="NSSubmenu" id="720053764">
-							<string key="NSTitle">File</string>
+							<string key="NSTitle">文件</string>
 							<object class="NSMutableArray" key="NSMenuItems">
 								<bool key="EncodedWithXMLCoder">YES</bool>
 								<object class="NSMenuItem" id="722745758">
 									<reference key="NSMenu" ref="720053764"/>
-									<string key="NSTitle">Open…</string>
+									<string key="NSTitle">打开</string>
 									<string key="NSKeyEquiv">o</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -185,7 +185,7 @@
 								<object class="NSMenuItem" id="1023925487">
 									<reference key="NSMenu" ref="720053764"/>
 									<bool key="NSIsDisabled">YES</bool>
-									<string key="NSTitle">Save</string>
+									<string key="NSTitle">保存</string>
 									<string key="NSKeyEquiv">s</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -204,7 +204,7 @@
 				<int key="NSWindowBacking">2</int>
 				<string key="NSWindowRect">{{335, 270}, {640, 360}}</string>
 				<int key="NSWTFlags">1946157056</int>
-				<string key="NSWindowTitle">World of Warcarft itemcache.wdb Editor</string>
+				<string key="NSWindowTitle">魔兽时间 itemcache.wdb 编辑器</string>
 				<string key="NSWindowClass">NSWindow</string>
 				<nil key="NSViewClass"/>
 				<string key="NSWindowContentMaxSize">{1.79769e+308, 1.79769e+308}</string>
@@ -451,7 +451,7 @@
 							<object class="NSButtonCell" key="NSCell" id="167329938">
 								<int key="NSCellFlags">-1543373312</int>
 								<int key="NSCellFlags2">134217728</int>
-								<string key="NSContents">Filter</string>
+								<string key="NSContents">过滤</string>
 								<reference key="NSSupport" ref="493414767"/>
 								<reference key="NSControlView" ref="753274936"/>
 								<int key="NSButtonFlags">-2038152961</int>
@@ -475,13 +475,13 @@
 										<object class="NSTextField" id="955346037">
 											<reference key="NSNextResponder" ref="343584939"/>
 											<int key="NSvFlags">268</int>
-											<string key="NSFrame">{{15, 81}, {54, 17}}</string>
+											<string key="NSFrame">{{15, 81}, {76, 17}}</string>
 											<reference key="NSSuperview" ref="343584939"/>
 											<bool key="NSEnabled">YES</bool>
 											<object class="NSTextFieldCell" key="NSCell" id="304762879">
 												<int key="NSCellFlags">68288064</int>
 												<int key="NSCellFlags2">272630784</int>
-												<string key="NSContents">Item ID:</string>
+												<string key="NSContents">物品编号：</string>
 												<reference key="NSSupport" ref="493414767"/>
 												<reference key="NSControlView" ref="955346037"/>
 												<object class="NSColor" key="NSBackgroundColor" id="84560083">
@@ -519,7 +519,7 @@
 											<object class="NSTextFieldCell" key="NSCell" id="381589676">
 												<int key="NSCellFlags">68288064</int>
 												<int key="NSCellFlags2">272630784</int>
-												<string key="NSContents">Item Name:</string>
+												<string key="NSContents">物品名称：</string>
 												<reference key="NSSupport" ref="493414767"/>
 												<reference key="NSControlView" ref="669478697"/>
 												<reference key="NSBackgroundColor" ref="84560083"/>
@@ -535,7 +535,7 @@
 											<object class="NSTextFieldCell" key="NSCell" id="413572126">
 												<int key="NSCellFlags">68288064</int>
 												<int key="NSCellFlags2">272630784</int>
-												<string key="NSContents">Model ID:</string>
+												<string key="NSContents">模型编号：</string>
 												<reference key="NSSupport" ref="493414767"/>
 												<reference key="NSControlView" ref="360873395"/>
 												<reference key="NSBackgroundColor" ref="84560083"/>
@@ -585,7 +585,7 @@
 											<object class="NSButtonCell" key="NSCell" id="638164755">
 												<int key="NSCellFlags">-1543373312</int>
 												<int key="NSCellFlags2">134217728</int>
-												<string key="NSContents">Change</string>
+												<string key="NSContents">更改</string>
 												<reference key="NSSupport" ref="493414767"/>
 												<reference key="NSControlView" ref="834655464"/>
 												<int key="NSButtonFlags">-2038152961</int>
@@ -607,7 +607,7 @@
 							<object class="NSTextFieldCell" key="NSTitleCell">
 								<int key="NSCellFlags">67239424</int>
 								<int key="NSCellFlags2">0</int>
-								<string key="NSContents">Selected Item</string>
+								<string key="NSContents">选中的物品</string>
 								<reference key="NSSupport" ref="26"/>
 								<reference key="NSBackgroundColor" ref="233996015"/>
 								<object class="NSColor" key="NSTextColor">
@@ -1079,10 +1079,10 @@
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="777398122"/>
-							<reference ref="955346037"/>
 							<reference ref="413484520"/>
 							<reference ref="669478697"/>
 							<reference ref="550582285"/>
+							<reference ref="955346037"/>
 							<reference ref="360873395"/>
 							<reference ref="834655464"/>
 						</object>
@@ -1347,7 +1347,7 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
-					<string>{{68, 559}, {205, 153}}</string>
+					<string>{{68, 559}, {197, 153}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
 					<string>{{23, 794}, {245, 183}}</string>
@@ -1357,7 +1357,7 @@
 					<integer value="1"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
-					<string>{{130, 669}, {127, 43}}</string>
+					<string>{{130, 669}, {104, 43}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
 					<string>{{145, 474}, {199, 203}}</string>
