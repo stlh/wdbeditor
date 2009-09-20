@@ -40,7 +40,8 @@
 		NSString *fileSignature = [[NSString alloc] initWithData: fileSignatureData encoding: NSUTF8StringEncoding];
 		if (![fileSignature isEqualToString: @"BDIW"])
 		{
-			NSRunAlertPanel(@"ERROR!", @"File Format ERROR, this is not a itemcache.wdb file.", @"OK", nil, nil);
+			NSRunAlertPanel(NSLocalizedString(@"ERROR", nil)
+							, NSLocalizedString(@"FILE_FORMAT_ERROR", nil), @"OK", nil, nil);
 			[inFile closeFile];
 			return;
 		}
@@ -186,6 +187,7 @@
 		[outFile writeData: modelIdData];
 		[modelIdData release];
 	}
+	[changedItems removeAllObjects];
 	
 	[outFile closeFile];
 }
