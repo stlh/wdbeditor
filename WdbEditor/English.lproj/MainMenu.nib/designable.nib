@@ -59,12 +59,12 @@
 						</object>
 						<string key="NSAction">submenuAction:</string>
 						<object class="NSMenu" key="NSSubmenu" id="110575045">
-							<string key="NSTitle">Wdb Editor</string>
+							<string key="NSTitle">WDB Editor</string>
 							<object class="NSMutableArray" key="NSMenuItems">
 								<bool key="EncodedWithXMLCoder">YES</bool>
 								<object class="NSMenuItem" id="238522557">
 									<reference key="NSMenu" ref="110575045"/>
-									<string key="NSTitle">关于 WdbEditor</string>
+									<string key="NSTitle">About WdbEditor</string>
 									<string key="NSKeyEquiv"/>
 									<int key="NSMnemonicLoc">2147483647</int>
 									<reference key="NSOnImage" ref="35465992"/>
@@ -149,7 +149,7 @@
 								</object>
 								<object class="NSMenuItem" id="632727374">
 									<reference key="NSMenu" ref="110575045"/>
-									<string key="NSTitle">退出 WdbWditor</string>
+									<string key="NSTitle">Quit WdbWditor</string>
 									<string key="NSKeyEquiv">q</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -175,7 +175,7 @@
 								<bool key="EncodedWithXMLCoder">YES</bool>
 								<object class="NSMenuItem" id="722745758">
 									<reference key="NSMenu" ref="720053764"/>
-									<string key="NSTitle">打开</string>
+									<string key="NSTitle">Open</string>
 									<string key="NSKeyEquiv">o</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -185,7 +185,7 @@
 								<object class="NSMenuItem" id="1023925487">
 									<reference key="NSMenu" ref="720053764"/>
 									<bool key="NSIsDisabled">YES</bool>
-									<string key="NSTitle">保存</string>
+									<string key="NSTitle">Save</string>
 									<string key="NSKeyEquiv">s</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -451,7 +451,7 @@
 							<object class="NSButtonCell" key="NSCell" id="167329938">
 								<int key="NSCellFlags">-1543373312</int>
 								<int key="NSCellFlags2">134217728</int>
-								<string key="NSContents">过滤</string>
+								<string key="NSContents">filter</string>
 								<reference key="NSSupport" ref="493414767"/>
 								<reference key="NSControlView" ref="753274936"/>
 								<int key="NSButtonFlags">-2038152961</int>
@@ -481,7 +481,7 @@
 											<object class="NSTextFieldCell" key="NSCell" id="304762879">
 												<int key="NSCellFlags">68288064</int>
 												<int key="NSCellFlags2">272630784</int>
-												<string key="NSContents">物品编号：</string>
+												<string key="NSContents">Item ID:</string>
 												<reference key="NSSupport" ref="493414767"/>
 												<reference key="NSControlView" ref="955346037"/>
 												<object class="NSColor" key="NSBackgroundColor" id="84560083">
@@ -585,7 +585,7 @@
 											<object class="NSButtonCell" key="NSCell" id="638164755">
 												<int key="NSCellFlags">-1543373312</int>
 												<int key="NSCellFlags2">134217728</int>
-												<string key="NSContents">更改</string>
+												<string key="NSContents">Change</string>
 												<reference key="NSSupport" ref="493414767"/>
 												<reference key="NSControlView" ref="834655464"/>
 												<int key="NSButtonFlags">-2038152961</int>
@@ -607,7 +607,7 @@
 							<object class="NSTextFieldCell" key="NSTitleCell">
 								<int key="NSCellFlags">67239424</int>
 								<int key="NSCellFlags2">0</int>
-								<string key="NSContents">选中的物品</string>
+								<string key="NSContents">Selected Item:</string>
 								<reference key="NSSupport" ref="26"/>
 								<reference key="NSBackgroundColor" ref="233996015"/>
 								<object class="NSColor" key="NSTextColor">
@@ -1347,7 +1347,7 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
-					<string>{{68, 559}, {197, 153}}</string>
+					<string>{{68, 559}, {205, 153}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
 					<string>{{23, 794}, {245, 183}}</string>
@@ -1357,7 +1357,7 @@
 					<integer value="1"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
-					<string>{{130, 669}, {104, 43}}</string>
+					<string>{{130, 669}, {113, 43}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
 					<string>{{145, 474}, {199, 203}}</string>
