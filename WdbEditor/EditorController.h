@@ -10,19 +10,24 @@
 
 @interface EditorController : NSObject {
 	IBOutlet NSTextField *itemIdField;
+	IBOutlet NSTextField *itemClassField;
+	IBOutlet NSTextField *itemSubClassField;
 	IBOutlet NSTextField *itemNameField;
 	IBOutlet NSTextField *itemModelIdField;
-	IBOutlet NSTextField *filterField;
 	IBOutlet NSTableView *tableView;
 	IBOutlet NSMenuItem *miSave;
+	IBOutlet NSSearchField *itemNameSearchField;
 	
-	IBOutlet NSButton *btnFilter;
 	IBOutlet NSButton *btnChange;
 	
 	NSURL *fileURL;
 	NSMutableArray *items;
 	NSMutableArray *showItems;
 	NSMutableArray *changedItems;
+	
+	NSMutableArray *itemClasss;
+	NSMutableArray *qualitys;
+	NSMutableArray *qualitysColor;
 }
 
 - (IBAction)openFile: (id)sender;

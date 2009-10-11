@@ -13,6 +13,8 @@
 
 - (void)resetSelectedItemBox {
 	[itemIdField setStringValue: @""];
+	[itemClassField setStringValue: @""];
+	[itemSubClassField setStringValue: @""];
 	[itemNameField setStringValue: @""];
 	[itemModelIdField setStringValue: @""];
 	[itemModelIdField setEnabled: NO];
@@ -20,22 +22,21 @@
 }
 
 - (void)setControlState: (BOOL)isEnable {
-	[filterField setEnabled: isEnable];
-	[btnFilter setEnabled: isEnable];
+	[itemNameSearchField setEnabled: isEnable];
 	[itemModelIdField setEnabled: isEnable];
 	[btnChange setEnabled: isEnable];
 	[tableView setEnabled: isEnable];
 }
 
 - (IBAction)openFile:(id)sender {
-	NSArray* fileTypes = [NSArray arrayWithObject: @"wdb"];
-	NSOpenPanel* openPanel = [NSOpenPanel openPanel];
+	NSArray *fileTypes = [NSArray arrayWithObject: @"wdb"];
+	NSOpenPanel *openPanel = [NSOpenPanel openPanel];
 	[openPanel setAllowsMultipleSelection: NO];
 	
 	if ([openPanel runModalForTypes: fileTypes] == NSOKButton) {
 		NSArray* files = [openPanel URLs];
 		fileURL = [[files objectAtIndex: 0] copy];
-		NSFileHandle* inFile = [NSFileHandle fileHandleForReadingFromURL: fileURL error:NULL];
+		NSFileHandle* inFile = [NSFileHandle fileHandleForReadingFromURL: fileURL error: NULL];
 		NSData *fileSignatureData = [inFile readDataOfLength: sizeof(char) * 4];
 		NSString *fileSignature = [[NSString alloc] initWithData: fileSignatureData encoding: NSUTF8StringEncoding];
 		if (![fileSignature isEqualToString: @"BDIW"])
@@ -46,21 +47,34 @@
 			return;
 		}
 		NSData *fileVersion = [inFile readDataOfLength: sizeof(int)];
-		NSData *fileLanguage = [inFile readDataOfLength: sizeof(char) * 4];
+		//NSLog(@"File Version: %@", fileVersion);
+		NSData *fileLanguageData = [inFile readDataOfLength: sizeof(char) * 4];
+		NSString *fileLanguage = [[NSString alloc] initWithData: fileLanguageData encoding:NSASCIIStringEncoding];
+		NSLog(@"File Language: %@", fileLanguage);
 		NSData *headerUnkonw = [inFile readDataOfLength: 12];//4 * 3 unknow
+		//NSlog(@"Header unkonw: %@", headerUnkonw);
 		int itemId;
 		[[inFile readDataOfLength: sizeof(int)] getBytes: &itemId length: sizeof(int)];
 		int itemRecordLength;
 		[[inFile readDataOfLength: sizeof(int)] getBytes: &itemRecordLength length: sizeof(int)];
 		
+		int itemCounts = 1;
 		while (itemId != 0) {
 			int offset = [inFile offsetInFile];
 			NSData *data = [inFile readDataOfLength: itemRecordLength];
 			//NSData *temp1 = [inFile readDataOfLength: 12];
 			//NSData *s = [inFile readDataOfLength: 1];
+			NSRange r;
+			r.location = 0;
+			r.length = 4;
+			int itemClass;
+			[data getBytes: &itemClass range: r];
+			int itemSubClass;
+			r.location = 4;
+			r.length = 4;
+			[data getBytes: &itemSubClass range: r];
 			int itemNameLength = 1;
 			char c;
-			NSRange r;
 			r.location = 12;
 			r.length = 1;
 			[data getBytes: &c range: r];
@@ -82,8 +96,11 @@
 			//[[inFile readDataOfLength: sizeof(int)] getBytes: &itemModelId length: sizeof(int)];
 			//NSData *temp3 = [inFile readDataOfLength: (itemRecordLength - 19 - itemNameLength)];
 			
+			NSLog(@"%d Item ID: %d; Item Class: %d", itemCounts++, itemId, itemClass);
 			NSMutableDictionary* item = [NSMutableDictionary dictionary];
 			[item setObject: [NSString stringWithFormat: @"%d", itemId] forKey: @"Item Id"];
+			[item setObject: [itemClasss objectAtIndex: itemClass] forKey: @"Item Class"];
+			[item setObject: [NSString stringWithFormat: @"%d", itemSubClass] forKey: @"Item SubClass"];
 			[item setObject: itemName forKey: @"Item Name"];
 			[item setObject: [NSString stringWithFormat: @"%d", itemModelId] forKey: @"Item Model Id"];
 			[item setObject: [NSString stringWithFormat: @"%d", (offset + r.location)] forKey: @"offset"];
@@ -102,10 +119,52 @@
 	}
 }
 
-- (void)awakeFromNib {
+- (id)init {
 	items = [[NSMutableArray alloc] init];
 	showItems = [[NSMutableArray alloc] init];
 	changedItems = [[NSMutableArray alloc] init];
+	
+	itemClasss = [[NSMutableArray alloc] initWithObjects: @"Consumable"
+				  , @"Container"
+				  , @"Weapon"
+				  , @"3"
+				  , @"Armor"
+				  , @"Reagent"
+				  , @"Projectile"
+				  , @"Trade Goods"
+				  , @"8"
+				  , @"Recipe"
+				  , @"10"
+				  , @"Quiver"
+				  , @"Quest Item"
+				  , @"Key"
+				  , @"Permanent"
+				  , @"Miscellaneous"
+				  , @"16"
+				  , nil];
+	
+	qualitys = [[NSMutableArray alloc] initWithObjects: @"Poor"
+			   , @"Common"
+			   , @"Uncommon"
+			   , @"Rare"
+			   , @"Epic"
+			   , @"Legendary"
+			   , @"Artifact"
+			   , nil];
+	
+	qualitysColor = [[NSMutableArray alloc] initWithObjects: @"Gray"
+					, @"White"
+					, @"Green"
+					, @"Blue"
+					, @"Purple"
+					, @"Orange"
+					, @"Red"
+					, nil];
+	
+	return self;
+}
+
+- (void)awakeFromNib {
 }
 
 - (void)tableViewSelectionDidChange:(NSNotification *)aNotification
@@ -115,6 +174,8 @@
 	{
 		id item = [showItems objectAtIndex: rowIndex];
 		[itemIdField setStringValue: [item objectForKey: @"Item Id"]];
+		[itemClassField setStringValue: [item objectForKey: @"Item Class"]];
+		[itemSubClassField setStringValue: [item objectForKey: @"Item SubClass"]];
 		[itemNameField setStringValue: [item objectForKey: @"Item Name"]];
 		[itemModelIdField setStringValue: [item objectForKey: @"Item Model Id"]];
 		
@@ -129,17 +190,13 @@
 
 - (IBAction)filterItems: (id)sender
 {
-	NSString* filterString = [filterField stringValue];
+	NSString* filterString = [itemNameSearchField stringValue];
 	if ([filterString length] != 0)
-	{
-		[itemIdField setStringValue: @""];
-		[itemNameField setStringValue: @""];
-		[itemModelIdField setStringValue: @""];
-		
+	{		
 		[showItems removeAllObjects];
-		int l = [items count];
-		int i=0;
-		for (i=0; i<l; ++i)
+		int count = [items count];
+		int i;
+		for (i=0; i < count; ++i)
 		{
 			NSMutableDictionary* item = [items objectAtIndex: i];
 			NSRange range = [[item objectForKey: @"Item Name"] rangeOfString: filterString];
@@ -175,9 +232,10 @@
 
 - (IBAction)saveFile: (id)sender
 {
-	NSFileHandle *outFile = [NSFileHandle fileHandleForWritingToURL: fileURL error: NULL]; 
+	NSFileHandle *outFile = [NSFileHandle fileHandleForWritingToURL: fileURL error: nil]; 
 	int i;
-	for (i=0; i < [changedItems count]; ++i)
+	int count = [changedItems count];
+	for (i=0; i < count; ++i)
 	{
 		id item = [changedItems objectAtIndex: i];
 		int offset = [[item objectForKey: @"offset"] intValue];
@@ -197,7 +255,10 @@
 	id item;
 	item = [showItems objectAtIndex: [tableView selectedRow]];
 	[item setObject: [itemModelIdField stringValue] forKey: @"Item Model Id"];
-	[changedItems addObject: item];
+	if (![changedItems containsObject: item])
+	{
+		[changedItems addObject: item];
+	}
 	
 	[miSave setEnabled: YES];
 }
