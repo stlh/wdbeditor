@@ -248,6 +248,8 @@
 	[changedItems removeAllObjects];
 	
 	[outFile closeFile];
+	
+	[mainWindow setTitle: @"Saved."];
 }
 
 - (IBAction)changeItemModelId: (id)sender
@@ -261,6 +263,7 @@
 	}
 	
 	[miSave setEnabled: YES];
+	[mainWindow setTitle: [NSString stringWithFormat: @"%d Items Changed, but NOT Save.", [changedItems count]]];
 }
 
 - (int)numberOfRowsInTableView: (NSTableView *)tableView
