@@ -9,6 +9,7 @@
 #import <Cocoa/Cocoa.h>
 
 @interface EditorController : NSObject {
+	IBOutlet NSWindow *mainWindow;
 	IBOutlet NSTextField *itemIdField;
 	IBOutlet NSTextField *itemClassField;
 	IBOutlet NSTextField *itemSubClassField;
