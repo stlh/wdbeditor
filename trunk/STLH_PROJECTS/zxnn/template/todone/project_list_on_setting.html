@@ -1,0 +1,12 @@
+<table>
+  <tbody>
+    <tr><td style="width: 30ex;">Title</td><td></td></tr>
+    {% for p in projects %}
+    <tr>
+      <td>{{ p.title }}</td>
+      <td><span title="delete this project" class="spanBtn" onclick="deleteProject(event, '{{ p.key }}');">x</span></td>
+    </tr>
+    {% endfor %}
+    <tr id="newProjectTr" style="display: none;"><td colspan="2"><img src="/img/ajax-loader.gif" alt="loading..." /><span id="newProjectText"></span></td></tr>
+  </tbody>
+</table>

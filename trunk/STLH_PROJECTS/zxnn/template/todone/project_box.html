@@ -1,0 +1,10 @@
+<div id="project{{ p.key }}" class="projectBox{% if forloop.first %} currentProject{% endif %}">
+    <div class="projectBoxToolBar">
+        <span>
+            <span id="sbtnShowNewItemBoxForProject{{ p.key }}" onclick="showNewItemBox(event, '{{ p.key }}');" title="add new item for this project." class="spanBtn showNewItemBox">+添加任务</span>
+        </span>
+    </div>
+    <div id="itemListContent{{ p.key }}" class="itemListContent">
+        {% include 'item_list.html' %}
+    </div>
+</div>

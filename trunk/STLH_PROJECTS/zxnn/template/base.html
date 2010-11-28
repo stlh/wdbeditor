@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<meta name="keywords" content="{% block keyworks %}zxnn.net{% endblock %}" />
+<meta name="description" content="{% block description %}page of zxnn.net{% endblock %}" />
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0" />
+<title>{% block title %}Zxnn.net{% endblock %}</title>
+<link rel="shortcut icon" href="/img/favicon.ico" /> 
+{% block style %}
+<style type="text/css" title="Dark">
+@import url(/css/layout.css);
+@import url(/css/dark.css);
+</style>
+{% endblock %}
+<!--<script type="text/javascript" src="/script/jquery.js"></script>-->
+<script type="text/javascript" src="https://www.google.com/jsapi?key=ABQIAAAAsMW1Gwp3EoyQ-HDRYOhxUhR3xGMdYbtd0rg-tK3f6drgHTIm2xSE46LEw2aBzDhqk-5I7wIQ1UH5xw"></script>
+<script type="text/javascript">
+//<![CDATA[
+google.load("jquery", "1");
+//]]>
+</script>
+{% block script %}{% endblock %}
+<script type="text/javascript">
+//<![CDATA[
+$(document).ready(function() {
+    $('#nav').insertAfter($('#infobar'));
+    $('#menu > li').mouseenter(function (){
+      $(this).addClass('active');
+      }).mouseleave(function() {
+        $(this).removeClass('active');
+        });
+    $('#sidebar').insertBefore($('#content'));
+    $('#pagecontent').css('min-height', $(window).height() - 122);
+    });
+//]]>
+</script>
+</head>
+<body>
+<header id="header">
+<div id="headercontent">
+{% block header %}
+<a href="/"><img src="/img/zxnn.png" alt="Zxnn" /></a>
+<div id="infobar">
+<span id="userInfo">{% if user %}{{ nickname }} | <a href="/dashboard/main.html">Dashboard</a> | <a href="{{ log_url }}">Logout</a>{% else %}<a href="{{ log_url }}">Login</a>{% endif %}</span>{% block otherinfo %}{% endblock %}
+</div>
+{% endblock %}
+</div>
+</header>
+<nav id="nav">
+<ul id="menu">
+<li><a href="/dashboard/main.html">Dashboard</a></li>
+<li><a href="http://blog.zxnn.net" target="_blank">Blog</a></li>
+</ul>
+</nav>
+<div id="page">
+<div id="pagecontent">
+<section id="content">{% block content %}{% endblock %}</section>
+<aside id="sidebar">
+{% block sidebar %}{% endblock %}
+</aside>
+</div>
+</div>
+<footer id="footer">
+<p>by <a href="mailto:root@zxnn.net">將王車</a>&nbsp;<span>2008-2010</span>&nbsp;<a href="http://appengine.google.com/"><img style="border: 0;"src="http://code.google.com/appengine/images/appengine-silver-120x30.gif" alt="Powered by Google App Engine" /></a><!--&nbsp;<a href="http://www.djangoproject.com/"><img style="border: 0" title="Made with Django." alt="Made with Django." src="http://media.djangoproject.com/img/badges/djangomade124x25.gif"/>--></a>
+</p>
+</footer>
+</body>
+</html>

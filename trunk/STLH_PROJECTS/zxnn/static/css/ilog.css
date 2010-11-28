@@ -1,0 +1,46 @@
+ul.ilog_items {
+  padding: 0;
+  margin: 0;
+}
+
+.ilog_item {
+  position: relative;
+  padding: 5px;
+  list-style-type: none;
+  border-top: 1px dashed #7F9DB9;
+}
+
+.user_pic {
+  width: 64px;
+  height: 64px;
+  vertical-align: top;
+  margin-right: 5px;
+}
+
+.entry_text {
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: 5px;
+  left: 79px;
+}
+
+.entry_meta {
+  display: block;
+  margin-top: 5px;
+  color: #999999;
+}
+
+#divAddMessageContent {
+  background-color: black;
+  width: 480px;
+  padding : 10px;
+  border: 2px solid black;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+
+#txtMessage {
+  width: 100%;
+  height: 3em;
+}

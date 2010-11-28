@@ -1,0 +1,6 @@
+{% for item in items %}
+<li class="ilog_item">
+  <img class="user_pic" src="/img/xs128.png" alt="stlh" />
+  <p class="entry_text">{{ item.text }}<span class="entry_meta">{{ item.add_datetime|date:"Y/m/d H:i:s" }}</span></p>
+ </li>
+{% endfor %}

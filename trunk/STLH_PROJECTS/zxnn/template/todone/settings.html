@@ -1,0 +1,44 @@
+{% extends "todone.html" %}
+{% block title %}ToDone - Settings{% endblock %}
+{% block style %}
+<style type="text/css" title="Google">
+    @import url(/css/layout.css);
+    @import url(/css/dark.css);
+    @import url(/css/settings.css);
+</style>
+{% endblock %}
+{% block script %}<script type="text/javascript" src="/script/settings.js"></script>{% endblock %}
+{% block content %}
+<ul id="settingTab">
+    <li class="currentTab"><a href="#preferences" onclick="showSettingBox(event, 'preferences');">Preferences</a></li>
+    <li><a href="#projects" onclick="showSettingBox(event, 'projects');">Projects</a></li>
+    <!--<li><a href="#tags" onclick="showSettingBox(event, 'tags');">Tags</a></li>-->
+</ul>
+<div id="main">
+    <div id="preferences" class="settingBox">
+        <table>
+            <tbody>
+                <tr>
+                    <td>语言：</td>
+                    <td><select><option>简体中文(zh-cn)</option><option>繁体中文(zh-tw)</option><option>English(en-us)</option></select></td>
+                </tr>
+                <tr>
+                    <td>显示已完成项：</td>
+                    <td><input type="text" value="5" style="width: 5ex;" maxlength="4" /></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="projects" class="settingBox" style="display: none;">
+      <div><label>新项目：</label><input type="text" onkeypress="switch(event.keyCode){case 13: $('btnAddProject').click(); return false; break; case 27: $('txtProjectTitle').value = ''; break;}" id="txtProjectTitle" name="txtProjectTitle" style="width: 30ex;" maxlength="31" />&nbsp;<input type="button" id="btnAddProject" name="btnAddProject" onclick="addProject(event);" value="Add" /></div>
+      <div id="projectListContent">
+      {% include "project_list_on_setting.html" %}
+      </div>
+    </div>
+    <div id="tags" class="settingBox" style="display: none;"></div>
+</div>
+{% endblock %}
