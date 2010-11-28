@@ -1,0 +1,6 @@
+<form action="/dashboard/bind_id.html" method="post">
+{% if error_message %}
+<span class="error_message">{{ error_message }}</span><br />
+{% endif %}
+<span>ID:</span><input type="text" id="txtId" name="txtId" /><button type="submit" id="btnAddId" name="btnAddId">Add</button>
+</form>

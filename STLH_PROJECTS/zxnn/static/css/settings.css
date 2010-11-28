@@ -1,0 +1,48 @@
+#content { margin: 0;}
+
+#sidebar { display: none; }
+
+#settingTab
+{
+    padding: 0;
+    margin: 0;
+    margin-left: 1em;
+    position: relative;
+    top: 1px;
+}
+
+#settingTab li
+{
+    list-style-type: none;
+    float: left;
+    padding: 0.5em;
+    margin-right: 0.5em;
+    border: 1px solid #BBBBBB;
+}
+
+#settingTab li:hover
+{
+    background-color: #404040;
+}
+
+#settingTab li.currentTab
+{
+    background-color: #242424;
+    border-bottom: 1px solid #242424;
+}
+
+#main
+{
+    clear: both;
+    border: 1px solid #BBBBBB;
+}
+
+.settingBox
+{
+    min-height: 20em;
+    padding: 0.5em;
+}
+
+.currentBox
+{
+}

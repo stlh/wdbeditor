@@ -1,0 +1,14 @@
+﻿<h5 class="infoDivTitle">注释：</h5>
+    <div class="infoDivContent">
+        {% ifequal item.comments.count 0 %}
+        <span style="color: silver;">no comment.</span>
+        {% endifequal %}
+        <ol class="commentList">
+        {% for c in item.comments %}
+            <li><span style="float: right;" class="spanBtn" onclick="deleteComment(event, '{{ c.key }}');">&times;</span><span>{{ c.text|escape }}</span></li>
+        {% endfor %}
+          <span id="commentLoading{{ item.key }}" style="display: none;"><img src="/img/ajax-loader.gif" alt="loading..." /><span id="commentLoadingText{{ item.key }}"></span></span>
+        </ol>
+    <span class="spanBtn" title="add comment" onclick="showNewCommentBox('{{ item.key }}');">+添加注释</span>
+    <div id="newCommentBoxContent{{ item.key }}"></div>
+    </div>

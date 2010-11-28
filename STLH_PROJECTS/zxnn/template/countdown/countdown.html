@@ -1,0 +1,33 @@
+{% extends "../base.html" %}
+{% block title %}ToDone - Zxnn.net{% endblock %}
+{% block style %}
+<style type="text/css" title="Dark">
+    @import url(/css/layout.css);
+    @import url(/css/dark.css);
+</style>
+{% endblock %}
+
+{% block script %}{% endblock %}
+
+{% block otherinfo %}
+| <a href="/todone/settings/">Settings</a>
+{% endblock %}
+
+{% block content %}
+<div><input type="button" onclick="$('#addItemForm').show();" value="New Countdown" /></div>
+<div id="addItemForm" class="form" style="display: none;">
+<table>
+<tbody>
+<tr>
+  <td>Title:</td>
+  <td><input type="text" id="txtTitle" name="txtTitle" maxlength="10" /></td>
+</tr>
+<tr>
+  <td>Due Date:</td>
+  <td><input type="text" id="txtDueDate" name="txtDueDate" /></td>
+</tr>
+<tr><td colspan="2" style="text-align: center;"><input type="button" value="Add" />&nbsp;<input type="reset" /></td></tr>
+</tbody>
+</table>
+</div>
+{% endblock %}
