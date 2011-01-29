@@ -31,7 +31,7 @@ $(document).ready(function() {
         $(this).removeClass('active');
         });
     $('#sidebar').insertBefore($('#content'));
-    $('#pagecontent').css('min-height', $(window).height() - 122);
+    $('#content').css('min-height', $(window).height() - 135);
     });
 //]]>
 </script>
@@ -53,8 +53,8 @@ $(document).ready(function() {
 <li><a href="http://blog.zxnn.net" target="_blank">Blog</a></li>
 </ul>
 </nav>
-<div id="page">
-<div id="pagecontent">
+<div id="wrapper">
+<div id="container">
 <section id="content">{% block content %}{% endblock %}</section>
 <aside id="sidebar">
 {% block sidebar %}{% endblock %}
@@ -62,7 +62,7 @@ $(document).ready(function() {
 </div>
 </div>
 <footer id="footer">
-<p>by <a href="mailto:root@zxnn.net">將王車</a>&nbsp;<span>2008-2010</span>&nbsp;<a href="http://appengine.google.com/"><img style="border: 0;"src="http://code.google.com/appengine/images/appengine-silver-120x30.gif" alt="Powered by Google App Engine" /></a><!--&nbsp;<a href="http://www.djangoproject.com/"><img style="border: 0" title="Made with Django." alt="Made with Django." src="http://media.djangoproject.com/img/badges/djangomade124x25.gif"/>--></a>
+<p>by <a href="mailto:root@zxnn.net">將王車</a>&nbsp;<span>2008-2011</span>&nbsp;<a href="http://appengine.google.com/"><img style="border: 0;"src="http://code.google.com/appengine/images/appengine-silver-120x30.gif" alt="Powered by Google App Engine" /></a><!--&nbsp;<a href="http://www.djangoproject.com/"><img style="border: 0" title="Made with Django." alt="Made with Django." src="http://media.djangoproject.com/img/badges/djangomade124x25.gif"/>--></a>
 </p>
 </footer>
 </body>

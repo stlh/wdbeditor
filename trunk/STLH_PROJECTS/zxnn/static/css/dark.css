@@ -1,8 +1,4 @@
 body {
-  background-color: #2D3338;
-  /*background-image: url(/img/header.jpg);
-  background-repeat: no-repeat;
-  background-position: center top;*/
 }
 
 h1, h2, h3, h4, h5, h6
@@ -26,8 +22,6 @@ a:hover {
 #header
 {
   background-color: #2D3338;
-  color: #FFF;
-  border-bottom: 1px solid #7F9DB9;
 }
 
 #nav
@@ -95,17 +89,21 @@ a:hover {
 #menu > li > ul > li:hover {
 }
 
-#pagecontent {
+#wrapper {
+  border-top: 1px solid #7F9DB9;
+  border-bottom: 1px solid #7F9DB9;
+  background-color: #ccc;
 }
 
 #content {
   display: block;
-  min-height: 30em;
   background-color: #FFF;
+  border-radius: 7px;
 }
 
 #sidebar {
   background-color: #FFF;
+  border-radius: 7px;
 }
 
 .spanBtn {
