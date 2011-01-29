@@ -22,6 +22,9 @@ handlers:
 - url: /dashboard/.*
   script: bd.py
 
+- url: /public/\w+/avatar
+  script: bd.py
+
 - url: /todone/.*
   script: todone.py
 
