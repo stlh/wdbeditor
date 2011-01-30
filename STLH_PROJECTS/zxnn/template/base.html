@@ -20,11 +20,10 @@
 google.load("jquery", "1");
 //]]>
 </script>
-{% block script %}{% endblock %}
 <script type="text/javascript">
 //<![CDATA[
 $(document).ready(function() {
-    $('#nav').insertAfter($('#infobar'));
+    //$('#nav').insertAfter($('#infobar'));
     $('#menu > li').mouseenter(function (){
       $(this).addClass('active');
       }).mouseleave(function() {
@@ -35,15 +34,17 @@ $(document).ready(function() {
     });
 //]]>
 </script>
+{% block script %}
+{% endblock %}
 </head>
 <body>
 <header id="header">
 <div id="headercontent">
 {% block header %}
-<a href="/"><img src="/img/zxnn.png" alt="Zxnn" /></a>
 <div id="infobar">
-<span id="userInfo">{% if user %}{{ nickname }} | <a href="/dashboard/main.html">Dashboard</a> | <a href="{{ log_url }}">Logout</a>{% else %}<a href="{{ log_url }}">Login</a>{% endif %}</span>{% block otherinfo %}{% endblock %}
+<span id="userInfo">{% if user %}{% if nickname %}{{ nickname }}{% else %}{{ user.nickname }}{% endif %} | <a href="/dashboard/main.html">Dashboard</a> | <a href="{{ log_url }}">Logout</a>{% else %}<a href="{{ log_url }}">Login</a>{% endif %}</span>{% block otherinfo %}{% endblock %}
 </div>
+<div style="position: relative; left: 15px; width: 240px;"><a href="/"><img src="/img/zxnn.png" alt="Zxnn" /></a></div>
 {% endblock %}
 </div>
 </header>
