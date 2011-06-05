@@ -4,7 +4,6 @@
 <meta charset="UTF-8"/>
 <meta name="keywords" content="{% block keyworks %}zxnn.net{% endblock %}" />
 <meta name="description" content="{% block description %}page of zxnn.net{% endblock %}" />
-<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0" />
 <title>{% block title %}Zxnn.net{% endblock %}</title>
 <link rel="shortcut icon" href="/img/favicon.ico" /> 
 {% block style %}
@@ -22,6 +21,7 @@ google.load("jquery", "1");
 </script>
 <script type="text/javascript">
 //<![CDATA[
+// menu and page layout
 $(document).ready(function() {
     //$('#nav').insertAfter($('#infobar'));
     $('#menu > li').mouseenter(function (){
@@ -63,8 +63,8 @@ $(document).ready(function() {
 </div>
 </div>
 <footer id="footer">
-<p>by <a href="mailto:root@zxnn.net">將王車</a>&nbsp;<span>2008-2011</span>&nbsp;<a href="http://appengine.google.com/"><img style="border: 0;"src="http://code.google.com/appengine/images/appengine-silver-120x30.gif" alt="Powered by Google App Engine" /></a><!--&nbsp;<a href="http://www.djangoproject.com/"><img style="border: 0" title="Made with Django." alt="Made with Django." src="http://media.djangoproject.com/img/badges/djangomade124x25.gif"/>--></a>
-</p>
+<div>by <a href="mailto:root@zxnn.net">將王車</a>&nbsp;<span>2008-2011</span>&nbsp;<a href="http://appengine.google.com/"><img style="border: 0;"src="http://code.google.com/appengine/images/appengine-silver-120x30.gif" alt="Powered by Google App Engine" /></a><!--&nbsp;<a href="http://www.djangoproject.com/"><img style="border: 0" title="Made with Django." alt="Made with Django." src="http://media.djangoproject.com/img/badges/djangomade124x25.gif"/>--></a>
+</div>
 </footer>
 </body>
 </html>
