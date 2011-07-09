@@ -5,19 +5,20 @@ body {
 }
 
 p {
-  margin: 15px 0;
+  margin: 20px 0;
 }
 
 #header
 {
   text-align: center;
+  border-bottom: 1px solid #7F9DB9;
 }
 
 #headercontent
 {
   text-align: left;
-  padding-top: 5px;
-  height: 39px;
+  /*padding-top: 5px;*/
+  height: 38px;
   margin: 0 auto;
   width: 960px;
 }
@@ -62,29 +63,29 @@ p {
 #container {
   text-align: left;
   width: 960px;
-  margin: 15px auto;
+  margin: 20px auto;
   clear: both;
 }
 
 #sidebar {
   float: right;
-  width: 225px;
-  padding-right: 15px;
+  width: 220px;
+  padding-right: 20px;
   min-height: 25em;
 }
 
 #content {
   border-top: 1px solid #FFF;
-  border-bottom: 1px solid #FFF;
-  margin-right: 255px;
-  padding: 0 15px;
+  margin-right: 260px;
+  padding: 0 20px;
   min-height: 480px;
 }
 
 #footer
 {
+  border-top: 1px solid #7F9DB9;
   text-align: center;
-  padding: 15px 0;
-  height: 60px;
+  padding: 18px 0 0 0;
+  height: 40px;
 }
 

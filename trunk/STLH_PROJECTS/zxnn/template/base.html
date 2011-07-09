@@ -23,15 +23,15 @@ google.load("jquery", "1");
 //<![CDATA[
 // menu and page layout
 $(document).ready(function() {
-    //$('#nav').insertAfter($('#infobar'));
-    $('#menu > li').mouseenter(function (){
-      $(this).addClass('active');
-      }).mouseleave(function() {
-        $(this).removeClass('active');
-        });
-    $('#sidebar').insertBefore($('#content'));
-    $('#content').css('min-height', $(window).height() - 135);
-    });
+  //$('#nav').insertAfter($('#infobar'));
+  $('#menu > li').mouseenter(function (){
+    $(this).addClass('active');
+  }).mouseleave(function() {
+    $(this).removeClass('active');
+  });
+  $('#sidebar').insertBefore($('#content'));
+  $('#content').css('min-height', $(window).height() - 141);
+});
 //]]>
 </script>
 {% block script %}
@@ -63,7 +63,7 @@ $(document).ready(function() {
 </div>
 </div>
 <footer id="footer">
-<div>by <a href="mailto:root@zxnn.net">將王車</a>&nbsp;<span>2008-2011</span>&nbsp;<a href="http://appengine.google.com/"><img style="border: 0;"src="http://code.google.com/appengine/images/appengine-silver-120x30.gif" alt="Powered by Google App Engine" /></a><!--&nbsp;<a href="http://www.djangoproject.com/"><img style="border: 0" title="Made with Django." alt="Made with Django." src="http://media.djangoproject.com/img/badges/djangomade124x25.gif"/>--></a>
+<div>by <a href="mailto:root@zxnn.net">將王車</a>&nbsp;<span>2008-2011</span>&nbsp;<a href="http://appengine.google.com/"><img style="border: 0;"src="http://code.google.com/appengine/images/appengine-silver-120x30.gif" alt="Powered by Google App Engine" /></a>
 </div>
 </footer>
 </body>
