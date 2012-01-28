@@ -5,7 +5,7 @@
 <meta name="keywords" content="{% block keyworks %}zxnn.net{% endblock %}" />
 <meta name="description" content="{% block description %}page of zxnn.net{% endblock %}" />
 <title>{% block title %}Zxnn.net{% endblock %}</title>
-<link rel="shortcut icon" href="/img/favicon.ico" /> 
+<link rel="icon" type="image/png" href="/img/favicon.png" /> 
 {% block style %}
 <style type="text/css" title="Dark">
 @import url(/css/layout.css);
@@ -23,14 +23,14 @@ google.load("jquery", "1");
 //<![CDATA[
 // menu and page layout
 $(document).ready(function() {
-  //$('#nav').insertAfter($('#infobar'));
-  $('#menu > li').mouseenter(function (){
-    $(this).addClass('active');
-  }).mouseleave(function() {
-    $(this).removeClass('active');
-  });
-  $('#sidebar').insertBefore($('#content'));
-  $('#content').css('min-height', $(window).height() - 141);
+    //$('#nav').insertAfter($('#infobar'));
+    $('#menu > li').mouseenter(function (){
+        $(this).addClass('active');
+    }).mouseleave(function() {
+        $(this).removeClass('active');
+    });
+    $('#sidebar').insertBefore($('#content'));
+    $('#content').css('min-height', $(window).height() - 160);
 });
 //]]>
 </script>
@@ -38,33 +38,33 @@ $(document).ready(function() {
 {% endblock %}
 </head>
 <body>
-<header id="header">
-<div id="headercontent">
-{% block header %}
-<div id="infobar">
-<span id="userInfo">{% if user %}{% if nickname %}{{ nickname }}{% else %}{{ user.nickname }}{% endif %} | <a href="/dashboard/main.html">Dashboard</a> | <a href="{{ log_url }}">Logout</a>{% else %}<a href="{{ log_url }}">Login</a>{% endif %}</span>{% block otherinfo %}{% endblock %}
-</div>
-<div style="position: relative; left: 15px; width: 240px;"><a href="/"><img src="/img/zxnn.png" alt="Zxnn" /></a></div>
-{% endblock %}
-</div>
-</header>
-<nav id="nav">
-<ul id="menu">
-<li><a href="/dashboard/main.html">Dashboard</a></li>
-<li><a href="http://blog.zxnn.net" target="_blank">Blog</a></li>
-</ul>
-</nav>
-<div id="wrapper">
-<div id="container">
-<section id="content">{% block content %}{% endblock %}</section>
-<aside id="sidebar">
-{% block sidebar %}{% endblock %}
-</aside>
-</div>
-</div>
-<footer id="footer">
-<div>by <a href="mailto:root@zxnn.net">將王車</a>&nbsp;<span>2008-2011</span>&nbsp;<a href="http://appengine.google.com/"><img style="border: 0;"src="http://code.google.com/appengine/images/appengine-silver-120x30.gif" alt="Powered by Google App Engine" /></a>
-</div>
-</footer>
+    <header id="header">
+        <div id="headercontent">
+        {% block header %}
+            <div id="infobar">
+                <span id="userInfo">{% if user %}{% if nickname %}{{ nickname }}{% else %}{{ user.nickname }}{% endif %} | <a href="/dashboard/main.html">Dashboard</a> | <a href="{{ log_url }}">Logout</a>{% else %}<a href="{{ log_url }}">Login</a>{% endif %}</span>{% block otherinfo %}{% endblock %}
+            </div>
+        {% endblock %}
+        </div>
+    </header>
+    <nav id="nav">
+        <ul id="menu">
+            <li><a href="/dashboard/main.html">Dashboard</a></li>
+            <li><a href="http://blog.zxnn.net" target="_blank">Blog</a></li>
+        </ul>
+    </nav>
+    <div id="wrapper">
+        <div id="container">
+            <section id="content">
+            {% block content %}{% endblock %}
+            </section>
+            <aside id="sidebar">
+            {% block sidebar %}{% endblock %}
+            </aside>
+        </div>
+    </div>
+    <footer id="footer">
+        <p>by <a href="mailto:root@zxnn.net">將王車</a>&nbsp;<span>2008-2011</span>&nbsp;<a href="http://appengine.google.com/"><img style="border: 0;"src="http://code.google.com/appengine/images/appengine-silver-120x30.gif" alt="Powered by Google App Engine" /></a></p>
+    </footer>
 </body>
 </html>
