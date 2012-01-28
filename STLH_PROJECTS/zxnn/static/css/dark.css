@@ -41,7 +41,7 @@ a:hover {
   list-style-type: none;
   float: left;
   text-align: center;
-  border: 1px solid tansparent;
+  border: 1px solid transparent;
 }
 
 #menu > li.active {
