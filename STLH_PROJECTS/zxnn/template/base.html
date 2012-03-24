@@ -26,7 +26,7 @@ $(document).ready(function() {
         $(this).addClass('active');
     }).mouseleave(function() {
         $(this).removeClass('active');
-    });
+        });
     $('#sidebar').insertBefore($('#content'));
     $('#content').css('min-height', $(window).height() - 160);
 });
@@ -36,47 +36,46 @@ $(document).ready(function() {
 {% endblock %}
 </head>
 <body>
-    <header id="header">
-        <div id="headercontent">
-        {% block header %}
-            <div id="infobar">
-                <span id="userInfo">{% if user %}{% if nickname %}{{ nickname }}{% else %}{{ user.nickname }}{% endif %} | <a href="/dashboard/main.html">Dashboard</a> | <a href="{{ log_url }}">Logout</a>{% else %}<a href="{{ log_url }}">Login</a>{% endif %}</span>{% block otherinfo %}{% endblock %}
-            </div>
-        {% endblock %}
-        </div>
-    </header>
-    <nav id="nav">
-        <ul id="menu">
-            <li><a href="/dashboard/main.html">Dashboard</a></li>
-            <li><a href="http://blog.zxnn.net" target="_blank">Blog</a></li>
-        </ul>
-    </nav>
-    <div id="wrapper">
-        <div id="container">
-            <section id="content">
-            {% block content %}{% endblock %}
-            </section>
-            <aside id="sidebar">
-            {% block sidebar %}{% endblock %}
-            </aside>
-        </div>
-    </div>
-    <footer id="footer">
-        <p>by <a href="mailto:root@zxnn.net">將王車</a>&nbsp;<span>2008-2011</span>&nbsp;<a href="http://appengine.google.com/"><img style="border: 0;"src="http://code.google.com/appengine/images/appengine-silver-120x30.gif" alt="Powered by Google App Engine" /></a></p>
-    </footer>
+<header id="header">
+<div id="headercontent">
+{% block header %}
+<div id="infobar">
+<span id="userInfo">{% if user %}{% if nickname %}{{ nickname }}{% else %}{{ user.nickname }}{% endif %} | <a href="/dashboard/main.html">Dashboard</a> | <a href="{{ log_url }}">Logout</a>{% else %}<a href="{{ log_url }}">Login</a>{% endif %}</span>{% block otherinfo %}{% endblock %}
+</div>
+{% endblock %}
+</div>
+</header>
+<nav id="nav">
+<ul id="menu">
+<li><a href="/dashboard/main.html">Dashboard</a></li>
+<li><a href="http://blog.zxnn.net" target="_blank">Blog</a></li>
+</ul>
+</nav>
+<div id="wrapper">
+<div id="container">
+<section id="content">
+{% block content %}{% endblock %}
+</section>
+<aside id="sidebar">
+{% block sidebar %}{% endblock %}
+</aside>
+</div>
+</div>
+<footer id="footer">
+<p>by <a href="mailto:root@zxnn.net">將王車</a>&nbsp;<span>2008-2011</span>&nbsp;<a href="http://appengine.google.com/"><img style="border: 0;"src="http://code.google.com/appengine/images/appengine-silver-120x30.gif" alt="Powered by Google App Engine" /></a></p>
+</footer>
+<!-- google analytics -->
 <script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-319269-2']);
+_gaq.push(['_setDomainName', 'blogspot.com']);
+_gaq.push(['_trackPageview']);
 
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-319269-2']);
-  _gaq.push(['_setDomainName', 'blogspot.com']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
+(function() {
+ var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+ })();
 </script>
 </body>
 </html>
