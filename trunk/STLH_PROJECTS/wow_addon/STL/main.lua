@@ -33,10 +33,18 @@ local Layouts = {
         refPoint = "CENTER",
         x = -512,
         y = -128,
-        width = 256,
-        height = 56,
-        healthBarHeight = 38,
-        powerBarHeight = 8,
+        width = 240,
+        height = 50,
+        healthBarHeight = 28,
+        powerBarHeight = 10,
+        nameText = {
+            isEnable = true,
+            point = "LEFT",
+            relativePoint = "RIGHT",
+            offsetX = 10,
+            offsetY = 0,
+            justifyH = "RIGHT",
+        },
     },
     target = {
         point = "TOPLEFT",
@@ -44,10 +52,18 @@ local Layouts = {
         refPoint = "CENTER",
         x = 256,
         y = -128,
-        width = 256,
-        height = 56,
-        healthBarHeight = 38,
-        powerBarHeight = 8,
+        width = 240,
+        height = 50,
+        healthBarHeight = 28,
+        powerBarHeight = 10,
+        nameText = {
+            isEnable = true,
+            point = "LEFT",
+            relativePoint = "RIGHT",
+            offsetX = 10,
+            offsetY = 0,
+            justifyH = "LEFT",
+        },
     },
     targettarget = {
         point = "TOPLEFT",
@@ -55,10 +71,18 @@ local Layouts = {
         refPoint = "CENTER",
         x = 100,
         y = -128,
-        width = 128,
-        height = 48,
-        healthBarHeight = 30,
-        powerBarHeight = 8,
+        width = 120,
+        height = 50,
+        healthBarHeight = 28,
+        powerBarHeight = 10,
+        nameText = {
+            isEnable = true,
+            point = "BOTTOM",
+            relativePoint = "TOP",
+            offsetX = 10,
+            offsetY = 0,
+            justifyH = "CENTER",
+        },
     },
 }
 
@@ -80,15 +104,26 @@ local function powerUpdate(frame)
 end
 
 local function getUnitClassAndColor(frame)
-    frame.class, frame.classFileName = UnitClass(frame.unit)
-    frame.classColor = RAID_CLASS_COLORS[frame.classFileName]
-    frame.powerType, frame.powerToken = UnitPowerType(frame.unit)
-    frame.powerColor = PowerBarColor[frame.powerToken]
-    
-    frame.healthBar:SetStatusBarColor(frame.classColor.r, frame.classColor.g, frame.classColor.b)
-    frame.healthText:SetTextColor(frame.classColor.r, frame.classColor.g, frame.classColor.b, 1)
-    frame.powerBar:SetStatusBarColor(frame.powerColor.r, frame.powerColor.g, frame.powerColor.b)
-    frame.powerText:SetTextColor(frame.powerColor.r, frame.powerColor.g, frame.powerColor.b, 1)
+    if UnitExists(frame.unit) then
+        frame.class, frame.classFileName = UnitClass(frame.unit)
+        frame.classColor = RAID_CLASS_COLORS[frame.classFileName]
+        frame.powerType, frame.powerToken = UnitPowerType(frame.unit)
+        frame.powerColor = PowerBarColor[frame.powerToken]
+        
+        frame.healthBar:SetStatusBarColor(frame.classColor.r, frame.classColor.g, frame.classColor.b)
+        frame.healthText:SetTextColor(frame.classColor.r, frame.classColor.g, frame.classColor.b, 1)
+        frame.powerBar:SetStatusBarColor(frame.powerColor.r, frame.powerColor.g, frame.powerColor.b)
+        frame.powerText:SetTextColor(frame.powerColor.r, frame.powerColor.g, frame.powerColor.b, 1)
+    else
+        print(frame.unit)
+        --print(frame.unit..." not exists.")
+    end
+end
+
+local function setName(frame)
+    if frame.nameText ~= nil then
+        frame.nameText:SetText(UnitName(frame.unit))
+    end
 end
 
 local function onEvent(frame, eventName)
@@ -104,6 +139,7 @@ local function onEvent(frame, eventName)
             getUnitClassAndColor(frame)
             healthUpdate(frame)
             powerUpdate(frame)
+            setName(frame)
         else
             frame:Hide()
         end
@@ -137,12 +173,21 @@ local function setLayout(frame)
     frame.healthBar.highlight:SetVertexColor(1, 1, 1, 0.1)
     frame.healthBar.highlight:SetBlendMode("ADD")
     --frame.healthBar:SetBorder(borderTexture)
+    if layout.nameText.isEnable then
+      frame.nameText = frame:CreateFontString(nil)
+      frame.nameText:SetFont("Interface\\AddOns\\STL\\Fonts\\Hiragino_Sans_GB_W3.ttf", 26)
+      frame.nameText:SetPoint(layout.nameText.point, frame, layout.nameText.relativePoint, layout.nameText.offsetX, layout.nameText.offsetY)
+      frame.nameText:SetWidth(200)
+      frame.nameText:SetJustifyH(layout.nameText.justifyH)
+    else
+        frame.nameText = nil
+    end
     -- Power Bar
     frame.powerBar = CreateFrame("StatusBar", nil, frame)
     frame.powerBar:SetStatusBarTexture("Interface\\AddOns\\STL\\Media\\Minimalist.tga")
     frame.powerBar:SetWidth(layout.width - 10)
     frame.powerBar:SetHeight(layout.powerBarHeight)
-    frame.powerBar:SetPoint("TOPLEFT", frame.healthBar, "BOTTOMLEFT", 0, 0)
+    frame.powerBar:SetPoint("TOPLEFT", frame.healthBar, "BOTTOMLEFT", 0, -2)
     frame.powerBar:SetMinMaxValues(0, 100)
     frame.powerBar:SetValue(100)
     frame.powerBar.bg = frame.healthBar:CreateTexture(nil, "BORDER")
