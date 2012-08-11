@@ -39,9 +39,6 @@ $(document).ready(function() {
 <header id="header">
 <div id="headercontent">
 {% block header %}
-<div id="infobar">
-<span id="userInfo">{% if user %}{% if nickname %}{{ nickname }}{% else %}{{ user.nickname }}{% endif %} | <a href="/dashboard/main.html">Dashboard</a> | <a href="{{ log_url }}">Logout</a>{% else %}<a href="{{ log_url }}">Login</a>{% endif %}</span>{% block otherinfo %}{% endblock %}
-</div>
 {% endblock %}
 </div>
 </header>

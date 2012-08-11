@@ -25,7 +25,7 @@ p {
 #headercontent
 {
   text-align: left;
-  height: 59px;
+  height: 45px;
   margin: 0 auto;
   width: 960px;
 }
@@ -70,7 +70,7 @@ p {
 #container {
   text-align: left;
   width: 960px;
-  margin: 20px auto;
+  margin: 15px auto;
   clear: both;
 }
 
