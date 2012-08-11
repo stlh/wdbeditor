@@ -1,11 +1,16 @@
 application: zxnn
 version: 1
-runtime: python
+runtime: python27
 api_version: 1
+threadsafe: false
+
+libraries:
+- name: jinja2
+  version: latest
 
 handlers:
 - url: /
-  script: main.py
+  script: main.app
 
 - url: /index\.html
   script: main.py
