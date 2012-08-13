@@ -63,6 +63,31 @@ p {
   height: 40px;
 }
 
+#main-nav {
+    display: block;
+    padding: 0;
+    margin: 0;
+    height: 45px;
+}
+
+#main-nav li {
+    float: left;
+    text-align: center;
+    list-style: none;
+    margin-left: 1px;
+}
+
+#main-nav li a {
+    display: block;
+    width: 64px;
+    height: 36px;
+    border-top: 1px solid #336699;
+    border-right: 1px solid #336699;
+    border-left: 1px solid #336699;
+    border-radius: 3px;
+    text-decoration: none;
+}
+
 #wrapper {
   text-align: center;
 }
@@ -79,6 +104,10 @@ p {
   width: 220px;
   padding-right: 10px;
   min-height: 25em;
+}
+
+.sidebar-w {
+    padding: 10px 0 0 10px;
 }
 
 #content {

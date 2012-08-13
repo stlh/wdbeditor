@@ -37,33 +37,39 @@ $(document).ready(function() {
 </head>
 <body>
 <header id="header">
-<div id="headercontent">
-{% block header %}
-{% endblock %}
-</div>
+    <div id="headercontent">
+    {% block header %}{% endblock %}
+    </div>
 </header>
 <nav id="nav">
-<ul id="menu">
-<li><a href="/dashboard/main.html">Dashboard</a></li>
-<li><a href="http://blog.zxnn.net" target="_blank">Blog</a></li>
-</ul>
+    <ul id="menu">
+        <li><a href="/dashboard/main.html">Dashboard</a></li>
+        <li><a href="http://blog.zxnn.net" target="_blank">Blog</a></li>
+    </ul>
 </nav>
 <div id="wrapper">
-<div id="container">
-<section id="content">
-{% block content %}{% endblock %}
-</section>
-<aside id="sidebar">
-{% block sidebar %}{% endblock %}
-</aside>
-</div>
+    <div id="container">
+        <div id="content">
+        {% block content %}{% endblock %}
+        </div>
+        <aside id="sidebar">
+        {% block sidebar %}
+            <div class="sidebar-w">
+                {% if user %}
+                Hi, {{ user.nickname() }}
+                {% else %}
+                    <a href="{{ log_url }}">Login</a>
+                {% endif %}
+            </div>
+        {% endblock %}
+        </aside>
+    </div>
 </div>
 <footer id="footer">
-<p>by <a href="mailto:root@zxnn.net">將王車</a>&nbsp;<span>2008-2012</span>&nbsp;<a href="http://appengine.google.com/"><img style="border: 0;"src="http://code.google.com/appengine/images/appengine-silver-120x30.gif" alt="Powered by Google App Engine" /></a></p>
+    <p>by <a href="mailto:root@zxnn.net">將王車</a>&nbsp;<span>2008-2012</span>&nbsp;<a href="http://appengine.google.com/"><img style="border: 0;"src="http://code.google.com/appengine/images/appengine-silver-120x30.gif" alt="Powered by Google App Engine" /></a></p>
 </footer>
 <!-- google analytics -->
 <script type="text/javascript">
-
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-319269-6']);
   _gaq.push(['_trackPageview']);
@@ -73,7 +79,6 @@ $(document).ready(function() {
     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
-
 </script>
 </body>
 </html>
