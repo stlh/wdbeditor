@@ -16,7 +16,7 @@ class MainPageHandler(webapp2.RequestHandler):
         if user:
             log_url = users.create_logout_url(self.request.host_url)
         else:
-             log_url = users.create_login_url(self.request.uri)
+            log_url = users.create_login_url(self.request.uri)
         template_values = {
            'user': user,
            'log_url': log_url,

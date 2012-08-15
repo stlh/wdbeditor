@@ -45,7 +45,8 @@ class ilog_ls(webapp.RequestHandler):
   def get(self):
     user = users.get_current_user()
     if not user:
-      self.redirect(users.create_login_url(self.request.uri))
+      #self.redirect(users.create_login_url(self.request.uri))
+      self.response.out.write("(null)")
       return
     count = self.request.GET['count']
     items = iLogItem.gql("WHERE user = :u ORDER BY add_datetime DESC", u=user).fetch(count)
