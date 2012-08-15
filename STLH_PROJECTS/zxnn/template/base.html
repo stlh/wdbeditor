@@ -8,6 +8,7 @@
 <link rel="icon" type="image/png" href="/img/favicon.png" />
 <link rel="stylesheet" type="text/css" href="/css/layout.css" />
 <link rel="stylesheet" type="text/css" href="/css/dark.css" />
+<link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
 {% block style %}
 {% endblock %}
 <!--<script type="text/javascript" src="/script/jquery.js"></script>-->
@@ -37,7 +38,14 @@ $(document).ready(function() {
 </head>
 <body>
 <header id="header">
-    <div id="headercontent">
+    <div id="header-container">
+        <div id="user-info">
+            {% if user %}
+            Hi, {{ user.nickname() }}
+            {% else %}
+                <a href="{{ log_url }}">Login</a>
+            {% endif %}
+        </div>
     {% block header %}{% endblock %}
     </div>
 </header>
@@ -50,18 +58,11 @@ $(document).ready(function() {
 <div id="wrapper">
     <div id="container">
         <div id="content">
-        {% block content %}{% endblock %}
+            {% block content %}{% endblock %}
         </div>
         <aside id="sidebar">
-        {% block sidebar %}
-            <div class="sidebar-w">
-                {% if user %}
-                Hi, {{ user.nickname() }}
-                {% else %}
-                    <a href="{{ log_url }}">Login</a>
-                {% endif %}
-            </div>
-        {% endblock %}
+            {% block sidebar %}
+            {% endblock %}
         </aside>
     </div>
 </div>
