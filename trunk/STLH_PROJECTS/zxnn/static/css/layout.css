@@ -12,39 +12,34 @@ h1, h2, h3, h4 {
 }
 
 p {
-    margin: 20px;
+    margin: 15px 0;
 }
 /* end css reset */
 
-#header
-{
+#header {
     text-align: center;
-    height: 45px;
 }
 
-#header-container
-{
+#header-container {
     text-align: left;
     margin: 0 auto;
     width: 960px;
 }
 
-#user-info
-{
+#user-info {
     float: right;
-    padding: 10px;
+    padding: 6px 10px 10px 10px;
+    margin-right: 15px;
     background-color: #FFF;
     border: 1px solid #FFF;
     border-bottom-left-radius: 7px;
     border-bottom-right-radius: 7px;
 }
 
-#userInfo
-{
+#userInfo {
 }
 
-#siteName 
-{
+#siteName {
     height: 30px;
 }
 
@@ -70,24 +65,38 @@ p {
     display: block;
     padding: 0;
     margin: 0;
+    width: 600px;
+    height: 33px;
 }
 
 #main-nav li {
     float: left;
     text-align: center;
     list-style: none;
-    margin: 0 0 15px 15px;
-    border: 1px solid rgba(0,0,0,0);
+    margin-left: 15px;
 }
 
 #main-nav li a {
     display: block;
-    width: 225px;
-    height: 225px;
+    width: 115px;
+    height: 33px;
     text-decoration: none;
-    background-color: #CCC;
+    color: #336699;
+    background-color: rgba(256, 256, 256, 0.7);
     font-family: 'Ubuntu Condensed';
-    font-size: 40px;
+    font-size: 24px;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+}
+
+#main-nav li.current a {
+    background-color: #FFF;
+    border-bottom: 2px solid #FFF;
+}
+
+#main-nav li.active a {
+    background-color: #FFF;
+    border-bottom: 2px solid #e5786d;
 }
 
 #wrapper {
@@ -97,19 +106,29 @@ p {
 #container {
     text-align: left;
     width: 960px;
-    margin: 15px auto;
+    margin: 0 auto;
     clear: both;
 }
 
 #content {
-    border: 1px solid #FFF;
+    /*border: 1px solid #FFF;
     border-radius: 7px;
     margin: 0 260px 0 15px;
+    min-height: 480px;
+    background-color: #FFF;*/
+}
+
+#main-content {
+    border: 1px solid #FFF;
+    border-top-right-radius: 7px;
+    border-bottom-left-radius: 7px;
+    margin: 0 0 0 15px;
     min-height: 480px;
     background-color: #FFF;
 }
 
-#main-content {
+#main {
+    margin: 0 15px;
 }
 
 #sidebar {
