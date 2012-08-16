@@ -5,13 +5,24 @@
 	$(document).ready(function() {
 		$('#sidebar').css('display', 'none')
 	    $('#content').css('margin-right', 10);
+	    $('#main-content').css('min-height', $(window).height() - 200);
+
+	    $('#main-nav > li').mouseenter(function (){
+        	$(this).addClass('active');
+    	}).mouseleave(function() {
+        	$(this).removeClass('active');
+        }).click(function() {
+        	$(this).addClass('current').siblings().each(function() {
+        		$(this).removeClass('current');
+        	})
+        });
 	})
 </script>
 {% endblock %}
 
 {% block content %}
 <ul id="main-nav">
-    <li><a href="#main">Description</a></li>
+    <li class="current"><a href="#main">Main</a></li>
     <li><a href="#ilog">iLog</a></li>
     <li><a href="http://blog.zxnn.net">Blog</a>
 </ul>
