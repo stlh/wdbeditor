@@ -41,7 +41,7 @@ $(document).ready(function() {
     <div id="header-container">
         <div id="user-info">
             {% if user %}
-            Hi, {{ user.nickname() }}
+            Hi, {{ nickname }} | <a href="/dashboard/main.html">Dashboard</a> | <a href="{{ log_url }}">Logout</a>
             {% else %}
                 <a href="{{ log_url }}">Login</a>
             {% endif %}

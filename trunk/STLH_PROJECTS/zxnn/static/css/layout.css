@@ -67,13 +67,14 @@ p {
     margin: 0;
     width: 600px;
     height: 33px;
+    margin-left: 10px;
 }
 
 #main-nav li {
     float: left;
     text-align: center;
     list-style: none;
-    margin-left: 15px;
+    margin-left: 5px;
 }
 
 #main-nav li a {
