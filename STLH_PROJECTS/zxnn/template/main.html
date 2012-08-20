@@ -29,11 +29,12 @@
 <div id="main-content">
 	<div id="main">
 		<p>用於學習和測試html，javsscript，jquery，python，google app engine等網頁技術的個人站點，由於我很懶，所以大部分東西都屬於建設中或是還沒開始。</p>
-		<ul>
-		    <li>我的blog：<a href="http://blog.zxnn.net">神遊志</a></li>
-		</ul>
 	</div>
 	<div id="ilog">
+		<span>iLog</span>
+		{% for item in ilog_items %}
+		<p class="entry_text">{{ item.text }}<span class="entry_meta">{{ item.add_datetime.strftime('%Y %b %d %H:%S')}}</span></p>
+		{% endfor %}
 	</div>
 </div>
 {% endblock %}

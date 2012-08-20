@@ -25,7 +25,7 @@ handlers:
   static_dir: static/img
 
 - url: /dashboard/.*
-  script: bd.py
+  script: bd.app
 
 - url: /public/\w+/avatar
   script: bd.py
@@ -40,4 +40,4 @@ handlers:
   script: tester.py
 
 - url: /ilog/.*
-  script: ilog.py
+  script: ilog.app

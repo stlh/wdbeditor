@@ -1,29 +1,20 @@
-{% extends "../base.html" %}
+{% extends "template/base.html" %}
+
 {% block title %}Dashboard - Zxnn.net{% endblock %}
-{% block style %}
-<style type="text/css" title="Dark">
-    @import url(/css/layout.css);
-    @import url(/css/dark.css);
-</style>
-{% endblock %}
-
-{% block script %}{% endblock %}
-
-{% block otherinfo %}
-{% endblock %}
 
 {% block content %}
-{% if wu %}
+<h2>Dashboard</h2>
 <div>
-<ul>
-<li><a href="/dashboard/avatar.html">Avatar</a></li>
-<li><a href="/ilog/main.html">iLog</a></li>
-<li><a href="/todone/">Todone</a></li>
-<li><a href="/countdonw/">Countdown</a></li>
-</ul>
+	<ul>
+		{% if user %}
+    		{# pass #}
+		{% else %}
+  		<li><a href="/dashboard/bind_id.html">Bind Id</a></li>
+		{% endif %}
+		<li><a href="/dashboard/avatar.html">Avatar</a></li>
+		<li><a href="/ilog/main.html">iLog</a></li>
+		<li><a href="/todone/">Todone</a></li>
+		<li><a href="/countdonw/">Countdown</a></li>
+	</ul>
 </div>
-</div>
-{% else %}
-  {% include "bind_id.html" %}
-{% endif %}
 {% endblock %}
