@@ -1,85 +1,89 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8"/>
-<meta name="keywords" content="{% block keyworks %}zxnn.net{% endblock %}" />
-<meta name="description" content="{% block description %}page of zxnn.net{% endblock %}" />
-<title>{% block title %}Zxnn.net{% endblock %}</title>
-<link rel="icon" type="image/png" href="/img/favicon.png" />
-<link rel="stylesheet" type="text/css" href="/css/layout.css" />
-<link rel="stylesheet" type="text/css" href="/css/dark.css" />
-<link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
-{% block style %}
-{% endblock %}
-<!--<script type="text/javascript" src="/script/jquery.js"></script>-->
-<script type="text/javascript" src="https://www.google.com/jsapi?key=ABQIAAAAsMW1Gwp3EoyQ-HDRYOhxUhR3xGMdYbtd0rg-tK3f6drgHTIm2xSE46LEw2aBzDhqk-5I7wIQ1UH5xw"></script>
-<script type="text/javascript">
-//<![CDATA[
-google.load("jquery", "1");
-//]]>
-</script>
-<script type="text/javascript">
-//<![CDATA[
-// menu and page layout
-$(document).ready(function() {
-    //$('#nav').insertAfter($('#infobar'));
-    $('#menu > li').mouseenter(function (){
-        $(this).addClass('active');
-    }).mouseleave(function() {
-        $(this).removeClass('active');
-        });
-    $('#sidebar').insertBefore($('#content'));
-    $('#content').css('min-height', $(window).height() - 160);
-});
-//]]>
-</script>
-{% block script %}
-{% endblock %}
+    <meta charset="UTF-8"/>
+    <meta name="keywords" content="{% block keyworks %}zxnn.net{% endblock %}" />
+    <meta name="description" content="{% block description %}page of zxnn.net{% endblock %}" />
+    <title>{% block title %}Zxnn.net{% endblock %}</title>
+    <link rel="icon" type="image/png" href="/img/favicon.png" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/layout.css">
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
+    {% block style %}
+    {% endblock %}
 </head>
 <body>
-<header id="header">
-    <div id="header-container">
-        <div id="user-info">
-            {% if user %}
-            Hi, {{ nickname }} | <a href="/dashboard/main.html">Dashboard</a> | <a href="{{ log_url }}">Logout</a>
-            {% else %}
+    <header id="header">
+        <div class="container">
+            <div style="float: right;">
+                {% if user %}
+                Hi, {{ nickname }} <a href="{{ log_url }}">Logout</a>
+                {% else %}
                 <a href="{{ log_url }}">Login</a>
-            {% endif %}
+                {% endif %}
+            </div>
+            <h1>Zxnn</h1>
         </div>
-    {% block header %}{% endblock %}
-    </div>
-</header>
-<nav id="nav">
-    <ul id="menu">
-        <li><a href="/dashboard/main.html">Dashboard</a></li>
-        <li><a href="http://blog.zxnn.net" target="_blank">Blog</a></li>
-    </ul>
-</nav>
-<div id="wrapper">
-    <div id="container">
-        <div id="content">
-            {% block content %}{% endblock %}
+    </header>
+    <div style="width: 100%; background-color: Black; background-image: -webkit-linear-gradient(top,#222,#111); height: 42px;">
+        <div class="container">
+            <nav id="nav" class="navbar navbar-inverse">
+                <div class="navbar-inner">
+                    <ul id="menu" class="nav">
+                        <li class="active divider-vertical"><a href="#main" data-toggle="tab">Main</a></li>
+                        <li class="divider-vertical"><a href="#ilog" data-toggle="tab">iLog</a></li>
+                        <li class="divider-vertical"><a href="http://blog.zxnn.net" target="_blank">Blog</a></li>
+                        <li class="divider-vertical"><a href="/dashboard/main.html">Dashboard</a></li>
+                    </ul>
+                </div>
+            </nav>
         </div>
-        <aside id="sidebar">
-            {% block sidebar %}
-            {% endblock %}
-        </aside>
     </div>
-</div>
-<footer id="footer">
-    <p>by <a href="mailto:root@zxnn.net">將王車</a>&nbsp;<span>2008-2012</span>&nbsp;<a href="http://appengine.google.com/"><img style="border: 0;"src="http://code.google.com/appengine/images/appengine-silver-120x30.gif" alt="Powered by Google App Engine" /></a></p>
-</footer>
-<!-- google analytics -->
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-319269-6']);
-  _gaq.push(['_trackPageview']);
+    <div id="wrapper" class="container container-fluid">
+        <div id="container" class="row-fluid">
+            <div id="content" class="span8">
+                {% block content %}{% endblock %}
+            </div>
+            <div id="sidebar" class="span3 offset1">
+                {% block sidebar %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+    <footer id="footer">
+        <div class="container" style="padding-top: 20px;">
+            <p>by <a href="mailto:root@zxnn.net">將王車</a>&nbsp;<span>2008-2012</span>&nbsp;<a href="http://appengine.google.com/"><img style="border: 0;"src="http://code.google.com/appengine/images/appengine-silver-120x30.gif" alt="Powered by Google App Engine" /></a></p>
+        </div>
+    </footer>
+    <!--<script type="text/javascript" src="/script/jquery.js"></script>-->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script type="text/javascript" src="/script/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#container').css('min-height', $(window).height() - 222);
+            $(window).resize(function () {
+                $('#container').css('min-height', $(window).height() - 222);
+            });
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
+            $('#menu a').click(function (e) {
+                //e.preventDefault();
+                $(this).tab('show');
+            });
+        })
+    </script>
+    {% block script %}
+    {% endblock %}
+    <!-- google analytics -->
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-319269-6']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    </script>
 </body>
 </html>
