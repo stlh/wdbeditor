@@ -1,5 +1,11 @@
 {% extends "template/base.html" %}
 
+{% block menu %}
+<li class="active divider-vertical"><a href="#main" data-toggle="tab">Main</a></li>
+<li class="divider-vertical"><a href="#ilog" data-toggle="tab">iLog</a></li>
+<li class="divider-vertical"><a href="http://blog.zxnn.net" target="_blank">Blog</a></li>
+{% endblock %}
+
 {% block content %}
 <div class="tab-content">
 	<div id="main" class="tab-pane active">

@@ -30,10 +30,7 @@
             <nav id="nav" class="navbar navbar-inverse">
                 <div class="navbar-inner">
                     <ul id="menu" class="nav">
-                        <li class="active divider-vertical"><a href="#main" data-toggle="tab">Main</a></li>
-                        <li class="divider-vertical"><a href="#ilog" data-toggle="tab">iLog</a></li>
-                        <li class="divider-vertical"><a href="http://blog.zxnn.net" target="_blank">Blog</a></li>
-                        <li class="divider-vertical"><a href="/dashboard/main.html">Dashboard</a></li>
+                        {% block menu %}{% endblock %}
                     </ul>
                 </div>
             </nav>
@@ -45,14 +42,13 @@
                 {% block content %}{% endblock %}
             </div>
             <div id="sidebar" class="span3 offset1">
-                {% block sidebar %}
-                {% endblock %}
+                {% block sidebar %}{% endblock %}
             </div>
         </div>
     </div>
     <footer id="footer">
         <div class="container" style="padding-top: 20px;">
-            <p>by <a href="mailto:root@zxnn.net">將王車</a>&nbsp;<span>2008-2012</span>&nbsp;<a href="http://appengine.google.com/"><img style="border: 0;"src="http://code.google.com/appengine/images/appengine-silver-120x30.gif" alt="Powered by Google App Engine" /></a></p>
+            <p>by <a href="mailto:root@zxnn.net">將王車</a>&nbsp;<span>2008-2012</span>&nbsp;<a href="http://appengine.google.com/">app engine</a>&nbp;<a href="http://twitter.github.com/bootstrap/">bootstrap</a></p>
         </div>
     </footer>
     <!--<script type="text/javascript" src="/script/jquery.js"></script>-->
