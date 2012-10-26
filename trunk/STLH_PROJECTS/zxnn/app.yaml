@@ -9,35 +9,51 @@ libraries:
   version: latest
 
 handlers:
+- url: /robots\.txt
+  static_files: static/robots.txt
+  upload: static/robots.txt
+
+- url: /favicon\.ico
+  static_files: static/favicon.ico
+  upload: static/favicon.ico
+
+- url: /css/
+  static_dir: static/css
+  expiration: "7d"
+
+- url: /script/
+  static_dir: static/script
+  expiration: "7d"
+
+- url: /img/
+  static_dir: static/img
+  expiration: "7d"
+
 - url: /
   script: main.app
 
 - url: /index\.html
-  script: main.py
-
-- url: /css/
-  static_dir: static/css
-
-- url: /script/
-  static_dir: static/script
-
-- url: /img/
-  static_dir: static/img
+  script: main.app
 
 - url: /dashboard/.*
   script: bd.app
+  login: required
+  auth_fail_action: unauthorized
 
 - url: /public/\w+/avatar
-  script: bd.py
+  script: bd.app
 
 - url: /todone/.*
   script: todone.py
+  login: required
 
 - url: /countdown/.*
   script: countdown.py
+  login: required
 
 - url: /tester/.*
   script: tester.py
+  login: required
 
 - url: /ilog/.*
   script: ilog.app
