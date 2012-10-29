@@ -4,6 +4,9 @@
 <li class="active divider-vertical"><a href="#main" data-toggle="tab">Main</a></li>
 <li class="divider-vertical"><a href="#ilog" data-toggle="tab">iLog</a></li>
 <li class="divider-vertical"><a href="http://blog.zxnn.net" target="_blank">Blog</a></li>
+{% if user %}
+<li class="divider-vertical"><a href="/dashboard/main.html">Dashboard</a></li>
+{% endif %}
 {% endblock %}
 
 {% block content %}
@@ -14,6 +17,14 @@
 	</div>
 	<div id="ilog" class="tab-pane">
 		<h2>iLog</h2>
+        <dl>
+        {% for item in items %}
+            <dt class="ilog_item">
+                <span class="muted">{{ item.user.nickname() }}</span> on <span class="muted">{{ item.add_datetime.strftime("%Y/%m/%d %H:%M:%S") }}</span>
+                <p class="entry_text">{{ item.text }}</p>
+            </dt>
+        {% endfor %}
+        </dl>
 	</div>
 </div>
 {% endblock %}

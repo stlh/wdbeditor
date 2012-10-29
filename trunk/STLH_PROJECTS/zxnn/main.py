@@ -22,10 +22,12 @@ class MainPageHandler(webapp2.RequestHandler):
             nickname = user.nickname()
         else:
             log_url = users.create_login_url(self.request.uri)
+        items = iLogItem.gql("ORDER BY add_datetime DESC").fetch(5)
         template_values = {
            'user': user,
            'log_url': log_url,
            'nickname': nickname,
+           'items': items,
         }
         template = env.get_template('template/main.html')
         self.response.out.write(template.render(template_values))
