@@ -1,9 +1,7 @@
-{% extends "../base.html" %}
+{% extends "template/base.html" %}
 {% block title %}iLog - ls{% endblock %}
 {% block style %}
 <style type="text/css" title="Dark">
-@import url(/css/layout.css);
-@import url(/css/dark.css);
 @import url(/css/ilog.css);
 </style>
 {% endblock %}
@@ -15,18 +13,29 @@
 {% block otherinfo %}
 {% endblock %}
 
+{% block menu %}
+{% if user %}
+<li class="active divider-vertical"><a href="/dashboard/main.html" target="_blank">Dashboard</a></li>
+<li class="divider-vertical"><a href="/dashboard/avatar.html">Avatar</a></li>
+<li class="divider-vertical"><a href="/ilog/main.html">iLog</a></li>
+<li class="divider-vertical"><a href="/todone/">Todone</a></li>
+<li class="divider-vertical"><a href="/countdonw/">Countdown</a></li>
+{% endif %}
+{% endblock %}
+
 {% block content %}
+<h2>iLog</h2>
 <div id="divAddMessageContent">
 <textarea id="txtMessage" name="txtMessage" type="text"></textarea>
 <div style="text-align: right; margin-top: 5px;">
 <img id="imgLoading" style="display: none;" src="/img/ajax-loader.gif" alt="loading..." />
-<button id="btnAddMessage" name="btnAddMessage" type="button">Enter to Submit</button>
+<button id="btnAddMessage" name="btnAddMessage" type="button" class="btn">Enter to Submit</button>
 </div>
 </div>
-<h2>ls:</h2>
+<h3>ls:</h3>
 <div>
 <ul id="itemls" class="ilog_items">
-{% include "ls.html" %}
+{% include "template/ilog/ls.html" %}
 </ul>
 </div>
 {% endblock %}

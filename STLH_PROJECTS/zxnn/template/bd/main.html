@@ -1,0 +1,27 @@
+{% extends "template/base.html" %}
+
+{% block title %}Dashboard - Zxnn.net{% endblock %}
+
+{% block menu %}
+{% if user %}
+<li class="active divider-vertical"><a href="/dashboard/main.html" target="_blank">Dashboard</a></li>
+<li class="divider-vertical"><a href="/dashboard/avatar.html">Avatar</a></li>
+<li class="divider-vertical"><a href="/ilog/main.html">iLog</a></li>
+<li class="divider-vertical"><a href="/todone/">Todone</a></li>
+<li class="divider-vertical"><a href="/countdonw/">Countdown</a></li>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="tab-content">
+	<div id="main" class="tab-pane active">
+		<ul>
+			{% if user %}
+			{# pass #}
+			{% else %}
+			<li><a href="/dashboard/bind_id.html">Bind Id</a></li>
+			{% endif %}
+		</ul>
+	</div>
+</div>
+{% endblock %}

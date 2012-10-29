@@ -13,11 +13,7 @@ from google.appengine.api import users
 
 env = jinja2.Environment(loader=jinja2.FileSystemLoader(os.path.dirname(__file__)))
 
-class ZxUser(db.Model):
-    guser = db.UserProperty()
-    nickname = db.StringProperty()
-    avatar = db.BlobProperty()
-    join_date = db.DateProperty(auto_now_add=True)
+from zxnn.DataModel import ZxUser
 
 class DashboardMainHandler(webapp2.RequestHandler):
     def get(self):
@@ -37,7 +33,7 @@ class DashboardMainHandler(webapp2.RequestHandler):
                            'nickname': nickname,
                            'log_url': log_url,
                           }
-        template = env.get_template('template/bd/dashboard.html')
+        template = env.get_template('template/bd/main.html')
         self.response.out.write(template.render(template_values))
 
 class BindIdHandler(webapp2.RequestHandler):
