@@ -20,7 +20,8 @@
         <dl>
         {% for item in items %}
             <dt class="ilog_item">
-                <span class="muted">{{ item.user.nickname() }}</span> on <span class="muted">{{ item.add_datetime.strftime("%Y/%m/%d %H:%M:%S") }}</span>
+                <img class="user_pic" src="/public/avatar?nickname={{ item.nickname }}" alt="{{ item.nickname }}" />
+                <span class="muted">{{ item.nickname }}</span> on <span class="muted">{{ item.add_datetime.strftime("%Y/%m/%d %H:%M:%S") }}</span>
                 <p class="entry_text">{{ item.text }}</p>
             </dt>
         {% endfor %}

@@ -53,6 +53,13 @@ indexes:
 
 - kind: Item
   properties:
+  - name: status
+  - name: user
+  - name: done_datetime
+    direction: desc
+
+- kind: Item
+  properties:
   - name: user
   - name: add_datetime
 

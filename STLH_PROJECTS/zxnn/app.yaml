@@ -40,7 +40,10 @@ handlers:
   login: required
   auth_fail_action: unauthorized
 
-- url: /public/\w+/avatar
+- url: /upload_avatar
+  script: bd.app
+
+- url: /public/avatar
   script: bd.app
 
 - url: /todone/.*

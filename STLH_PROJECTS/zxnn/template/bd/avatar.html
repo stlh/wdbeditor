@@ -1,0 +1,34 @@
+{% extends "template/base.html" %}
+
+{% block title %}Avatar - Zxnn.net{% endblock %}
+
+{% block menu %}
+{% if user %}
+<li class="divider-vertical"><a href="/dashboard/main.html">Dashboard</a></li>
+<li class="active divider-vertical"><a href="/dashboard/avatar.html">Avatar</a></li>
+<li class="divider-vertical"><a href="/ilog/main.html">iLog</a></li>
+<li class="divider-vertical"><a href="/todone/">Todone</a></li>
+<li class="divider-vertical"><a href="/countdonw/">Countdown</a></li>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+<h2>Avatar</h2>
+<form action="{{ upload_url }}" enctype="multipart/form-data" method="post">
+{% if error_message %}
+<p class="text-error">{{ error_message }}</p>
+{% endif %}
+{% if user.avatar %}
+<p>
+    <h3>Current Avatar:</h3>
+    <img src="/public/avatar?nickname={{ user.nickname }}" alt="avatar" />
+</p>
+<h3>Upload New Avatar:</h3>
+{% else %}
+<h3>Upload Avatar:</h3>
+{% endif %}
+<div>
+    <input type="file" name="avatar_file"><input type="submit" name="submit" value="Submit" class="btn">
+</div>
+</form>
+{% endblock %}
