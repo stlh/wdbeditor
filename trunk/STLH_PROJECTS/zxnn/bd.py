@@ -9,6 +9,8 @@ import webapp2
 import jinja2
 
 from google.appengine.ext import db
+from google.appengine.ext import blobstore
+from google.appengine.ext.webapp import blobstore_handlers
 from google.appengine.api import users
 
 env = jinja2.Environment(loader=jinja2.FileSystemLoader(os.path.dirname(__file__)))
@@ -84,47 +86,47 @@ class BindIdHandler(webapp2.RequestHandler):
 
 class AvatarHandler(webapp2.RequestHandler):
     def get(self):
-        user = users.get_current_user()
-        if user:
+        guser = users.get_current_user()
+        if guser:
             log_url = users.create_logout_url(self.request.host_url)
         else:
             self.redirect(users.create_login_url(self.request.uri))
             return
+        user = ZxUser.gql("WHERE guser = :u", u = guser).get()
+        upload_url = blobstore.create_upload_url('/upload_avatar')
         template_values = {'user': user,
           'log_url': log_url,
-          }
-        path = os.path.join(os.path.dirname(__file__), 'template/bd/avatar.html')
-        self.response.out.write(template.render(path, template_values))
-    def post(self):
-      avatar_img = self.request.get('avatar_img')
-      u = User()
-      u.avatar = db.Blob(u)
-      u.put();
-      user = users.get_current_user()
-      if user:
-          log_url = users.create_logout_url(self.request.host_url)
-      else:
-          self.redirect(users.create_login_url(self.request.uri))
-          return
-      template_values = {'user': user,
-        'log_url': log_url,
+          'upload_url': upload_url,
         }
-      path = os.path.join(os.path.dirname(__file__), 'template/bd/avatar.html')
-      self.response.out.write(template.render(path, template_values))
+        template = env.get_template('template/bd/avatar.html')
+        self.response.out.write(template.render(template_values))
 
-class AvatarImageHander(webapp2.RequestHandler):
+class AvatarUploadHandler(blobstore_handlers.BlobstoreUploadHandler):
+    def post(self):
+        guser = users.get_current_user()
+        if guser:
+            log_url = users.create_logout_url(self.request.host_url)
+        else:
+            self.redirect(users.create_login_url(self.request.uri))
+            return
+        user = ZxUser.gql("WHERE guser = :u", u = guser).get()
+        upload_files = self.get_uploads('avatar_file')  # 'file' is file upload field in the form
+        avatar_info = upload_files[0]
+        user.avatar = avatar_info.key()
+        user.put()
+        self.redirect('/dashboard/avatar.html')
+
+class AvatarDownloadHander(blobstore_handlers.BlobstoreDownloadHandler):
     def get(self):
-        self.response.out.write('get user id')
-        #user = db.get(self.request.get('user_id')
-        #if user.avatar:
-        #  self.response.headers['Content-Type'] = 'image/png'
-        #  self.response.out.write(user.avatar)
-        #else:
-        #  self.response.out.write('no image found')
+        nickname = self.request.get("nickname")
+        user = ZxUser.gql("WHERE nickname = :u", u = nickname).get()
+        blob_info = blobstore.BlobInfo.get(user.avatar.key())
+        self.send_blob(blob_info)
 
 app = webapp2.WSGIApplication([('/dashboard/main.html', DashboardMainHandler),
                                ('/dashboard/bind_id.html', BindIdHandler),
                                ('/dashboard/avatar.html', AvatarHandler),
-                               ('/public/\w+/avatar', AvatarImageHander),
+                               ('/upload_avatar', AvatarUploadHandler),
+                               ('/public/avatar', AvatarDownloadHander),
                               ],
                               debug=True)
