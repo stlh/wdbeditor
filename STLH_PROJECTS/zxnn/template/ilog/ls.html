@@ -1,6 +1,6 @@
 {% for item in items %}
-<li class="ilog_item">
+<dd class="ilog_item">
   <img class="user_pic" src="/public/avatar?nickname={{ item.nickname }}" alt="{{ item.nickname }}" />
   <p class="entry_text">{{ item.text }}<span class="entry_meta">{{ item.add_datetime.strftime("%Y/%m/%d %H:%M:%S") }}</span></p>
- </li>
+</dd>
 {% endfor %}

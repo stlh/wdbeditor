@@ -60,16 +60,18 @@ class ilog_ls(webapp2.RequestHandler):
 
 class ilog_main(webapp2.RequestHandler):
     def get(self):
-        user = users.get_current_user()
-        if user:
+        guser = users.get_current_user()
+        if guser:
             log_url = users.create_logout_url(self.request.host_url)
         else:
             self.redirect(users.create_login_url(self.request.uri))
             return
-        items = iLogItem.gql("WHERE user = :u ORDER BY add_datetime DESC", u=user).fetch(7)
+        items = iLogItem.gql("WHERE user = :u ORDER BY add_datetime DESC", u=guser).fetch(7)
+        user = ZxUser.gql("WHERE guser = :u", u = guser).get()
         template_values = {'user': user,
                            'log_url': log_url,
                            'items': items,
+                           'module': 'ilog',
                           }
         template = env.get_template('template/ilog/main.html')
         self.response.out.write(template.render(template_values))

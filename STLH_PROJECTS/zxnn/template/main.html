@@ -19,11 +19,15 @@
 		<h2>iLog</h2>
         <dl>
         {% for item in items %}
-            <dt class="ilog_item">
-                <img class="user_pic" src="/public/avatar?nickname={{ item.nickname }}" alt="{{ item.nickname }}" />
-                <span class="muted">{{ item.nickname }}</span> on <span class="muted">{{ item.add_datetime.strftime("%Y/%m/%d %H:%M:%S") }}</span>
-                <p class="entry_text">{{ item.text }}</p>
-            </dt>
+            <dd style="position: relative; border-top: 1px dashed #7F9DB9; padding: 5px;">
+                <div>
+                    <img src="/public/avatar?nickname={{ item.nickname }}" alt="{{ item.nickname }}" style="width: 48px; height: 48px;" />
+                </div>
+                <div style="position: absolute; top: 5px; left: 79px;">
+                    <span class="muted">{{ item.nickname }}</span> on <span class="muted">{{ item.add_datetime.strftime("%Y/%m/%d %H:%M:%S") }}</span>
+                    <p>{{ item.text }}</p>
+                </div>
+            </dd>
         {% endfor %}
         </dl>
 	</div>
