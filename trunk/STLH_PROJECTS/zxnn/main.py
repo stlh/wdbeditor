@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import os
+import logging
 
 from google.appengine.api import users
 from google.appengine.ext import db
@@ -10,23 +11,26 @@ import webapp2
 import jinja2
 
 from ilog import iLogItem
+from zxnn.DataModel import ZxUser
 
 env = jinja2.Environment(loader=jinja2.FileSystemLoader(os.path.dirname(__file__)))
 
 class MainPageHandler(webapp2.RequestHandler):
     def get(self):
-        user = users.get_current_user()
-        nickname = None
-        if user:
+        guser = users.get_current_user()
+        if guser:
             log_url = users.create_logout_url(self.request.host_url)
-            nickname = user.nickname()
         else:
             log_url = users.create_login_url(self.request.uri)
+        user = ZxUser.gql("WHERE guser = :u", u = guser).get()
+        logging.info('guser is None: %s', guser is None)
+        logging.info('user is None: %s', user is None)
         items = iLogItem.gql("ORDER BY add_datetime DESC").fetch(5)
+        if (guser is not None) and (user is None):
+            user = ZxUser(guser = guser, nickname = guser.nickname())
         template_values = {
            'user': user,
            'log_url': log_url,
-           'nickname': nickname,
            'items': items,
         }
         template = env.get_template('template/main.html')

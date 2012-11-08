@@ -9,3 +9,13 @@
     background-color: #592C63;
     color: silver;"
 }
+
+#sitename {
+    font-family: Ubuntu;
+    font-size: 64px;
+    color: #336699;
+}
+
+#nav {
+    font-family: Ubuntu;
+}

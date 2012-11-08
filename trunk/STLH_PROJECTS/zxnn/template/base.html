@@ -17,12 +17,12 @@
         <div class="container">
             <div style="float: right;">
                 {% if user %}
-                Hi, {{ nickname }} <a href="{{ log_url }}">Logout</a>
+                Hi, {{ user.nickname }} <a href="{{ log_url }}">Logout</a>
                 {% else %}
                 <a href="{{ log_url }}">Login</a>
                 {% endif %}
             </div>
-            <h1>Zxnn</h1>
+            <h1 id="sitename"><a href="/">Zxnn</a></h1>
         </div>
     </header>
     <div style="width: 100%; background-color: Black; background-image: -webkit-linear-gradient(top,#222,#111); height: 42px;">
