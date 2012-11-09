@@ -21,7 +21,7 @@
         {% for item in items %}
             <dd style="position: relative; border-top: 1px dashed #7F9DB9; padding: 5px;">
                 <div>
-                    <img src="/public/avatar?nickname={{ item.nickname }}" alt="{{ item.nickname }}" style="width: 48px; height: 48px;" />
+                    <img src="/public/avatar?nickname={{ item.nickname }}" alt="{{ item.nickname }}" style="width: 48px; height: 48px;" class="img-polaroid" />
                 </div>
                 <div style="position: absolute; top: 5px; left: 79px;">
                     <span class="muted">{{ item.nickname }}</span> on <span class="muted">{{ item.add_datetime.strftime("%Y/%m/%d %H:%M:%S") }}</span>

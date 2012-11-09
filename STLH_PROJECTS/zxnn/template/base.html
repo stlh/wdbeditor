@@ -16,11 +16,17 @@
     <header id="header">
         <div class="container">
             <div style="float: right;">
+                <div class="btn-group">
                 {% if user %}
-                Hi, {{ user.nickname }} <a href="{{ log_url }}">Logout</a>
+                <a class="btn btn-primary" href="#"><i class="icon-user icon-white"></i> {{ user.nickname }}</a>
+                <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="{{ log_url }}"><i class="icon-off"></i> Logout</a></li>
+                </ul>
                 {% else %}
-                <a href="{{ log_url }}">Login</a>
+                <a class="btn btn-primary" href="{{ log_url }}"><i class="icon-user icon-white"></i> Login</a>
                 {% endif %}
+                </div>
             </div>
             <h1 id="sitename"><a href="/">Zxnn</a></h1>
         </div>
