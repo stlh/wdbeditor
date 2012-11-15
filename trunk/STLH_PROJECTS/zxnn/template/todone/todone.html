@@ -1,11 +1,7 @@
-{% extends "../base.html" %}
+{% extends "template/admin_base.html" %}
 {% block title %}ToDone - Zxnn.net{% endblock %}
 {% block style %}
-<style type="text/css" title="Dark">
-    @import url(/css/layout.css);
-    @import url(/css/dark.css);
-    @import url(/css/todone.css);
-</style>
+<link rel="stylesheet" href="/css/todone.css">
 {% endblock %}
 
 {% block script %}<script type="text/javascript" src="/script/todone.js"></script>{% endblock %}
@@ -18,7 +14,7 @@
   <div id="todoneItemsConetnt">
       <ul id="todoneItems">
       <li><input id="txtNewItem" name="txtNewItem" type="text" /></li>
-      {% include 'item_list.html' %}
+      {% include 'template/todone/item_list.html' %}
       </ul>
     </div>
   </div>

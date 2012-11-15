@@ -1,6 +1,6 @@
 {% for item in todo_items %}
-<li class="{% cycle rowa,rowb %}"><input type="checkbox" {% ifequal item.status 2 %}checked="checked"{% endifequal %} onclick="itemOnCheck(event, '{{ item.key }}');" /><span>{{ item.text }}</span></li>
+<li class="{{ loop.cycle('rowa', 'rowb') }}"><input type="checkbox" {% if item.status == 2 %}checked="checked"{% endif %} onclick="itemOnCheck(event, '{{ item.key }}');" /><span>{{ item.text }}</span></li>
 {% endfor %}
 {% for item in done_items %}
-<li class="{% cycle rowa,rowb %}"><input type="checkbox" {% ifequal item.status 2 %}checked="checked"{% endifequal %} onclick="itemOnCheck(event, '{{ item.key }}');" /><span>{{ item.text }}</span></li>
+<li class="{{ loop.cycle('rowa', 'rowb') }}"><input type="checkbox" {% if item.status == 2 %}checked="checked"{% endif %} onclick="itemOnCheck(event, '{{ item.key }}');" /><span>{{ item.text }}</span></li>
 {% endfor %}

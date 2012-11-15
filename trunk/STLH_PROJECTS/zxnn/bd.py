@@ -29,10 +29,11 @@ class DashboardMainHandler(webapp2.RequestHandler):
         if user is None:
             self.redirect('/dashboard/bind_id.html')
             return
-        template_values = {'user': user,
-                           'log_url': log_url,
-                           'module': 'dashboard',
-                          }
+        template_values = {
+            'user': user,
+            'log_url': log_url,
+            'module': 'dashboard',
+        }
         template = env.get_template('template/bd/main.html')
         self.response.out.write(template.render(template_values))
 
@@ -47,10 +48,11 @@ class BindIdHandler(webapp2.RequestHandler):
         user = ZxUser.gql("WHERE guser = :u", u = guser).get()
         if not user:
             user = ZxUser(nickname = guser.nickname())
-        template_values = {'user': user,
-                           'log_url': log_url,
-                           'module': 'dashboard',
-                          }
+        template_values = {
+            'user': user,
+            'log_url': log_url,
+            'module': 'dashboard',
+        }
         template = env.get_template('template/bd/bind_id.html')
         self.response.out.write(template.render(template_values))
     def post(self):
@@ -64,11 +66,12 @@ class BindIdHandler(webapp2.RequestHandler):
         if user is not None:
             if (guser is not None) and (user is None):
                 user = ZxUser(guser = guser, nickname = guser.nickname())
-            template_values = {'user': user,
-                               'log_url': log_url,
-                               'error_message': 'ID already exists. please choose another one.',
-                               'module': 'dashboard',
-                              }
+            template_values = {
+                'user': user,
+                'log_url': log_url,
+                'error_message': 'ID already exists. please choose another one.',
+                'module': 'dashboard',
+            }
             template = env.get_template('template/bd/bind_id.html')
             self.response.out.write(template.render(template_values))
         else:
@@ -87,10 +90,11 @@ class AvatarHandler(webapp2.RequestHandler):
             return
         user = ZxUser.gql("WHERE guser = :u", u=guser).get()
         upload_url = blobstore.create_upload_url('/upload_avatar')
-        template_values = {'user': user,
-          'log_url': log_url,
-          'upload_url': upload_url,
-          'module': 'avatar',
+        template_values = {
+            'user': user,
+            'log_url': log_url,
+            'upload_url': upload_url,
+            'module': 'avatar',
         }
         template = env.get_template('template/bd/avatar.html')
         self.response.out.write(template.render(template_values))
@@ -117,10 +121,11 @@ class AvatarDownloadHander(blobstore_handlers.BlobstoreDownloadHandler):
         blob_info = blobstore.BlobInfo.get(user.avatar.key())
         self.send_blob(blob_info)
 
-app = webapp2.WSGIApplication([('/dashboard/main.html', DashboardMainHandler),
-                               ('/dashboard/bind_id.html', BindIdHandler),
-                               ('/dashboard/avatar.html', AvatarHandler),
-                               ('/upload_avatar', AvatarUploadHandler),
-                               ('/public/avatar', AvatarDownloadHander),
-                              ],
-                              debug=True)
+app = webapp2.WSGIApplication([
+    ('/dashboard/main.html', DashboardMainHandler),
+    ('/dashboard/bind_id.html', BindIdHandler),
+    ('/dashboard/avatar.html', AvatarHandler),
+    ('/upload_avatar', AvatarUploadHandler),
+    ('/public/avatar', AvatarDownloadHander),
+    ],
+    debug=True)
