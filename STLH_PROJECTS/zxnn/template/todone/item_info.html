@@ -2,11 +2,11 @@
     <h5 class="infoDivTitle">相关信息：</h5>
     <div class="infoDivContent">
         <strong>添加时间：</strong><span>{{ item.add_datetime|date:"Y-m-d H:i:s" }}</span>
-        {% ifequal item.status 3 %}
+        {% if item.status = 3 %}
         <br /><strong>完成时间：</strong><span>{{ item.done_datetime|date:"Y-m-d H:i:s" }}</span>
-        {% endifequal %}
+        {% endif %}
     </div>
 </div>
 <div id="itemComments{{ item.key }}" class="infoDiv">
-    {% include 'comment_list.html' %}
+    {% include 'template/comment_list.html' %}
 </div>

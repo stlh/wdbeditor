@@ -1,5 +1,5 @@
 <ul id="projectList">
 {% for p in projects %}
-    <li class="{% ifequal forloop.counter 1 %} active{% endifequal %}"><a href="#project{{ p.key }}" onclick="showProject(event, 'project{{ p.key }}');">{{ p.title }}</a></li>
+    <li class="{% if forloop.counter == 1 %} active{% endif %}"><a href="#project{{ p.key }}" onclick="showProject(event, 'project{{ p.key }}');">{{ p.title }}</a></li>
 {% endfor %}
 </ul>

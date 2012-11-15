@@ -10,7 +10,7 @@ import webapp2
 
 import jinja2
 
-from ilog import iLogItem
+from zxnn.DataModel import iLogItem
 from zxnn.DataModel import ZxUser
 
 env = jinja2.Environment(loader=jinja2.FileSystemLoader(os.path.dirname(__file__)))
@@ -23,20 +23,19 @@ class MainPageHandler(webapp2.RequestHandler):
         else:
             log_url = users.create_login_url(self.request.uri)
         user = ZxUser.gql("WHERE guser = :u", u = guser).get()
-        logging.info('guser is None: %s', guser is None)
-        logging.info('user is None: %s', user is None)
         items = iLogItem.gql("ORDER BY add_datetime DESC").fetch(5)
         if (guser is not None) and (user is None):
             user = ZxUser(guser = guser, nickname = guser.nickname())
         template_values = {
-           'user': user,
-           'log_url': log_url,
-           'items': items,
+            'user': user,
+            'log_url': log_url,
+            'items': items,
         }
         template = env.get_template('template/main.html')
         self.response.out.write(template.render(template_values))
 
-app = webapp2.WSGIApplication([('/', MainPageHandler),
-                               ('/index\.html', MainPageHandler),
-                              ],
-                              debug=True)
+app = webapp2.WSGIApplication([
+    ('/', MainPageHandler),
+    ('/index\.html', MainPageHandler),
+    ],
+    debug=True)

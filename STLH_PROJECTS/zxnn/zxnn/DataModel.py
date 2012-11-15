@@ -16,3 +16,13 @@ class iLogItem(db.Model):
     nickname = db.StringProperty()
     text = db.StringProperty()
     add_datetime = db.DateTimeProperty(auto_now_add=True)
+
+class Item(db.Model):
+    user = db.UserProperty()
+    parent_item = db.SelfReferenceProperty(collection_name='child_items')
+    text = db.StringProperty()
+    #status 1: todo, 2: done
+    status = db.IntegerProperty(default=1)
+    add_datetime = db.DateTimeProperty(auto_now_add=True)
+    done_datetime = db.DateTimeProperty()
+    is_deleted = db.BooleanProperty(default=False)

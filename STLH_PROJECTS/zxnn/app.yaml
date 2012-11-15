@@ -47,7 +47,7 @@ handlers:
   script: bd.app
 
 - url: /todone/.*
-  script: todone.py
+  script: todone.app
   login: required
 
 - url: /countdown/.*
