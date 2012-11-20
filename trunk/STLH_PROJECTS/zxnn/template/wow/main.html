@@ -1,0 +1,45 @@
+{% extends "template/admin_base.html" %}
+{% block title %}Zxnn - World of Warcraft{% endblock %}
+
+{% block menu %}
+<li class="active divider-vertical"><a href="#main" data-toggle="tab">Main</a></li>
+<li class="divider-vertical"><a href="#ilog" data-toggle="tab">iLog</a></li>
+<li class="divider-vertical"><a href="/wow/main.html">WoW</a></li>
+<li class="divider-vertical"><a href="http://blog.zxnn.net" target="_blank">Blog</a></li>
+{% if user %}
+<li class="divider-vertical"><a href="/dashboard/main.html">Dashboard</a></li>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+<h2>World of Warcraft </h2>
+<table class=".table table-striped">
+    <tbody>
+        <tr>
+            <td>Region:</td>
+            <td>
+                <select id="ddlRegion">
+                    <option value="">- Select Region -</option>
+                    <option value="us.battle.net">US</option>
+                    <option value="eu.battle.net">Eurpoe</option>
+                    <option value="kr.battle.net">Korea</option>
+                    <option value="tw.battle.net">Taiwan</option>
+                    <option value="www.battlenet.com.cn">China</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Realm:</td>
+            <td><input id="txtRealm" type="text" /></td>
+        </tr>
+        <tr>
+            <td>Character Name:</td>
+            <td><input type="text" /></td>
+        </tr>
+    </tbody>
+</table>
+{% endblock %}
+
+{% block script %}
+<script type="text/javascript" src="/script/wow.js"></script>
+{% endblock %}
