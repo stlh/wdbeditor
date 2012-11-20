@@ -60,3 +60,6 @@ handlers:
 
 - url: /ilog/.*
   script: ilog.app
+
+- url: /wow/.*
+  script: wow.app
