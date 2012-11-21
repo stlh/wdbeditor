@@ -13,7 +13,7 @@
 
 {% block content %}
 <h2>World of Warcraft </h2>
-<table class=".table table-striped">
+<table class="table table-striped">
     <tbody>
         <tr>
             <td>Region:</td>
@@ -30,14 +30,22 @@
         </tr>
         <tr>
             <td>Realm:</td>
-            <td><input id="txtRealm" type="text" /></td>
+            <td><select id="ddlRealm"></select></td>
         </tr>
         <tr>
             <td>Character Name:</td>
-            <td><input type="text" /></td>
+            <td><input id="txtCharacterName" type="text" /></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td style="text-align: right;"><input id="btnLoad" type="button" class="btn" value="Load Data" /></td>
         </tr>
     </tbody>
 </table>
+<div id="CharacterInfo">
+<table id="itemsTable" class="table table-striped table-bordered table-hover">
+</table>
+</div>
 {% endblock %}
 
 {% block script %}
