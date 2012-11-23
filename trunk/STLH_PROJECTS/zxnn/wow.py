@@ -2,8 +2,10 @@
 
 import os
 import logging
+import urllib2
 
 from google.appengine.api import users
+from google.appengine.api import urlfetch
 from google.appengine.ext import db
 
 import webapp2
@@ -29,10 +31,54 @@ class WOWMainPageHandler(webapp2.RequestHandler):
             'log_url': log_url,
         }
         template = env.get_template('template/wow/main.html')
-        self.response.headers['Access-Control-Allow-Origin'] = '*'
         self.response.out.write(template.render(template_values))
+
+class GetRealmsByRegionHandler(webapp2.RequestHandler):
+    def get(self):
+        region = self.request.get('region')
+        url = 'http://' + region + '/api/wow/realm/status';
+        try:
+            logging.info(url)
+            result = urllib2.urlopen(url)
+            a = result.read()
+            self.response.out.write(a)
+        except urllib2.URLError, e:
+            return 'fail'
+
+class GetCharacterItemsHandler(webapp2.RequestHandler):
+    def get(self):
+        region = self.request.get('region')
+        realm = self.request.get('realm')
+        character = self.request.get('character')
+        #api/wow/character/test-realm/Peratryn?fields=items
+        url = 'http://' + region + '/api/wow/character/' + realm + '/' + character +  '?fields=items';
+        try:
+            logging.info(url)
+            result = urllib2.urlopen(url)
+            a = result.read()
+            self.response.out.write(a)
+        except urllib2.URLError, e:
+            return 'fail'
+
+class GetItemHandler(webapp2.RequestHandler):
+    def get(self):
+        region = self.request.get('region')
+        realm = self.request.get('realm')
+        character = self.request.get('character')
+        #api/wow/character/test-realm/Peratryn?fields=items
+        url = 'http://' + region + '/api/wow/character/' + realm + '/' + character +  '?fields=items';
+        try:
+            logging.info(url)
+            result = urllib2.urlopen(url)
+            a = result.read()
+            self.response.out.write(a)
+        except urllib2.URLError, e:
+            return 'fail'
 
 app = webapp2.WSGIApplication([
     ('/wow/main.html', WOWMainPageHandler),
+    ('/wow/get_realms', GetRealmsByRegionHandler),
+    ('/wow/get_character_items', GetCharacterItemsHandler),
+    ('/wow/get_item', GetItemHandler),
     ],
     debug=True)
