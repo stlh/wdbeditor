@@ -29,6 +29,7 @@ class WOWMainPageHandler(webapp2.RequestHandler):
         template_values = {
             'user': user,
             'log_url': log_url,
+            'module': 'wow',
         }
         template = env.get_template('template/wow/main.html')
         self.response.out.write(template.render(template_values))

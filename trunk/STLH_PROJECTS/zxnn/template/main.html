@@ -3,8 +3,13 @@
 {% block menu %}
 <li class="active divider-vertical"><a href="#main" data-toggle="tab">Main</a></li>
 <li class="divider-vertical"><a href="#ilog" data-toggle="tab">iLog</a></li>
-<li class="divider-vertical"><a href="http://blog.zxnn.net" target="_blank">Blog</a></li>
-<li class="divider-vertical"><a href="/wow/main.html">WoW</a></li>
+<li class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#"> Other <b class="caret"></b> </a>
+    <ul class="dropdown-menu">
+        <li><a href="/wow/main.html">WoW Tools</a></li>
+    </ul>
+</li>
+<li class="divider-vertical"><a href="http://blog.zxnn.net">Blog</a></li>
 {% if user %}
 <li class="divider-vertical"><a href="/dashboard/main.html">Dashboard</a></li>
 {% endif %}
