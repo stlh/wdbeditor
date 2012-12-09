@@ -64,10 +64,8 @@ class GetCharacterItemsHandler(webapp2.RequestHandler):
 class GetItemHandler(webapp2.RequestHandler):
     def get(self):
         region = self.request.get('region')
-        realm = self.request.get('realm')
-        character = self.request.get('character')
-        #api/wow/character/test-realm/Peratryn?fields=items
-        url = 'http://' + region + '/api/wow/character/' + realm + '/' + character +  '?fields=items';
+        itemId = self.request.get('itemId')
+        url = 'http://' + region + '/api/wow/item/' + itemId
         try:
             logging.info(url)
             result = urllib2.urlopen(url)
