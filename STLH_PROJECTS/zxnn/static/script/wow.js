@@ -33,27 +33,34 @@ $(document).ready(function () {
                     var items = data.items;
                     var jitemsTable = $('#itemsTable');
                     jitemsTable.empty();
-                    // jitemsTable.append('<caption>Items</caption>')
-                    // jitemsTable.append('<tr>' + '<td>' + items.head.name + '</td>' + '</tr>');
-                    // jitemsTable.append('<tr>' + '<td>' + items.neck.name + '</td>' + '</tr>');
-                    // jitemsTable.append('<tr>' + '<td>' + items.shoulder.name + '</td>' + '</tr>');
-                    // jitemsTable.append('<tr>' + '<td>' + items.back.name + '</td>' + '</tr>');
-                    // jitemsTable.append('<tr>' + '<td>' + items.chest.name + '</td>' + '</tr>');
-                    // //jitemsTable.append('<tr>' + '<td>' + items.shirt.name + '</td>' + '</tr>');
-                    // //jitemsTable.append('<tr>' + '<td>' + items.tabard.name + '</td>' + '</tr>');
-                    // jitemsTable.append('<tr>' + '<td>' + items.wrist.name + '</td>' + '</tr>');
-                    // jitemsTable.append('<tr>' + '<td>' + items.hands.name + '</td>' + '</tr>');
-                    // jitemsTable.append('<tr>' + '<td>' + items.waist.name + '</td>' + '</tr>');
-                    // jitemsTable.append('<tr>' + '<td>' + items.legs.name + '</td>' + '</tr>');
-                    // jitemsTable.append('<tr>' + '<td>' + items.feet.name + '</td>' + '</tr>');
-                    // jitemsTable.append('<tr>' + '<td>' + items.finger1.name + '</td>' + '</tr>');
-                    // jitemsTable.append('<tr>' + '<td>' + items.finger2.name + '</td>' + '</tr>');
-                    // jitemsTable.append('<tr>' + '<td>' + items.trinket1.name + '</td>' + '</tr>');
-                    //jitemsTable.append('<tr>' + '<td>' + items.trinket2.name + '</td>' + '</tr>');
                     for(var key in items) {
-                    	if(items[key].id !== undefined) {
-                    		jitemsTable.append('<tr>' + '<td>' + items[key].name + '</td>' + '</tr>');
-                		}
+                        if(items[key].id !== undefined) {
+                            jitemsTable.append('<tr id="item' + items[key].id + '"></tr>');
+                	    }
+                    }
+
+                    for(var key in items) {
+                        if(items[key].id !== undefined) {
+                            var item = items[key];
+                            var urlItem = '/wow/get_item?region=' + region + '&itemId=' + items[key].id;
+                            $.getJSON(urlItem, function(data) {
+                                var trItem = $('#item' + data.id);
+                                trItem.append('<td>' + data.name + '<td>')
+                                var stats = [];
+                                for(var i=0; i < data.bonusStats.length; i++) {
+                                    var stat = data.bonusStats[i];
+                                    stats[stat.stat] = stat;
+                                }
+
+                                console.log(stats);
+                                for(var i=0; i < stats.length; i++) {
+                                    var stat = stats[i];
+                                    if(stat !== undefined) {
+                                        trItem.append('<td>' + stat.stat + ': ' + stat.amount + '</td>');                                        
+                                    }
+                                }
+                            })
+                        }
                     }
                 }
                 else {
