@@ -63,3 +63,6 @@ handlers:
 
 - url: /wow/.*
   script: wow.app
+
+- url: /tools/.*
+  script: tools.app
