@@ -4,10 +4,14 @@
     color: #336699;
 }
 
+#userinfo {
+    margin-top: 5px;
+}
+
 #footer {
     min-height: 60px;
     background-color: #592C63;
-    color: silver;"
+    color: silver;
 }
 
 #sitename {

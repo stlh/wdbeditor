@@ -1,24 +1,23 @@
 $(document).ready(function() {
     $('#btnAddMessage').click(function(event) {
-      var txtMessage = $('#txtMessage');
-      var log_text = txtMessage.val();
-      txtMessage[0].disabled = true;
-      $('#btnAddMessage')[0].disabled = true;
-      var imgLoading = $('#imgLoading');
-      imgLoading.show();
-      txtMessage.enable = false;
-      $.post('/ilog/say'
+        var txtMessage = $('#txtMessage');
+        var log_text = txtMessage.val();
+        txtMessage.attr('disabled', 'disabled');
+        var btnAdd = $('#btnAddMessage');
+        btnAdd.attr('disabled', 'disabled');
+        var imgLoading = $('#imgLoading');
+        imgLoading.show();
+        $.post('/ilog/say'
         , {text: log_text}
         , function(data) {
-        $('#itemls').html(data);
-        var txtMessage = $('#txtMessage').val('')[0];
-        txtMessage.focus();
-        txtMessage.disabled = false;
-        $('#btnAddMessage')[0].disabled = false;
-        var imgLoading = $('#imgLoading');
-        var imgLoading = $('#imgLoading');
-        imgLoading.hide();
-        }
+            txtMessage.val('').focus().removeAttr('disabled');
+            btnAdd.removeAttr('disabled');
+            imgLoading.hide();
+            $.get('/ilog/ls'
+                , function (data) {
+                    $('#itemls').html(data);
+                });
+            }
         , 'text');
     });
 
