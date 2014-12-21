@@ -38,12 +38,7 @@ class ilog_say(webapp2.RequestHandler):
         user = ZxUser.gql("WHERE guser = :u", u = guser).get()
         item = iLogItem(user=guser, nickname=user.nickname, text=log_text)
         item.put()
-        items = iLogItem.gql("WHERE user = :u ORDER BY add_datetime DESC", u=guser).fetch(20)
-        template_values = {
-            'items': items,
-        }
-        template = env.get_template('template/ilog/ls.html')
-        self.response.out.write(template.render(template_values))
+        self.response.out.write(item.key())
 
 class ilog_ls(webapp2.RequestHandler):
     def get(self):
@@ -52,8 +47,8 @@ class ilog_ls(webapp2.RequestHandler):
           #self.redirect(users.create_login_url(self.request.uri))
           self.response.out.write("(null)")
           return
-      count = self.request.GET['count']
-      items = iLogItem.gql("WHERE user = :u ORDER BY add_datetime DESC", u=guser).fetch(count)
+      #count = self.request.GET['count']
+      items = iLogItem.gql("WHERE user = :u ORDER BY add_datetime DESC", u=guser).fetch(10)
       template_values = {
           'items': items,
       }
@@ -83,6 +78,7 @@ app = webapp2.WSGIApplication([
     ('/ilog/say/', ilog_say),
     ('/ilog/say$', ilog_say),
     ('/ilog/ls/', ilog_ls),
+    ('/ilog/ls$', ilog_ls),
     ('/ilog/main.html', ilog_main),
     ],
     debug=True)
