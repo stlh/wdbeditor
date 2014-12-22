@@ -15,7 +15,7 @@ from google.appengine.api import users
 
 env = jinja2.Environment(loader=jinja2.FileSystemLoader(os.path.dirname(__file__)))
 
-from zxnn.DataModel import ZxUser
+from zxnn.gae.models import ZxUser
 
 class DashboardMainHandler(webapp2.RequestHandler):
     def get(self):

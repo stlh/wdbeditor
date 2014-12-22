@@ -17,7 +17,7 @@ class iLogItem(db.Model):
     text = db.StringProperty()
     add_datetime = db.DateTimeProperty(auto_now_add=True)
 
-class Item(db.Model):
+class TodoneItem(db.Model):
     user = db.UserProperty()
     parent_item = db.SelfReferenceProperty(collection_name='child_items')
     text = db.StringProperty()

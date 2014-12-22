@@ -12,8 +12,8 @@ import webapp2
 
 import jinja2
 
-from zxnn.DataModel import Item
-from zxnn.DataModel import ZxUser
+from zxnn.gae.models import TodoneItem
+from zxnn.gae.models import ZxUser
 
 env = jinja2.Environment(loader=jinja2.FileSystemLoader(os.path.dirname(__file__)))
 
@@ -25,8 +25,8 @@ class ls_item(webapp2.RequestHandler):
         else:
             self.redirect(users.create_login_url(self.request.uri))
             return
-        todo_items = Item.gql("WHERE user = :u AND status = 1 ORDER BY add_datetime", u = guser)
-        done_items = Item.gql("WHERE user = :u AND status = 2 ORDER BY done_datetime DESC", u = guser)[0:5]
+        todo_items = TodoneItem.gql("WHERE user = :u AND status = 1 ORDER BY add_datetime", u = guser)
+        done_items = TodoneItem.gql("WHERE user = :u AND status = 2 ORDER BY done_datetime DESC", u = guser)[0:5]
         user = ZxUser.gql("WHERE guser = :u", u = guser).get()
         template_values = {
             'user': user,
@@ -46,7 +46,7 @@ class add_item(webapp2.RequestHandler):
             return
         
         item_text = self.request.GET['item_text']
-        new_item = Item(user=guser, text=item_text)
+        new_item = TodoneItem(user=guser, text=item_text)
         new_item.put()
         self.response.out.write(new_item.text);
 
@@ -58,7 +58,7 @@ class delete_item(webapp2.RequestHandler):
             return
         
         item_id = self.request.GET['item_id']
-        item = Item.get(item_id)
+        item = TodoneItem.get(item_id)
         if item.user == guser:
             #item.delete()
             item.is_deleted = True

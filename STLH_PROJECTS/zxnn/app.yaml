@@ -30,39 +30,31 @@ handlers:
   expiration: "7d"
 
 - url: /
-  script: main.app
+  script: zxnn.gae.main.app
 
 - url: /index\.html
-  script: main.app
+  script: zxnn.gae.main.app
 
 - url: /dashboard/.*
-  script: bd.app
+  script: zxnn.gae.dashboard.app
   login: required
   auth_fail_action: unauthorized
 
 - url: /upload_avatar
-  script: bd.app
+  script: zxnn.gae.dashboard.app
 
 - url: /public/avatar
   script: bd.app
 
 - url: /todone/.*
-  script: todone.app
-  login: required
-
-- url: /countdown/.*
-  script: countdown.py
-  login: required
-
-- url: /tester/.*
-  script: tester.py
+  script: zxnn.gae.todone.app
   login: required
 
 - url: /ilog/.*
-  script: ilog.app
+  script: zxnn.gae.ilog.app
 
 - url: /wow/.*
-  script: wow.app
+  script: zxnn.gae.wow.app
 
 - url: /tools/.*
-  script: tools.app
+  script: zxnn.gae.tools.app
