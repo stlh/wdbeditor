@@ -75,6 +75,12 @@ indexes:
   - name: status
   - name: add_datetime
 
+- kind: LogItem
+  properties:
+  - name: user
+  - name: add_datetime
+    direction: desc
+
 - kind: Project
   properties:
   - name: user
@@ -84,6 +90,19 @@ indexes:
   properties:
   - name: user
   - name: add_datetime
+    direction: desc
+
+- kind: TodoneItem
+  properties:
+  - name: status
+  - name: user
+  - name: add_datetime
+
+- kind: TodoneItem
+  properties:
+  - name: status
+  - name: user
+  - name: done_datetime
     direction: desc
 
 - kind: iLogItem

@@ -65,44 +65,41 @@
     <Content Include="static\script\todone.js" />
     <Content Include="static\script\todone_widget.js" />
     <Content Include="static\script\wow.js" />
-    <Content Include="template\admin_base.html" />
-    <Content Include="template\base.html" />
-    <Content Include="template\bd\avatar.html" />
-    <Content Include="template\bd\bind_id.html" />
-    <Content Include="template\bd\main.html" />
-    <Content Include="template\countdown\countdown.html" />
-    <Content Include="template\d3\main.html" />
-    <Content Include="template\ilog\ls.html" />
-    <Content Include="template\ilog\main.html" />
-    <Content Include="template\main.html" />
-    <Content Include="template\public_page_base.html" />
-    <Content Include="template\todone\comment_list.html" />
-    <Content Include="template\todone\item_info.html" />
-    <Content Include="template\todone\item_list.html" />
-    <Content Include="template\todone\project_box.html" />
-    <Content Include="template\todone\project_list.html" />
-    <Content Include="template\todone\project_list_on_setting.html" />
-    <Content Include="template\todone\settings.html" />
-    <Content Include="template\todone\todone.html" />
-    <Content Include="template\tools\main.html" />
-    <Content Include="template\tools\password_generator.html" />
-    <Content Include="template\wow\main.html" />
-    <Content Include="template\wow\reforge.html" />
-    <Content Include="zxnn\DataModel.pyc" />
-    <Content Include="zxnn\__init__.pyc" />
+    <Content Include="zxnn\gae\template\admin_base.html" />
+    <Content Include="zxnn\gae\template\base.html" />
+    <Content Include="zxnn\gae\template\bd\avatar.html" />
+    <Content Include="zxnn\gae\template\bd\bind_id.html" />
+    <Content Include="zxnn\gae\template\bd\main.html" />
+    <Content Include="zxnn\gae\template\countdown\countdown.html" />
+    <Content Include="zxnn\gae\template\d3\main.html" />
+    <Content Include="zxnn\gae\template\ilog\ls.html" />
+    <Content Include="zxnn\gae\template\ilog\main.html" />
+    <Content Include="zxnn\gae\template\main.html" />
+    <Content Include="zxnn\gae\template\public_page_base.html" />
+    <Content Include="zxnn\gae\template\todone\comment_list.html" />
+    <Content Include="zxnn\gae\template\todone\item_info.html" />
+    <Content Include="zxnn\gae\template\todone\item_list.html" />
+    <Content Include="zxnn\gae\template\todone\project_box.html" />
+    <Content Include="zxnn\gae\template\todone\project_list.html" />
+    <Content Include="zxnn\gae\template\todone\project_list_on_setting.html" />
+    <Content Include="zxnn\gae\template\todone\settings.html" />
+    <Content Include="zxnn\gae\template\todone\todone.html" />
+    <Content Include="zxnn\gae\template\tools\main.html" />
+    <Content Include="zxnn\gae\template\tools\password_generator.html" />
+    <Content Include="zxnn\gae\template\wow\main.html" />
+    <Content Include="zxnn\gae\template\wow\reforge.html" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="bd.py" />
-    <Compile Include="calendarExample.py" />
-    <Compile Include="countdown.py" />
-    <Compile Include="feedparser.py" />
-    <Compile Include="ilog.py" />
-    <Compile Include="main.py" />
-    <Compile Include="tester.py" />
-    <Compile Include="todone.py" />
-    <Compile Include="tools.py" />
-    <Compile Include="wow.py" />
-    <Compile Include="zxnn\DataModel.py" />
+    <Compile Include="zxnn\gae\dashboard.py" />
+    <Compile Include="zxnn\gae\ilog.py" />
+    <Compile Include="zxnn\gae\main.py" />
+    <Compile Include="zxnn\gae\todone.py" />
+    <Compile Include="zxnn\gae\tools.py" />
+    <Compile Include="zxnn\gae\wow.py" />
+    <Compile Include="zxnn\gae\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="zxnn\gae\models.py" />
     <Compile Include="zxnn\__init__.py" />
   </ItemGroup>
   <ItemGroup>
@@ -114,15 +111,16 @@
     <Folder Include="static\css\img\" />
     <Folder Include="static\img\" />
     <Folder Include="static\script\" />
-    <Folder Include="template\" />
-    <Folder Include="template\bd\" />
-    <Folder Include="template\countdown\" />
-    <Folder Include="template\d3\" />
-    <Folder Include="template\ilog\" />
-    <Folder Include="template\todone\" />
-    <Folder Include="template\tools\" />
-    <Folder Include="template\wow\" />
+    <Folder Include="zxnn\gae\template\" />
+    <Folder Include="zxnn\gae\template\bd\" />
+    <Folder Include="zxnn\gae\template\countdown\" />
+    <Folder Include="zxnn\gae\template\d3\" />
+    <Folder Include="zxnn\gae\template\ilog\" />
+    <Folder Include="zxnn\gae\template\todone\" />
+    <Folder Include="zxnn\gae\template\tools\" />
+    <Folder Include="zxnn\gae\template\wow\" />
     <Folder Include="zxnn\" />
+    <Folder Include="zxnn\gae\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.Web.targets" />
   <!-- Specify pre- and post-build commands in the BeforeBuild and 
