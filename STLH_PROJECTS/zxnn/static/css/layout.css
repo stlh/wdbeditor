@@ -1,17 +1,26 @@
+body {
+    /*background-color: #592C63;*/
+}
+
+.container {
+    /*background-color: white;*/
+}
+
 #header {
-    height: 120px;
+    /*margin-top: 20px;*/
+    height: 100px;
     background-color: #592C63;
     color: #336699;
 }
 
 #userinfo {
-    margin-top: 5px;
+    margin-top: 10px;
 }
 
 #footer {
     min-height: 60px;
-    background-color: #592C63;
-    color: silver;
+    /*background-color: #592C63;
+    color: silver;*/
 }
 
 #sitename {
