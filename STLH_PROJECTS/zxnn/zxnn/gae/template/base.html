@@ -68,26 +68,26 @@
                 <a class="mdl-navigation__link" href="http://blog.zxnn.net">Blog</a>
             </nav>
         </div>
-        <main id="container" class="mdl-layout__content">
-            <div class="mdl-grid">
-                <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
-                <div id="content" class="mdl-cell mdl-cell--8-col">
+        <main class="mdl-layout__content">
+            <div id="container" class="mdl-grid mdl-grid--no-spacing">
+                <div id="content" class="mdl-cell mdl-cell--12-col">
                     {% block content %}
                     {% endblock %}
                 </div>
             </div>
+            <footer id="footer" class="mdl-mini-footer">
+                <div class="mdl-mini-footer__left-section">
+                    by <a href="mailto:root@zxnn.net">將王車</a>&nbsp;
+                    <span>2008-2015</span>&nbsp;
+                    using:&nbsp;<a href="http://appengine.google.com/">App Engine</a>&nbsp;
+                    ·&nbsp;<a href="http://www.getmdl.io/">DML</a>
+                    <!--
+                    <a href="http://twitter.github.com/bootstrap/">bootstrap</a>
+                        -->
+                </div>
+            </footer>
         </main>
-        <footer id="footer" class="mdl-mega-footer">
-            <div class="mdl-mega-footer--bottom-section">
-                by <a href="mailto:root@zxnn.net">將王車</a>&nbsp;
-                <span>2008-2015</span>&nbsp;
-                using:&nbsp;<a href="http://appengine.google.com/">App Engine</a>&nbsp;
-                ·&nbsp;<a href="http://www.getmdl.io/">DML</a>
-                <!--
-                <a href="http://twitter.github.com/bootstrap/">bootstrap</a>
-                    -->
-            </div>
-        </footer>
+
     </div>
     <script type="text/javascript" src="/script/jquery-2.1.1.js"></script>
     <script type="text/javascript" src="/script/material.min.js"></script>

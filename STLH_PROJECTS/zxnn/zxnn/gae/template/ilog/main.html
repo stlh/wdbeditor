@@ -15,7 +15,6 @@
 <h3>iLog</h3>
 <h4>Text:</h4>
 <div class="mdl-shadow--2dp">
-    
     <p>
         <textarea id="txtMessage" name="txtMessage" type="text" class="mdl-textfield__input"></textarea>
     </p>
@@ -25,8 +24,7 @@
 </div>
 <h4>ls:</h4>
 <div id="imgLoading" class="mdl-spinner mdl-js-spinner" style="display: none;"></div>
-<div id="itemList" class="mdl-shadow--2dp">
+<div id="itemList">
     {% include "template/ilog/ls.html" %}
 </div>
-
-    {% endblock %}
+{% endblock %}

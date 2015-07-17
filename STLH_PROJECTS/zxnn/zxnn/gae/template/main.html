@@ -11,19 +11,13 @@
 {% endblock %}
 
 {% block content %}
-<section id="welcome" class="section">
-    <div class="mdl-shadow--2dp">
-        <div class="mdl-card__supporting-text">
-            <h4>Welcome</h4>
-            <p>用於學習和測試html，javsscript，jquery，python，google app engine等網頁技術的個人站點，由於我很懶，所以大部分東西都屬於建設中或是還沒開始。</p>
-        </div>
-    </div>
-</section>
+<div id="welcome" class="section mdl-card mdl-card--border mdl-shadow--2dp mdl-cell mdl-cell--12-col">
+    <h4>Welcome</h4>
+    <p>用於學習和測試html，javsscript，jquery，python，google app engine等網頁技術的個人站點，由於我很懶，所以大部分東西都屬於建設中或是還沒開始。</p>
+</div>
 
-<section id="ilog" class="section">
-    <div class="mdl-shadow--2dp">
-        <h4>iLog</h4>
-        {% include "template/ilog/ls.html" %}
-    </div>
-</section>
+<div id="ilog" class="section mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col">
+    <h4>iLog</h4>
+    {% include "template/ilog/ls.html" %}
+</div>
     {% endblock %}

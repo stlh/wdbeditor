@@ -1,11 +1,11 @@
-{% for item in items %}
-<div class="mdl-shadow--2dp">
-    <div class="mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+    {% for item in items %}
+<div class="mdl-shadow--2dp mdl-grid mdl-cell--12-col">
+    <div class="mdl-cell mdl-cell--2-col">
         <img class="user-avatar" src="/public/avatar?nickname={{ item.nickname }}" alt="{{ item.nickname }}" />
     </div>
-    <div class="mdl-cell mdl-cell--6-col mdl-cell--3-col-phone">
+    <div class="mdl-cell mdl-cell--6-col">
         <strong>{{ item.nickname }}</strong> on <span>{{ item.add_datetime.strftime("%Y/%m/%d %H:%M:%S") }}</span>
         <p>{{ item.text }}</p>
     </div>
 </div>
-{% endfor %}
+    {% endfor %}

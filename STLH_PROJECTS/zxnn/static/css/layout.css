@@ -1,5 +1,14 @@
+#container {
+    max-width: 960px;
+}
+
+#content {
+    margin: 1em 0;
+}
+
 .section {
-    padding-bottom: 45px;
+    padding: 0 24px 24px 24px;
+    margin-bottom: 24px;
 }
 
 .user-avatar {
