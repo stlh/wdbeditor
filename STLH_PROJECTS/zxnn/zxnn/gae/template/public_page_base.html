@@ -1,7 +1,7 @@
 {% extends "template/base.html" %}
 
 {% block menu %}
-<li class="divider-vertical"><a href="/">Main</a></li>
-<li class="{% if module == 'wow' %} active{% endif %} divider-vertical"><a href="/wow/main.html">WoW</a></li>
-<li class="{% if module == 'tools' %} active{% endif %} divider-vertical"><a href="/tools/main.html">Tools</a></li>
+<a class="mdl-navigation__link" href="/"><i class="material-icons">home</i>Home</a>
+<a class="mdl-navigation__link {% if module == 'wow' %} is-active {% endif %}" href="/wow/main.html">Wow</a>
+<a class="mdl-navigation__link {% if module == 'tools' %} is-active {% endif %}" href="/tools/main.html">Tools</a>
 {% endblock %}

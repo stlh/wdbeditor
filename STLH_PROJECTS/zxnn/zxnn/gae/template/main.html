@@ -1,42 +1,29 @@
 {% extends "template/base.html" %}
 
 {% block menu %}
-<li class="active divider-vertical"><a href="#main" data-toggle="tab">Main</a></li>
-<li class="divider-vertical"><a href="#ilog" data-toggle="tab">iLog</a></li>
-<li class="dropdown">
-    <a class="dropdown-toggle" data-toggle="dropdown" href="#"> Other <b class="caret"></b> </a>
-    <ul class="dropdown-menu">
-        <li><a href="/wow/main.html">WoW</a></li>
-        <li><a href="/tools/main.html">Tools</a></li>
-    </ul>
-</li>
-<li class="divider-vertical"><a href="http://blog.zxnn.net">Blog</a></li>
+<a class="mdl-navigation__link" href="/"><i class="material-icons">home</i>Home</a>
 {% if user %}
-<li class="divider-vertical"><a href="/dashboard/main.html">Dashboard</a></li>
+<a class="mdl-navigation__link" href="/dashboard/main.html"><i class="material-icons">dashboard</i>Dashboard</a>
 {% endif %}
+<a class="mdl-navigation__link" href="/wow/main.html">Wow</a>
+<a class="mdl-navigation__link" href="/tools/main.html">Tools</a>
+<a class="mdl-navigation__link" href="http://blog.zxnn.net">Blog</a>
 {% endblock %}
 
 {% block content %}
-<div class="tab-content">
-	<div id="main" class="tab-pane active">
-		<h2>Main</h2>
-		<p>用於學習和測試html，javsscript，jquery，python，google app engine等網頁技術的個人站點，由於我很懶，所以大部分東西都屬於建設中或是還沒開始。</p>
-	</div>
-	<div id="ilog" class="tab-pane">
-		<h2>iLog</h2>
-        <dl>
-        {% for item in items %}
-            <dd style="position: relative; border-top: 1px dashed #7F9DB9; padding: 5px;">
-                <div>
-                    <img src="/public/avatar?nickname={{ item.nickname }}" alt="{{ item.nickname }}" style="width: 48px; height: 48px;" class="img-polaroid" />
-                </div>
-                <div style="position: absolute; top: 5px; left: 79px;">
-                    <span class="muted">{{ item.nickname }}</span> on <span class="muted">{{ item.add_datetime.strftime("%Y/%m/%d %H:%M:%S") }}</span>
-                    <p>{{ item.text }}</p>
-                </div>
-            </dd>
-        {% endfor %}
-        </dl>
-	</div>
-</div>
-{% endblock %}
+<section id="welcome" class="section">
+    <div class="mdl-shadow--2dp">
+        <div class="mdl-card__supporting-text">
+            <h4>Welcome</h4>
+            <p>用於學習和測試html，javsscript，jquery，python，google app engine等網頁技術的個人站點，由於我很懶，所以大部分東西都屬於建設中或是還沒開始。</p>
+        </div>
+    </div>
+</section>
+
+<section id="ilog" class="section">
+    <div class="mdl-shadow--2dp">
+        <h4>iLog</h4>
+        {% include "template/ilog/ls.html" %}
+    </div>
+</section>
+    {% endblock %}

@@ -3,7 +3,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-	 color: #336699;
+    color: #336699;
 }
 
 a:link {
@@ -33,58 +33,58 @@ a:hover {
     /*position: relative;*/
 }
 
-#menu > li {
-    list-style-type: none;
-    float: left;
-    text-align: center;
-    border: 1px solid transparent;
-}
+    #menu > li {
+        list-style-type: none;
+        float: left;
+        text-align: center;
+        border: 1px solid transparent;
+    }
 
-#menu > li.active {
-}
+        #menu > li.active {
+        }
 
-#menu > li > ul {
-    position: absolute;
-    display: none;
-    margin: 0;
-    padding: 0;
-    width: 180px;
-    text-align: left;
-    background-color: rgba(33, 66, 99, 0.7);
-}
+        #menu > li > ul {
+            position: absolute;
+            display: none;
+            margin: 0;
+            padding: 0;
+            width: 180px;
+            text-align: left;
+            background-color: rgba(33, 66, 99, 0.7);
+        }
 
-#menu > li.active > ul {
-    display: block;
-    border: 1px solid #333333;
-    border-bottom: none;
-}
+        #menu > li.active > ul {
+            display: block;
+            border: 1px solid #333333;
+            border-bottom: none;
+        }
 
-#menu > li > ul > li {
-    list-style-type: none;
-    border-bottom: 1px solid #333333;
-}
+        #menu > li > ul > li {
+            list-style-type: none;
+            border-bottom: 1px solid #333333;
+        }
 
-#menu a {
-    display: block;
-    text-decoration: underline;
-    padding: 10px;
-    text-align: left;
-    /*border-right: 1px solid #336699;
+    #menu a {
+        display: block;
+        text-decoration: underline;
+        padding: 10px;
+        text-align: left;
+        /*border-right: 1px solid #336699;
     border-left: 1px solid #336699;*/
-}
+    }
 
-#menu a:link, #menu a:visited {
-    color: #FFF;
-    text-decoration: none; 
-}
+        #menu a:link, #menu a:visited {
+            color: #FFF;
+            text-decoration: none;
+        }
 
-#menu a:hover {
-    color: #8ac6f2;
-    text-decoration: none;
-}
+        #menu a:hover {
+            color: #8ac6f2;
+            text-decoration: none;
+        }
 
-#menu > li > ul > li:hover {
-}
+    #menu > li > ul > li:hover {
+    }
 
 #wrapper {
     /*border-top: 1px solid #7F9DB9;
@@ -107,9 +107,9 @@ a:hover {
     color: #e5786d;
 }
 
-.spanBtn:hover {
-    color: #8ac6f2;
-}
+    .spanBtn:hover {
+        color: #8ac6f2;
+    }
 
 .codeBlock {
     display: block;

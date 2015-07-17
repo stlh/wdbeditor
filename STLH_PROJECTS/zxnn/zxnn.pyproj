@@ -40,6 +40,9 @@
     <Content Include="static\css\img\Fbg.png" />
     <Content Include="static\css\img\zxnn.png" />
     <Content Include="static\css\layout.css" />
+    <Content Include="static\css\material.css" />
+    <Content Include="static\css\material.min.css" />
+    <Content Include="static\css\material.min.css.map" />
     <Content Include="static\css\settings.css" />
     <Content Include="static\css\todone.css" />
     <Content Include="static\favicon.ico" />
@@ -58,6 +61,9 @@
     <Content Include="static\script\jquery.js" />
     <Content Include="static\script\jquery.validate.js" />
     <Content Include="static\script\main.js" />
+    <Content Include="static\script\material.js" />
+    <Content Include="static\script\material.min.js" />
+    <Content Include="static\script\material.min.js.map" />
     <Content Include="static\script\password_genreator.js" />
     <Content Include="static\script\prototype.js" />
     <Content Include="static\script\s.js" />
@@ -90,6 +96,9 @@
     <Content Include="zxnn\gae\template\wow\reforge.html" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="zxnn\gae\common.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="zxnn\gae\dashboard.py" />
     <Compile Include="zxnn\gae\ilog.py" />
     <Compile Include="zxnn\gae\main.py" />

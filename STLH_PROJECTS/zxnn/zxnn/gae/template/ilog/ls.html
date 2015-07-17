@@ -1,6 +1,11 @@
 {% for item in items %}
-<dd class="ilog_item">
-  <img class="user_pic" src="/public/avatar?nickname={{ item.nickname }}" alt="{{ item.nickname }}" class="img-polaroid" />
-  <p class="entry_text">{{ item.text }}<span class="entry_meta">{{ item.add_datetime.strftime("%Y/%m/%d %H:%M:%S") }}</span></p>
-</dd>
+<div class="mdl-shadow--2dp">
+    <div class="mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+        <img class="user-avatar" src="/public/avatar?nickname={{ item.nickname }}" alt="{{ item.nickname }}" />
+    </div>
+    <div class="mdl-cell mdl-cell--6-col mdl-cell--3-col-phone">
+        <strong>{{ item.nickname }}</strong> on <span>{{ item.add_datetime.strftime("%Y/%m/%d %H:%M:%S") }}</span>
+        <p>{{ item.text }}</p>
+    </div>
+</div>
 {% endfor %}

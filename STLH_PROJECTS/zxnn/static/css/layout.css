@@ -1,34 +1,9 @@
-body {
-    /*background-color: #592C63;*/
+.section {
+    padding-bottom: 45px;
 }
 
-.container {
-    /*background-color: white;*/
-}
-
-#header {
-    /*margin-top: 20px;*/
-    height: 100px;
-    background-color: #592C63;
-    color: #336699;
-}
-
-#userinfo {
-    margin-top: 10px;
-}
-
-#footer {
-    min-height: 60px;
-    /*background-color: #592C63;
-    color: silver;*/
-}
-
-#sitename {
-    font-family: Ubuntu;
-    font-size: 64px;
-    color: #336699;
-}
-
-#nav {
-    font-family: Ubuntu;
+.user-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 24px;
 }

@@ -1,73 +1,96 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
-<head>
+<head lang="zh-cn">
     <meta charset="UTF-8" />
     <meta name="keywords" content="{% block keyworks %}zxnn.net{% endblock %}" />
     <meta name="description" content="{% block description %}page of zxnn.net{% endblock %}" />
     <title>{% block title %}Zxnn.net{% endblock %}</title>
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes" />
-    <link rel="icon" type="image/png" href="/img/favicon.png" />
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link href="/img/favicon.png" rel="icon" type="image/png" />
+    <link href="/img/favicon.png" rel="apple-touch-icon-precomposed">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Ubuntu+Condensed'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.deep_purple-indigo.min.css" />
     <link rel="stylesheet" href="/css/layout.css">
-    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
     {% block style %}
     {% endblock %}
 </head>
 <body>
-    <div style="background-color: #592C63;">
-        <header id="header" class="container">
-            <div id="userinfo" style="float: right;">
-                <div class="btn-group" role="group">
-                    {% if user %}
-               
-                <a class="btn btn-primary" href="#"><i class="icon-user icon-white"></i>{{ user.nickname }}</a>
-                    <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="{{ log_url }}"><i class="icon-off"></i>Logout</a></li>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+        <header class="mdl-layout__header">
+            <!-- Top row, always visible -->
+            <div class="mdl-layout__header-row">
+                <!-- Title -->
+                <span class="mdl-layout-title">Zxnn.net</span>
+                <div class="mdl-layout-spacer"></div>
+                <div>
+                    <button id="menu" class="mdl-button mdl-js-button mdl-button--icon">
+                        <i class="material-icons">more_vert</i>
+                    </button>
+                    <ul for="menu" class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect">
+                        {% if user %}
+                        <li class="mdl-menu__item">
+                            <i class="material-icons">account_circle</i>
+                            <span>Hi, {{ user.nickname }}</span>
+                        </li>
+                        <li class="mdl-menu__item">
+                            <i class="material-icons">dashboard</i>
+                            <a href="/dashboard/main.html">Dashboard</a>
+                        </li>
+                        <li class="mdl-menu__item">
+                            <i class="material-icons">exit_to_app</i>
+                            <a href="{{ log_url }}">Logout</a>
+                        </li>
+                        {% else %}
+                        <li class="mdl-menu__item">
+                            <i class="material-icons">account_box</i>
+                            <a href="{{ log_url }}">Login</a>
+                        </li>
+                        {% endif %}
                     </ul>
-                    {% else %}
-               
-                <a class="btn btn-primary" href="{{ log_url }}"><i class="icon-user icon-white"></i>Login</a>
-                    {% endif %}
-               
                 </div>
             </div>
-            <h1 id="sitename"><a href="/">Zxnn</a></h1>
+            <!-- Bottom row, not visible on scroll -->
+            <div class="mdl-layout__header-row mdl-layout--large-screen-only">
+                <div class="mdl-layout-spacer"></div>
+                <!-- Navigation -->
+                <nav class="mdl-navigation">
+                    {% block menu %}{% endblock %}
+                </nav>
+            </div>
         </header>
-    </div>
-    <div style="background-color: #222;">
-        <div class="container" style="padding: 0;">
-            <nav class="navbar navbar-inverse" role="navigation" style="margin-bottom: 0;">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                </div>
-                <div class="collapse navbar-collapse" id="menu">
-                    <ul class="nav navbar-nav">
-                        {% block menu %}{% endblock %}
-           
-                    </ul>
-                </div>
+        <div class="mdl-layout__drawer">
+            <span class="mdl-layout-title">Zxnn.net</span>
+            <nav class="mdl-navigation">
+                <a class="mdl-navigation__link" href="/">Home</a>
+                <a class="mdl-navigation__link" href="/wow/main.html">Wow</a>
+                <a class="mdl-navigation__link" href="/tools/main.html">Tools</a>
+                <a class="mdl-navigation__link" href="http://blog.zxnn.net">Blog</a>
             </nav>
         </div>
+        <main id="container" class="mdl-layout__content">
+            <div class="mdl-grid">
+                <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
+                <div id="content" class="mdl-cell mdl-cell--8-col">
+                    {% block content %}
+                    {% endblock %}
+                </div>
+            </div>
+        </main>
+        <footer id="footer" class="mdl-mega-footer">
+            <div class="mdl-mega-footer--bottom-section">
+                by <a href="mailto:root@zxnn.net">將王車</a>&nbsp;
+                <span>2008-2015</span>&nbsp;
+                using:&nbsp;<a href="http://appengine.google.com/">App Engine</a>&nbsp;
+                ·&nbsp;<a href="http://www.getmdl.io/">DML</a>
+                <!--
+                <a href="http://twitter.github.com/bootstrap/">bootstrap</a>
+                    -->
+            </div>
+        </footer>
     </div>
-    <main id="container" class="container">
-        <div id="content" class="span8">
-            {% block content %}{% endblock %}
-        </div>
-        <div id="sidebar" class="span3 offset1">
-            {% block sidebar %}{% endblock %}
-        </div>
-    </main>
-    <footer id="footer" class="container">
-        <p>by <a href="mailto:root@zxnn.net">將王車</a>&nbsp;<span>2008-2015</span>&nbsp;using:&nbsp;<a href="http://appengine.google.com/">app engine</a>&nbsp;·&nbsp;<a href="http://twitter.github.com/bootstrap/">bootstrap</a></p>
-    </footer>
     <script type="text/javascript" src="/script/jquery-2.1.1.js"></script>
-    <script type="text/javascript" src="/script/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/script/material.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             $('#container').css('min-height', $(window).height() - 260);
@@ -83,7 +106,7 @@
     </script>
     {% block script %}
     {% endblock %}
-   
+
     <!-- google analytics -->
     <script type="text/javascript">
         var _gaq = _gaq || [];

@@ -1,9 +1,7 @@
 {% extends "template/admin_base.html" %}
 {% block title %}iLog - ls{% endblock %}
 {% block style %}
-<style type="text/css" title="Dark">
-@import url(/css/ilog.css);
-</style>
+<link rel="stylesheet" href="/css/ilog.css)">
 {% endblock %}
 
 {% block script %}
@@ -14,18 +12,21 @@
 {% endblock %}
 
 {% block content %}
-<h2>iLog</h2>
-<div id="divAddMessageContent">
-    <textarea id="txtMessage" name="txtMessage" type="text"></textarea>
-    <div style="text-align: right; margin-top: 5px;">
-        <img id="imgLoading" style="display: none;" src="/img/ajax-loader.gif" alt="loading..." />
-        <button id="btnAddMessage" name="btnAddMessage" type="button" class="btn">Enter to Submit</button>
-    </div>
+<h3>iLog</h3>
+<h4>Text:</h4>
+<div class="mdl-shadow--2dp">
+    
+    <p>
+        <textarea id="txtMessage" name="txtMessage" type="text" class="mdl-textfield__input"></textarea>
+    </p>
+    <p style="text-align: right">
+        <button id="btnAddMessage" name="btnAddMessage" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Publish</button>
+    </p>
 </div>
-<h3>ls:</h3>
-<div>
-    <dl id="itemls" class="ilog_items">
+<h4>ls:</h4>
+<div id="imgLoading" class="mdl-spinner mdl-js-spinner" style="display: none;"></div>
+<div id="itemList" class="mdl-shadow--2dp">
     {% include "template/ilog/ls.html" %}
-    </dl>
 </div>
-{% endblock %}
+
+    {% endblock %}

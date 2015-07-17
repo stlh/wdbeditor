@@ -1,78 +1,81 @@
 .widget {
-  border: 2px solid #336699;
-  border-top: 20px solid #336699;
-  width: 250px;
-  padding: 6px;
-  min-height: 256px;
+    border: 2px solid #336699;
+    border-top: 20px solid #336699;
+    width: 250px;
+    padding: 6px;
+    min-height: 256px;
 }
 
 #todoneItems {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
-#todoneItems > li {
-  list-style: none;
-  width: 100%;
+    #todoneItems > li {
+        list-style: none;
+        width: 100%;
+    }
+
+        #todoneItems > li:hover {
+            background-color: Red;
+        }
+
+        #todoneItems > li > input[type="checkbox"] {
+            margin-right: 1ex;
+        }
+
+#content {
+    margin: 0;
 }
 
-#todoneItems > li:hover {
-  background-color: Red;
+h1, h2, h3, h4, h5, h6 {
+    color: #f6f3e8;
 }
 
-#todoneItems > li > input[type="checkbox"]{
-  margin-right: 1ex;
+#sidebar {
+    display: none;
 }
-
-#content { margin: 0; }
-
-h1, h2, h3, h4, h5, h6
-{
-	color: #f6f3e8;
-}
-
-#sidebar { display: none; }
 
 #load {
-  position: fixed;
-  top: 1em;
-  right: 1em;
-  display: none;
-  border: 1px solid Red;
-  background-color: Yellow;
+    position: fixed;
+    top: 1em;
+    right: 1em;
+    display: none;
+    border: 1px solid Red;
+    background-color: Yellow;
 }
 
 #projectListContent {
 }
 
 #projectList {
-  font-family: "Segoe Print",Helvetica;
-  padding: 0;
-  margin: 0;
-  position: relative;
-  top: 1px;
+    font-family: "Segoe Print",Helvetica;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    top: 1px;
 }
 
-#projectList li {
-  margin: 0 0 0 0.3em;
-  padding: 0 0.5em 0 0.5em;
-  border: 1px solid #BBBBBB;
-  float: left;
-  list-style-type: none;
-}
+    #projectList li {
+        margin: 0 0 0 0.3em;
+        padding: 0 0.5em 0 0.5em;
+        border: 1px solid #BBBBBB;
+        float: left;
+        list-style-type: none;
+    }
 
-#projectList li a {
-  text-decoration: none;
-}
+        #projectList li a {
+            text-decoration: none;
+        }
 
-#projectList li:hover {
-  background-color: #303030;
-}
+        #projectList li:hover {
+            background-color: #303030;
+        }
 
-#projectList li.active {
-  background-color: #242424;
-  border-bottom: 1px solid #242424;
-}
+        #projectList li.active {
+            background-color: #242424;
+            border-bottom: 1px solid #242424;
+        }
 
 /*
 #projectList li {
@@ -114,115 +117,126 @@ h1, h2, h3, h4, h5, h6
 }*/
 
 #projectsContent {
-  border: 1px solid #bdbdbd;
-  min-height: 30em;
-  clear: both;
+    border: 1px solid #bdbdbd;
+    min-height: 30em;
+    clear: both;
 }
 
 #projectsInfoContent .infoDiv {
-  border: 1px solid #bdbdbd;
+    border: 1px solid #bdbdbd;
 }
 
 #projectsInfoContent .infoDivTitle {
-  margin: 0;
-  padding: 0.3em;
-  border-bottom: 1px solid #bdbdbd;
-  font-weight: bold;
+    margin: 0;
+    padding: 0.3em;
+    border-bottom: 1px solid #bdbdbd;
+    font-weight: bold;
 }
 
 #projectsInfoContent div.infoDivContent {
-  padding: 0.3em;
+    padding: 0.3em;
 }
 
 #projectsInfoContent ol.commentList {
-  margin: 0;
-  padding: 0;
-  margin-left: 2em;
-  font-size: smaller;
-  line-height: 1.2em;
+    margin: 0;
+    padding: 0;
+    margin-left: 2em;
+    font-size: smaller;
+    line-height: 1.2em;
 }
 
-#projectsInfoContent ol.commentList li{
-}
+    #projectsInfoContent ol.commentList li {
+    }
 
 .content-item {
-  display: none;
+    display: none;
 }
 
 blockquote {
-  background-color: #e5e5e5;
-  border: 1px solid #bbbbbb;
+    background-color: #e5e5e5;
+    border: 1px solid #bbbbbb;
 }
 
 .projectBoxToolBar {
-  border-bottom: 1px solid #bbbbbb;
-  padding: 0.2em;
+    border-bottom: 1px solid #bbbbbb;
+    padding: 0.2em;
 }
 
 .itemList {
-  padding: 0.5em;
+    padding: 0.5em;
 }
 
 .projectBox {
-  display: none;
+    display: none;
 }
 
 .currentProject {
-  display: block;
+    display: block;
 }
 
 .rowa {
 }
 
 .row:hover {
-  background-color: #242424;
+    background-color: #242424;
 }
 
 .rowb {
-  background-color: rgba(200, 200, 200, 0.1);
+    background-color: rgba(200, 200, 200, 0.1);
 }
 
 .box {
-  background-color: #e5e5e5;
-  border: 1px solid  #bbb;
-  padding: 1em;
+    background-color: #e5e5e5;
+    border: 1px solid #bbb;
+    padding: 1em;
 }
 
 .itemListContent {
-  padding: 0.5em;
+    padding: 0.5em;
 }
 
 table.itemList {
-  border-collapse:collapse;
+    border-collapse: collapse;
 }
 
-table.itemList td,.itemList th{
-  border:1px #BBB solid;
-  padding: 0.2em;
-}
+    table.itemList td, .itemList th {
+        border: 1px #BBB solid;
+        padding: 0.2em;
+    }
 
 .dialogBox {
-  background-color: #242424;
-  background-image: url(img/Fbg.png);
-  border: 1px solid  #bbb;
-  min-height: 10em;
+    background-color: #242424;
+    background-image: url(img/Fbg.png);
+    border: 1px solid #bbb;
+    min-height: 10em;
 }
 
 .dialogBoxTitle {
-  border-bottom:1px #BBB solid;
-  padding: 0.5em;
+    border-bottom: 1px #BBB solid;
+    padding: 0.5em;
 }
 
 .dialogBoxContent {
-  padding: 0.5em;
-  clear: both;
+    padding: 0.5em;
+    clear: both;
 }
 
-.level { width: 0.3em; }
-.level1 { background-color: #359AFF;}
-.level2 { background-color: #0060BF;}
-.level3 { background-color: #EF5200;}
+.level {
+    width: 0.3em;
+}
 
-.canSelect{
-  cursor: pointer;
+.level1 {
+    background-color: #359AFF;
+}
+
+.level2 {
+    background-color: #0060BF;
+}
+
+.level3 {
+    background-color: #EF5200;
+}
+
+.canSelect {
+    cursor: pointer;
 }
