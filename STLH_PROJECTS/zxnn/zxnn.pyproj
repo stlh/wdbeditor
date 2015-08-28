@@ -73,9 +73,9 @@
     <Content Include="static\script\wow.js" />
     <Content Include="zxnn\gae\template\admin_base.html" />
     <Content Include="zxnn\gae\template\base.html" />
-    <Content Include="zxnn\gae\template\bd\avatar.html" />
-    <Content Include="zxnn\gae\template\bd\bind_id.html" />
-    <Content Include="zxnn\gae\template\bd\main.html" />
+    <Content Include="zxnn\gae\template\dashboard\avatar.html" />
+    <Content Include="zxnn\gae\template\dashboard\bind_id.html" />
+    <Content Include="zxnn\gae\template\dashboard\main.html" />
     <Content Include="zxnn\gae\template\countdown\countdown.html" />
     <Content Include="zxnn\gae\template\d3\main.html" />
     <Content Include="zxnn\gae\template\ilog\ls.html" />
@@ -121,7 +121,7 @@
     <Folder Include="static\img\" />
     <Folder Include="static\script\" />
     <Folder Include="zxnn\gae\template\" />
-    <Folder Include="zxnn\gae\template\bd\" />
+    <Folder Include="zxnn\gae\template\dashboard\" />
     <Folder Include="zxnn\gae\template\countdown\" />
     <Folder Include="zxnn\gae\template\d3\" />
     <Folder Include="zxnn\gae\template\ilog\" />

@@ -44,7 +44,7 @@ handlers:
   script: zxnn.gae.dashboard.app
 
 - url: /public/avatar
-  script: bd.app
+  script: zxnn.gae.dashboard.app
 
 - url: /todone/.*
   script: zxnn.gae.todone.app

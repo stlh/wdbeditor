@@ -34,7 +34,7 @@ class DashboardMainHandler(webapp2.RequestHandler):
             'log_url': log_url,
             'module': 'dashboard',
         }
-        template = env.get_template('template/bd/main.html')
+        template = env.get_template('template/dashboard/main.html')
         self.response.out.write(template.render(template_values))
 
 class BindIdHandler(webapp2.RequestHandler):
@@ -53,7 +53,7 @@ class BindIdHandler(webapp2.RequestHandler):
             'log_url': log_url,
             'module': 'dashboard',
         }
-        template = env.get_template('template/bd/bind_id.html')
+        template = env.get_template('template/dashboard/bind_id.html')
         self.response.out.write(template.render(template_values))
     def post(self):
         guser = users.get_current_user()
@@ -72,7 +72,7 @@ class BindIdHandler(webapp2.RequestHandler):
                 'error_message': 'ID already exists. please choose another one.',
                 'module': 'dashboard',
             }
-            template = env.get_template('template/bd/bind_id.html')
+            template = env.get_template('template/dashboard/bind_id.html')
             self.response.out.write(template.render(template_values))
         else:
             new_web_user_id = self.request.get('txtId')
@@ -96,7 +96,7 @@ class AvatarHandler(webapp2.RequestHandler):
             'upload_url': upload_url,
             'module': 'avatar',
         }
-        template = env.get_template('template/bd/avatar.html')
+        template = env.get_template('template/dashboard/avatar.html')
         self.response.out.write(template.render(template_values))
 
 class AvatarUploadHandler(blobstore_handlers.BlobstoreUploadHandler):

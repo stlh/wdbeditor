@@ -1,0 +1,19 @@
+{% extends "template/base.html" %}
+
+{% block title %}Dashboard - Zxnn.net{% endblock %}
+
+{% block content %}
+<h2>Bind ID</h2>
+<form action="/dashboard/bind_id.html" method="post">
+{% if error_message %}
+<div>
+	<span class="error_message">{{ error_message }}</span><br />
+</div>
+{% endif %}
+<span>Bind ID to your Account:</span>
+<div class="input-append">
+    <input class="span2 input-medium" type="text" size="16" id="txtId" name="txtId" />
+    <button type="submit" id="btnAddId" name="btnAddId" class="btn">Bind</button>
+</div>
+</form>
+{% endblock %}
