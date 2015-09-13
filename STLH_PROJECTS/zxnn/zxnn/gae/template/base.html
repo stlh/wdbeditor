@@ -2,16 +2,22 @@
 <html>
 <head lang="zh-cn">
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="keywords" content="{% block keyworks %}zxnn.net{% endblock %}" />
     <meta name="description" content="{% block description %}page of zxnn.net{% endblock %}" />
     <title>{% block title %}Zxnn.net{% endblock %}</title>
-    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes" />
-    <link href="/img/favicon.png" rel="icon" type="image/png" />
-    <link href="/img/favicon.png" rel="apple-touch-icon-precomposed">
-    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Ubuntu+Condensed'>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0" />
+    <link rel="icon" sizes="16x16" href="/img/favicon.png" type="image/png" />
+    <link rel="icon" sizes="128x128" href="/img/che_128x128.png" type="image/png" />
+    <link rel="icon" sizes="192x192" href="/img/che_192x192.png" type="image/png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="/img/che_120x120.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="/img/che_152x152.png" />
+    <link rel="apple-touch-icon" sizes="192x192" href="/img/che_192x192.png" />
+    <link rel="apple-touch-icon" href="/img/che.png" />
+    <link href='https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en' rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.deep_purple-indigo.min.css" />
-    <link rel="stylesheet" href="/css/layout.css">
+    <link rel="stylesheet" href="/css/layout.css" />
     {% block style %}
     {% endblock %}
 </head>
@@ -63,9 +69,15 @@
             <span class="mdl-layout-title">Zxnn.net</span>
             <nav class="mdl-navigation">
                 <a class="mdl-navigation__link" href="/">Home</a>
+                {% if user %}
+                <a class="mdl-navigation__link" href="/dashboard/main.html">Dashboard</a>
+                {% endif %}
                 <a class="mdl-navigation__link" href="/wow/main.html">Wow</a>
                 <a class="mdl-navigation__link" href="/tools/main.html">Tools</a>
                 <a class="mdl-navigation__link" href="http://blog.zxnn.net">Blog</a>
+                {% if user %}
+                <a class="mdl-navigation__link" href="{{ log_url }}">Logout</a>
+                {% endif %}
             </nav>
         </div>
         <main class="mdl-layout__content">
@@ -93,15 +105,17 @@
     <script type="text/javascript" src="/script/material.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
-            $('#container').css('min-height', $(window).height() - 260);
+            var jContainer = $('#container');
+
             $(window).resize(function () {
-                $('#container').css('min-height', $(window).height() - 260);
+                setContainerMinHeight();
             });
 
-            $('#menu a').click(function (e) {
-                //e.preventDefault();
-                $(this).tab('show');
-            });
+            setContainerMinHeight();
+
+            function setContainerMinHeight() {
+                jContainer.css('min-height', $(window).height() - (128 + 32 + 20 + 32));
+            }
         })
     </script>
     {% block script %}
