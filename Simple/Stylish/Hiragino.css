@@ -1,3 +1,4 @@
+/* base font define */
 @font-face {
     font-family: serif;
     /*src: local('Roboto Slab');*/
@@ -9,12 +10,20 @@
     /*src: local('Roboto');*/
     src: local('Source Sans Pro');
 }
+
+@font-face {
+    font-family: sans-serif;
+    unicode-range: U+2E80-FFFF;
+    src: local('Hiragino Sans GB');
+}
+
 @font-face {
     font-family: monospace;
     /*src: local('Roboto Mono');*/
     src: lcoal('Source Code Pro');
 }
 
+/* replace Arial */
 @font-face {
     font-family: Arial;
     /*src: local('Roboto');*/
@@ -27,12 +36,7 @@
     src: local('Hiragino Sans GB');
 }
 
-@font-face {
-    font-family: sans-serif;
-    unicode-range: U+2E80-FFFF;
-    src: local('Hiragino Sans GB');
-}
-
+/* replace chinese font */
 @font-face {
     font-family: '宋体';
     unicode-range: U+2E80-FFFF;
