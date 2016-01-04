@@ -1,62 +1,58 @@
 /* base font define */
 @font-face {
     font-family: serif;
-    /*src: local('Roboto Slab');*/
     src: local('Source Serif Pro');
 }
 
 @font-face {
     font-family: sans-serif;
-    /*src: local('Roboto');*/
     src: local('Source Sans Pro');
 }
 
 @font-face {
     font-family: sans-serif;
-    unicode-range: U+2E80-FFFF;
+    unicode-range: U+4E00-9FBB, U+FF00-FFEF, U+2E80-2EFF, U+3000-303F, U+31C0-31EF;
     src: local('Hiragino Sans GB');
 }
 
 @font-face {
     font-family: monospace;
-    /*src: local('Roboto Mono');*/
     src: lcoal('Source Code Pro');
 }
 
 /* replace Arial */
 @font-face {
     font-family: Arial;
-    /*src: local('Roboto');*/
     src: local('Source Sans Pro');
 }
 
 @font-face {
     font-family: Arial;
-    unicode-range: U+2E80-FFFF;
+    unicode-range: U+4E00-9FBB, U+FF00-FFEF, U+2E80-2EFF, U+3000-303F, U+31C0-31EF;
     src: local('Hiragino Sans GB');
 }
 
 /* replace chinese font */
 @font-face {
     font-family: '宋体';
-    unicode-range: U+2E80-FFFF;
+    unicode-range: U+4E00-9FBB, U+FF00-FFEF, U+2E80-2EFF, U+3000-303F, U+31C0-31EF;
     src: local('Hiragino Sans GB');
 }
 
 @font-face {
     font-family: SimSun;
-    unicode-range: U+2E80-FFFF;
+    unicode-range: U+4E00-9FBB, U+FF00-FFEF, U+2E80-2EFF, U+3000-303F, U+31C0-31EF;
     src: local('Hiragino Sans GB');
 }
 
 @font-face {
     font-family: '微软雅黑';
-    unicode-range: U+2E80-FFFF;
+    unicode-range: U+4E00-9FBB, U+FF00-FFEF, U+2E80-2EFF, U+3000-303F, U+31C0-31EF;
     src: local('Hiragino Sans GB');
 }
     
 @font-face {
     font-family: 'Microsoft YaHei';
-    unicode-range: U+2E80-FFFF;
+    unicode-range: U+4E00-9FBB, U+FF00-FFEF, U+2E80-2EFF, U+3000-303F, U+31C0-31EF;
     src: local('Hiragino Sans GB');
 }
