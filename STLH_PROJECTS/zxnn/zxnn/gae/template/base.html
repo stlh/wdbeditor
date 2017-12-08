@@ -40,10 +40,6 @@
                             <span>Hi, {{ user.nickname }}</span>
                         </li>
                         <li class="mdl-menu__item">
-                            <i class="material-icons">dashboard</i>
-                            <a href="/dashboard/main.html">Dashboard</a>
-                        </li>
-                        <li class="mdl-menu__item">
                             <i class="material-icons">exit_to_app</i>
                             <a href="{{ log_url }}">Logout</a>
                         </li>
@@ -71,6 +67,7 @@
                 <a class="mdl-navigation__link" href="/">Home</a>
                 {% if user %}
                 <a class="mdl-navigation__link" href="/dashboard/main.html">Dashboard</a>
+                <a class="mdl-navigation__link" href="/ilog/main.html">iLog</a>
                 {% endif %}
                 <a class="mdl-navigation__link" href="/wow/main.html">Wow</a>
                 <a class="mdl-navigation__link" href="/tools/main.html">Tools</a>
