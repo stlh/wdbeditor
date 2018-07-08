@@ -1,6 +1,6 @@
 #Hiragino
 
-Style for Stylish, use Adobe Source font family and Hiragino Sans GB
+Style for ~~Stylish~~ Stylus, use Adobe Source font family and Hiragino Sans GB
 
 Download fonts:
 * [source serif pro](https://github.com/adobe-fonts/source-serif-pro)
