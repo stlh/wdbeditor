@@ -2,13 +2,13 @@ namespace Net.Zxnn.Dnd.Core
 {
     public abstract class Weapon : Equipment
     {
+        public string DiceType { get; set; }
+
         public string Name { get; set; }
-        public int Min { get; set; }
-        public int Max { get; set; }
-        public Weapon(string name, int min, int max) {
+
+        public Weapon(string name, string diceType) {
             this.Name = name;
-            this.Min = min;
-            this.Max = max;
+            this.DiceType = diceType;
         }
     }
 }
