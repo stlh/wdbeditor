@@ -1,5 +1,5 @@
 ﻿using Net.Zxnn.Dnd.Core;
-using Net.Zxnn.Dnd.Weapons;
+using Net.Zxnn.Dnd.Core.Equipments.Weapons;
 
 namespace Net.Zxnn.Dnd.Core
 {
@@ -7,12 +7,18 @@ namespace Net.Zxnn.Dnd.Core
     {
         static void Main(string[] args)
         {
-            Character character001 = new Character("Skoll");
+            Character character001 = new CharacterBuilder()
+                .WithName("Skoll-001")
+                .Build();
 
-            character001.Weapon = new Axe();
+            Character character002 = new CharacterBuilder()
+                .WithName("Skoll-002")
+                .Build();
+
+            character001.EquipmentSockets.Weapon = new Battleaxe();
 
             character001.move();
-            character001.attack();
+            character001.attack(character002);
         }
     }
 }

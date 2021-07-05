@@ -17,5 +17,12 @@ namespace Net.Zxnn.Dnd.Core
         {
             return random.Next(1, this.Faces + 1);
         }
+
+        private static Dice d20 = new Dice(20);
+        public static Dice D20 {
+            get {
+                return d20;
+            }
+        }
     }
 }

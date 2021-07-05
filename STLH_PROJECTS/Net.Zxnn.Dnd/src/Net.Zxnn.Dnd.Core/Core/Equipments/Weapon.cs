@@ -1,4 +1,4 @@
-namespace Net.Zxnn.Dnd.Core
+namespace Net.Zxnn.Dnd.Core.Equipments
 {
     public abstract class Weapon : Equipment
     {

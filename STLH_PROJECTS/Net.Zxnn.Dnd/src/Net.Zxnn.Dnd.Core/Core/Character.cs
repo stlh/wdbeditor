@@ -4,17 +4,60 @@ namespace Net.Zxnn.Dnd.Core
 {
     public class Character : ICharacter
     {
-        public Character(string name)
+        public Character()
         {
-            this.Name = name;
         }
+
         public string Name { get; set; }
 
-        public Weapon Weapon {get; set; }
+        public Race Race { get; set; }
 
-        public void attack()
+        public Class Class { get; set; }
+
+        public Abilities Abilities { get; set; }
+
+        public int ArmorClass {
+            get {
+                //10 + Dexterity Modifier + Armor Modifier
+                return 10
+                    + AbilityTools.GetAbilityModifier(this.Abilities.Dexterity)
+                    + this.EquipmentSockets?.Armor?.ArmorClass ?? 0
+                    + this.EquipmentSockets?.Shield?.ArmorClass ?? 0;
+            }
+        }
+
+        public EquipmentSockets EquipmentSockets { get; set; }
+
+        public int HitPoint { get; set; }
+        
+        public int HitPointMax { get; set; }
+        
+        public int ExperlencePoints { get; set; }
+
+        public void attack(ICharacter target)
         {
-            Console.WriteLine($"{Name} is attacking by {Weapon.Name} {DiceBox.Roll(this.Weapon == null ? this.Weapon.DiceType : "1d3")}");
+            int hit = Dice.D20.Roll();
+            int abilityModifier = AbilityTools.GetAbilityModifier(this.Abilities?.Strength ?? 10);
+
+            Console.WriteLine($"{this.Name} roll(d20): {hit} + {abilityModifier}");
+
+            switch (hit) {
+                case 20:
+                break;
+                case 1:
+                break;
+                default:
+                break;
+            }
+
+            Boolean isNotMiss = hit >= target.ArmorClass;
+            
+            if (isNotMiss) {
+                int point1 = DiceBox.Roll(this.EquipmentSockets?.Weapon.DiceType);
+                int point2 = point1 + abilityModifier;
+                
+                Console.WriteLine($"{Name} use {this.EquipmentSockets?.Weapon.Name} hit roll({this.EquipmentSockets?.Weapon.DiceType}) {point1} + {abilityModifier} total {point2}");
+            }
         }
 
         public void move()
