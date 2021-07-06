@@ -14,6 +14,8 @@ namespace Net.Zxnn.Dnd.Core
 
         public Class Class { get; set; }
 
+        public int Level { get; set; }
+
         public Abilities Abilities { get; set; }
 
         public int ArmorClass {
@@ -28,13 +30,13 @@ namespace Net.Zxnn.Dnd.Core
 
         public EquipmentSockets EquipmentSockets { get; set; }
 
-        public int HitPoint { get; set; }
+        public int HitPoints { get; set; }
         
         public int HitPointMax { get; set; }
         
         public int ExperlencePoints { get; set; }
 
-        public void attack(ICharacter target)
+        public void attack(Character target)
         {
             int hit = Dice.D20.Roll();
             int abilityModifier = AbilityTools.GetAbilityModifier(this.Abilities?.Strength ?? 10);
@@ -50,13 +52,22 @@ namespace Net.Zxnn.Dnd.Core
                 break;
             }
 
-            Boolean isNotMiss = hit >= target.ArmorClass;
+            Boolean isNotMiss = hit + abilityModifier >= target.ArmorClass;
             
             if (isNotMiss) {
                 int point1 = DiceBox.Roll(this.EquipmentSockets?.Weapon.DiceType);
                 int point2 = point1 + abilityModifier;
                 
                 Console.WriteLine($"{Name} use {this.EquipmentSockets?.Weapon.Name} hit roll({this.EquipmentSockets?.Weapon.DiceType}) {point1} + {abilityModifier} total {point2}");
+                Console.WriteLine($"{target.Name} been hit {point2}, hit points: {target.HitPoints -= point2}");
+
+                if (target.HitPoints <= 0) {
+                    target.HitPoints = 0;
+                    Console.WriteLine($"{target.Name} lose consciousness");
+                }
+            }
+            else {
+                Console.WriteLine($"{Name} is miss");
             }
         }
 

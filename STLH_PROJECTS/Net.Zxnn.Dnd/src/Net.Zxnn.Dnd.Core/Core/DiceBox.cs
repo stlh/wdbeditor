@@ -7,7 +7,7 @@ namespace Net.Zxnn.Dnd.Core
     public static class DiceBox
     {
         private static Dictionary<string, List<Dice>> _cache = new Dictionary<string, List<Dice>>();
-        public static Regex regex = new Regex(@"^\d+d\d+$");
+        public static Regex regex = new Regex(@"^\d*d\d+$");
 
         public static int Roll(string str = "1d6")
         {
@@ -22,6 +22,11 @@ namespace Net.Zxnn.Dnd.Core
                 string[] strs = str.Split('d');
 
                 diceList = new List<Dice>();
+
+                if (strs[0] == String.Empty) {
+                    strs[0] = "1";
+                }
+
                 if (int.TryParse(strs[0], out int count) && int.TryParse(strs[1], out int faces))
                 {
                     for (int i = 0; i < count; i++)
@@ -43,6 +48,10 @@ namespace Net.Zxnn.Dnd.Core
             }
 
             return point;
+        }
+
+        public static int MaxOfDice(String str) {
+            return Convert.ToInt32(str.Split('d')[1]);
         }
     }
 }

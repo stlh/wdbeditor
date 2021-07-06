@@ -7,18 +7,26 @@ namespace Net.Zxnn.Dnd.Core
     {
         static void Main(string[] args)
         {
-            Character character001 = new CharacterBuilder()
+            Character c001 = new CharacterBuilder()
                 .WithName("Skoll-001")
                 .Build();
 
-            Character character002 = new CharacterBuilder()
+            Character c002 = new CharacterBuilder()
                 .WithName("Skoll-002")
                 .Build();
 
-            character001.EquipmentSockets.Weapon = new Battleaxe();
+            c001.EquipmentSockets.Weapon = new Battleaxe();
+            c002.EquipmentSockets.Weapon = new Battleaxe();
 
-            character001.move();
-            character001.attack(character002);
+            c001.move();
+            c002.move();
+
+            while (c001.HitPoints > 0 && c002.HitPoints > 0) {
+                c001.attack(c002);
+                if (c002.HitPoints > 0) {
+                    c002.attack(c001);
+                }
+            }
         }
     }
 }

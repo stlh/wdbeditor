@@ -61,6 +61,8 @@ namespace Net.Zxnn.Dnd.Core
             else {
                 character.Class = this.clazz;
             }
+
+            character.Level = 1;
             
             if (this.abilities == null) {
                 character.Abilities = new Abilities() {
@@ -75,6 +77,9 @@ namespace Net.Zxnn.Dnd.Core
             else {
                 character.Abilities = this.abilities;
             }
+
+            character.HitPointMax = DiceBox.MaxOfDice(character.Class.HitDice) + AbilityTools.GetAbilityModifier(character.Abilities.Constitution);
+            character.HitPoints = character.HitPointMax;
 
             return character;
         }
