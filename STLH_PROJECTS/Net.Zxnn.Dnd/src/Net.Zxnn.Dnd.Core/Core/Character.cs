@@ -1,5 +1,8 @@
 using System;
 
+using Net.Zxnn.Dnd.Core.Class;
+using Net.Zxnn.Dnd.Core.Race;
+
 namespace Net.Zxnn.Dnd.Core
 {
     public class Character : ICharacter
@@ -10,9 +13,9 @@ namespace Net.Zxnn.Dnd.Core
 
         public string Name { get; set; }
 
-        public Race Race { get; set; }
+        public DndRace Race { get; set; }
 
-        public Class Class { get; set; }
+        public DndClass Class { get; set; }
 
         public int Level { get; set; }
 
@@ -20,11 +23,10 @@ namespace Net.Zxnn.Dnd.Core
 
         public int ArmorClass {
             get {
-                //10 + Dexterity Modifier + Armor Modifier
-                return 10
-                    + AbilityTools.GetAbilityModifier(this.Abilities.Dexterity)
-                    + this.EquipmentSockets?.Armor?.ArmorClass ?? 0
-                    + this.EquipmentSockets?.Shield?.ArmorClass ?? 0;
+                // Dexterity Modifier + Armor Modifier
+                return this.EquipmentSockets?.Armor?.ArmorClass ?? 10
+                    + this.EquipmentSockets?.Shield?.ArmorClass ?? 0
+                    + AbilityTools.GetAbilityModifier(this.Abilities.Dexterity);
             }
         }
 

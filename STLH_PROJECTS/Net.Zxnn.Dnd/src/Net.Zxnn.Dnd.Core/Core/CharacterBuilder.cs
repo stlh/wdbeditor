@@ -1,13 +1,17 @@
-using Net.Zxnn.Dnd.Core.Races;
-using Net.Zxnn.Dnd.Core.Classes;
+using System;
 
-namespace Net.Zxnn.Dnd.Core
+using Net.Zxnn.Dnd.Core.Class;
+using Net.Zxnn.Dnd.Core.Class.Classes;
+using Net.Zxnn.Dnd.Core.Race;
+using Net.Zxnn.Dnd.Core.Race.Races;
+
+  namespace Net.Zxnn.Dnd.Core
 {
     public class CharacterBuilder
     {
         private string name;
-        private Race race;
-        private Class clazz;
+        private DndRace race;
+        private DndClass clazz;
         private Abilities abilities;
         public CharacterBuilder(){
 
@@ -20,7 +24,7 @@ namespace Net.Zxnn.Dnd.Core
             return this;
         }
 
-        public CharacterBuilder WithRace(Race race)
+        public CharacterBuilder WithRace(DndRace race)
         {
             this.race = race;
 
@@ -34,7 +38,7 @@ namespace Net.Zxnn.Dnd.Core
             return this;
         }
 
-        public CharacterBuilder WithClass(Class clazz)
+        public CharacterBuilder WithClass(DndClass clazz)
         {
             this.clazz = clazz;
 

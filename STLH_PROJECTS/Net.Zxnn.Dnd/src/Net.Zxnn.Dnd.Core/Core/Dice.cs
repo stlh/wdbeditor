@@ -6,7 +6,7 @@ namespace Net.Zxnn.Dnd.Core
     public class Dice
     {
         private static readonly Random random = new Random();
-        public int Faces { get; set; }
+        public int Faces { get; }
 
         public Dice(int faces = 6)
         {
