@@ -2,7 +2,7 @@ using Net.Zxnn.Dnd.Core;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace net.zxnn.dnd.test
+namespace Net.Zxnn.Dnd.Test
 {
     public class DiceBoxTest
     {
