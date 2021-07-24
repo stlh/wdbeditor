@@ -47,29 +47,29 @@ using Net.Zxnn.Dnd.Core.Race.Races;
 
         public Character Build()
         {
-            Character character = new Character();
+            Character c = new Character();
 
-            character.Name = this.name;
-            character.EquipmentSockets = new EquipmentSockets();
+            c.Name = this.name;
+            c.EquipmentSockets = new EquipmentSockets();
 
-            if (this.race == null) {
-                character.Race = new Human();
-            }
-            else {
-                character.Race = this.race;
+            if (this.race == null)
+            {
+                throw new Exception("must choose a race");
             }
 
-            if (this.clazz == null) {
-                character.Class = new Fighter();
-            }
-            else {
-                character.Class = this.clazz;
+            if (this.clazz == null)
+            {
+                throw new Exception("must choose a class");
             }
 
-            character.Level = 1;
+            c.Race = this.race;
+
+            c.Class = this.clazz;
+
+            c.Level = 1;
             
             if (this.abilities == null) {
-                character.Abilities = new Abilities() {
+                c.Abilities = new Abilities() {
                     Strength = 15,
                     Dexterity = 12,
                     Constitution = 14,
@@ -79,13 +79,13 @@ using Net.Zxnn.Dnd.Core.Race.Races;
                 };
             }
             else {
-                character.Abilities = this.abilities;
+                c.Abilities = this.abilities;
             }
 
-            character.HitPointMax = DiceBox.MaxOfDice(character.Class.HitDice) + AbilityTools.GetAbilityModifier(character.Abilities.Constitution);
-            character.HitPoints = character.HitPointMax;
+            c.HitPointMax = DiceBox.MaxOfDice(c.Class.HitDice) + AbilityTools.GetAbilityModifier(c.Abilities.Constitution);
+            c.HitPoints = c.HitPointMax;
 
-            return character;
+            return c;
         }
     }
 }

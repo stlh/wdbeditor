@@ -1,4 +1,6 @@
 ﻿using Net.Zxnn.Dnd.Core;
+using Net.Zxnn.Dnd.Core.Class;
+using Net.Zxnn.Dnd.Core.Race;
 using Net.Zxnn.Dnd.Core.Equipments.Weapons;
 
 namespace Net.Zxnn.Dnd.Core
@@ -8,10 +10,14 @@ namespace Net.Zxnn.Dnd.Core
         static void Main(string[] args)
         {
             Character c001 = new CharacterBuilder()
+                .WithRace(DndRace.Human)
+                .WithClass(DndClass.Fighter)
                 .WithName("Skoll-001")
                 .Build();
 
             Character c002 = new CharacterBuilder()
+                .WithRace(DndRace.Human)
+                .WithClass(DndClass.Fighter)
                 .WithName("Skoll-002")
                 .Build();
 
