@@ -4,7 +4,10 @@ namespace Net.Zxnn.Dnd.Core.Race.Races
 {
     public class Human : DndRace
     {
-        public override int AbilityScoreIncrease => 1;
+        public Human()
+        {
+            _abilityScoreIncrease = new AbilityScoreIncrease(1, 1, 1, 1, 1, 1);
+        }
         public override int Age => throw new NotImplementedException();
         public override int Alignment => 0;
         public override RaceSize Size => RaceSize.Medium;

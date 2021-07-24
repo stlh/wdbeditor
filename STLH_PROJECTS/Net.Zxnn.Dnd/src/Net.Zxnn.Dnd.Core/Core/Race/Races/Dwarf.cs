@@ -4,7 +4,10 @@ namespace Net.Zxnn.Dnd.Core.Race.Races
 {
     public class Dwarf : DndRace
     {
-        public override int AbilityScoreIncrease => 1;
+        public Dwarf()
+        {
+            _abilityScoreIncrease = new AbilityScoreIncrease(2, 0, 0, 0, 0, 0);
+        }
         public override int Age => throw new NotImplementedException();
         public override int Alignment => 0;
         public override RaceSize Size => RaceSize.Medium;
