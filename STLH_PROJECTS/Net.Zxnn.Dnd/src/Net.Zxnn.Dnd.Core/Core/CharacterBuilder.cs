@@ -12,7 +12,7 @@ using Net.Zxnn.Dnd.Core.Race.Races;
         private string name;
         private DndRace race;
         private DndClass clazz;
-        private Abilities abilities;
+        private AbilityScores abilities;
         public CharacterBuilder(){
 
         }
@@ -31,7 +31,7 @@ using Net.Zxnn.Dnd.Core.Race.Races;
             return this;
         }
 
-        public CharacterBuilder WithAbilities(Abilities abilities)
+        public CharacterBuilder WithAbilities(AbilityScores abilities)
         {
             this.abilities = abilities;
 
@@ -69,20 +69,13 @@ using Net.Zxnn.Dnd.Core.Race.Races;
             c.Level = 1;
             
             if (this.abilities == null) {
-                c.Abilities = new Abilities() {
-                    Strength = 15,
-                    Dexterity = 12,
-                    Constitution = 14,
-                    Intelligence = 13,
-                    Wisdom = 10,
-                    Charisma = 8
-                };
+                c.AbilityScores = AbilityScores.GetRandomStandardSetOfScores();
             }
             else {
-                c.Abilities = this.abilities;
+                c.AbilityScores = this.abilities;
             }
 
-            c.HitPointMax = DiceBox.MaxOfDice(c.Class.HitDice) + AbilityTools.GetAbilityModifier(c.Abilities.Constitution);
+            c.HitPointMax = DiceBox.MaxOfDice(c.Class.HitDice) + AbilityTools.GetAbilityModifier(c.AbilityScores.Constitution);
             c.HitPoints = c.HitPointMax;
 
             return c;

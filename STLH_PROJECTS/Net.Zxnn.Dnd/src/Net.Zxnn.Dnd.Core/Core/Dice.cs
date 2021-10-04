@@ -5,7 +5,6 @@ namespace Net.Zxnn.Dnd.Core
     
     public class Dice
     {
-        private static readonly Random random = new Random();
         public int Faces { get; }
 
         public Dice(int faces = 6)
@@ -15,6 +14,7 @@ namespace Net.Zxnn.Dnd.Core
 
         public int Roll()
         {
+            Random random = new Random();
             return random.Next(1, this.Faces + 1);
         }
 

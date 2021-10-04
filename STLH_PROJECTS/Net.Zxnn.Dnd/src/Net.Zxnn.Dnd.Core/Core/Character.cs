@@ -19,14 +19,14 @@ namespace Net.Zxnn.Dnd.Core
 
         public int Level { get; set; }
 
-        public Abilities Abilities { get; set; }
+        public AbilityScores AbilityScores { get; set; }
 
         public int ArmorClass {
             get {
                 // Dexterity Modifier + Armor Modifier
                 return this.EquipmentSockets?.Armor?.ArmorClass ?? 10
                     + this.EquipmentSockets?.Shield?.ArmorClass ?? 0
-                    + AbilityTools.GetAbilityModifier(this.Abilities.Dexterity);
+                    + AbilityTools.GetAbilityModifier(this.AbilityScores.Dexterity);
             }
         }
 
@@ -41,7 +41,7 @@ namespace Net.Zxnn.Dnd.Core
         public void attack(Character target)
         {
             int hit = Dice.D20.Roll();
-            int abilityModifier = AbilityTools.GetAbilityModifier(this.Abilities?.Strength ?? 10);
+            int abilityModifier = AbilityTools.GetAbilityModifier(this.AbilityScores?.Strength ?? 10);
 
             Console.WriteLine($"{this.Name} roll(d20): {hit} + {abilityModifier}");
 

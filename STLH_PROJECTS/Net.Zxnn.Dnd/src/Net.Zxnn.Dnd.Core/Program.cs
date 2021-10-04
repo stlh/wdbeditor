@@ -39,10 +39,10 @@ namespace Net.Zxnn.Dnd.Core
                     }
                 }
 
-                if (c001.HitPoints >= 0) {
+                if (c001.HitPoints > 0) {
                     c001Win += 1;
                 }
-                else if (c002.HitPoints >= 0) {
+                else if (c002.HitPoints > 0) {
                     c002Win += 1;
                 }
                 else
