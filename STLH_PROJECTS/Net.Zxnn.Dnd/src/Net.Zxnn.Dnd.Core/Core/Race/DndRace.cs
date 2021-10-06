@@ -7,9 +7,9 @@ namespace Net.Zxnn.Dnd.Core.Race
     {
         protected AbilityScoreIncrease _abilityScoreIncrease;
         public static readonly DndRace Human = new Human();
+        public static readonly DndRace Dwarf = new Dwarf();
         public AbilityScoreIncrease AbilityScoreIncrease => _abilityScoreIncrease;
         public abstract int Age { get; }
-        public abstract int Alignment { get; }
         public abstract RaceSize Size { get; }
         public abstract double Speed { get; }
         public abstract String Languages { get; }

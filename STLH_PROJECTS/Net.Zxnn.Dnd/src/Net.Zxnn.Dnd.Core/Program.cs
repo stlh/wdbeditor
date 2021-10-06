@@ -17,13 +17,14 @@ namespace Net.Zxnn.Dnd.Core
                 .Build();
 
             Character c002 = new CharacterBuilder()
-                .WithRace(DndRace.Human)
+                .WithRace(DndRace.Dwarf)
                 .WithClass(DndClass.Fighter)
                 .WithName("Skoll-002")
                 .Build();
 
             c001.EquipmentSockets.Weapon = new Battleaxe();
             c002.EquipmentSockets.Weapon = new Battleaxe();
+            c002.EquipmentSockets.Shield = new Shield();
 
             c001.move();
             c002.move();

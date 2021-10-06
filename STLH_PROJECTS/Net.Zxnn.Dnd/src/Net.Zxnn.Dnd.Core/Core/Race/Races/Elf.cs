@@ -2,15 +2,15 @@ using System;
 
 namespace Net.Zxnn.Dnd.Core.Race.Races
 {
-    public class Dwarf : DndRace
+    public class Elf : DndRace
     {
-        public Dwarf()
+        public Elf()
         {
-            _abilityScoreIncrease = new AbilityScoreIncrease(2);
+            _abilityScoreIncrease = new AbilityScoreIncrease(0, 2);
         }
         public override int Age => throw new NotImplementedException();
         public override RaceSize Size => RaceSize.Medium;
-        public override double Speed  => 25d;
+        public override double Speed  => 30d;
         public override string Languages => throw new NotImplementedException();
     }
 }

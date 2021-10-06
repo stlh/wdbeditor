@@ -75,7 +75,7 @@ using Net.Zxnn.Dnd.Core.Race.Races;
                 c.AbilityScores = this.abilities;
             }
 
-            c.HitPointMax = DiceBox.MaxOfDice(c.Class.HitDice) + AbilityTools.GetAbilityModifier(c.AbilityScores.Constitution);
+            c.HitPointMax = c.Class.HitDice.Max + AbilityTools.GetAbilityModifier(c.AbilityScores.Constitution);
             c.HitPoints = c.HitPointMax;
 
             return c;

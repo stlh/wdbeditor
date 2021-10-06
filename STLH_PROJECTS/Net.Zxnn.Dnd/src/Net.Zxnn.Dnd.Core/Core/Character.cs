@@ -40,7 +40,7 @@ namespace Net.Zxnn.Dnd.Core
 
         public void attack(Character target)
         {
-            int hit = Dice.D20.Roll();
+            int hit = Dice.d20.Roll();
             int abilityModifier = AbilityTools.GetAbilityModifier(this.AbilityScores?.Strength ?? 10);
 
             Console.WriteLine($"{this.Name} roll(d20): {hit} + {abilityModifier}");
