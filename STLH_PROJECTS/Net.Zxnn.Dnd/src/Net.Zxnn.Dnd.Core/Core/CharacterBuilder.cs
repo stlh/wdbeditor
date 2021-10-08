@@ -69,11 +69,9 @@ using Net.Zxnn.Dnd.Core.Race.Races;
             c.Level = 1;
             
             if (this.abilities == null) {
-                c.AbilityScores = AbilityScores.GetRandomStandardSetOfScores();
+                throw new Exception("abilities cannot null");
             }
-            else {
-                c.AbilityScores = this.abilities;
-            }
+            c.AbilityScores = this.abilities + c.Race.AbilityScoresIncrease;
 
             c.HitPointMax = c.Class.HitDice.Max + AbilityTools.GetAbilityModifier(c.AbilityScores.Constitution);
             c.HitPoints = c.HitPointMax;

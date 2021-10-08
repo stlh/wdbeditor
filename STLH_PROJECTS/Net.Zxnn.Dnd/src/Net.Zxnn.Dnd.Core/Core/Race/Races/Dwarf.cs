@@ -6,7 +6,7 @@ namespace Net.Zxnn.Dnd.Core.Race.Races
     {
         public Dwarf()
         {
-            _abilityScoreIncrease = new AbilityScoreIncrease(2);
+            _abilityScoresIncrease = new AbilityScores(2);
         }
         public override int Age => throw new NotImplementedException();
         public override RaceSize Size => RaceSize.Medium;

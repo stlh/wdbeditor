@@ -6,7 +6,7 @@ namespace Net.Zxnn.Dnd.Core.Race.Races
     {
         public Human()
         {
-            _abilityScoreIncrease = new AbilityScoreIncrease(1, 1, 1, 1, 1, 1);
+            _abilityScoresIncrease = new AbilityScores(1, 1, 1, 1, 1, 1);
         }
         public override int Age => throw new NotImplementedException();
         public override RaceSize Size => RaceSize.Medium;

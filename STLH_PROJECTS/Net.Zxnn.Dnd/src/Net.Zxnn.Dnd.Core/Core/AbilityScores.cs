@@ -1,30 +1,33 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Net.Zxnn.Dnd.Core {
     public class AbilityScores {
-        public static int[] StandardSetOfScores = new int[] {15, 14, 13, 12, 10, 8};
-        public static AbilityScores GetRandomStandardSetOfScores()
+        public AbilityScores(int strength = 0, int dexterity = 0, int constitution = 0, int intelligence = 0, int wisdom = 0, int charisma = 0)
         {
-            int[] tempArray = StandardSetOfScores.OrderBy(_ => Guid.NewGuid()).ToArray();
-            
-            return new AbilityScores()
-            {
-                Strength = tempArray[0],
-                Dexterity = tempArray[1],
-                Constitution = tempArray[2],
-                Intelligence = tempArray[3],
-                Wisdom = tempArray[4],
-                Charisma = tempArray[5]
-            };
+            Strength = strength;
+            Dexterity = dexterity;
+            Constitution = constitution;
+            Intelligence = intelligence;
+            Wisdom = wisdom;
+            Charisma = charisma;
         }
 
-        public int Strength { get; set; }
-        public int Dexterity { get; set; }
-        public int Constitution { get; set; }
-        public int Intelligence { get; set; }
-        public int Wisdom { get; set; }
-        public int Charisma { get; set; }
+        public int Strength { get; init; }
+        public int Dexterity { get; init; }
+        public int Constitution { get; init; }
+        public int Intelligence { get; init; }
+        public int Wisdom { get; init; }
+        public int Charisma { get; init; }
+
+        public static AbilityScores operator +(AbilityScores left, AbilityScores right) =>
+            new AbilityScores()
+            {
+                Strength = left.Strength + right.Strength,
+                Dexterity = left.Dexterity + right.Dexterity,
+                Constitution = left.Constitution + right.Constitution,
+                Intelligence = left.Intelligence + right.Intelligence,
+                Wisdom = left.Wisdom + right.Wisdom,
+                Charisma = left.Charisma + right.Charisma,
+            };
     }
 }

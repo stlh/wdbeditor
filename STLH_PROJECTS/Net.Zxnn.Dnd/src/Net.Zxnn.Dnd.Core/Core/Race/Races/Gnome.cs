@@ -6,7 +6,7 @@ namespace Net.Zxnn.Dnd.Core.Race.Races
     {
         public Gnome()
         {
-            _abilityScoreIncrease = new AbilityScoreIncrease(0, 0, 0, 2);
+            _abilityScoresIncrease = new AbilityScores(0, 0, 0, 2);
         }
         public override int Age => throw new NotImplementedException();
         public override RaceSize Size => RaceSize.Small;

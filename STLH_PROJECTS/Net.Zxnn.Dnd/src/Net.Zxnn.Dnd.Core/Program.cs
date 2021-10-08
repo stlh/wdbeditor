@@ -33,18 +33,20 @@ namespace Net.Zxnn.Dnd.Core
                 Character c001 = new CharacterBuilder()
                     .WithRace(DndRace.Human)
                     .WithClass(DndClass.Fighter)
-                    .WithName("Skoll-001")
+                    .WithAbilities(AbilityTools.GetRandomStandardSetOfScores())
+                    .WithName("Human-Fighter")
                     .Build();
 
                 Character c002 = new CharacterBuilder()
                     .WithRace(DndRace.Dwarf)
-                    .WithClass(DndClass.Fighter)
-                    .WithName("Skoll-002")
+                    .WithClass(DndClass.Barbarian)
+                    .WithAbilities(AbilityTools.GetRandomStandardSetOfScores())
+                    .WithName("Dwarf-Barbarian")
                     .Build();
 
                 c001.EquipmentSockets.Weapon = new Battleaxe();
                 c002.EquipmentSockets.Weapon = new Battleaxe();
-                c002.EquipmentSockets.Shield = new Shield();
+                //c002.EquipmentSockets.Shield = new Shield();
 
                 c001.move();
                 c002.move();
@@ -55,10 +57,20 @@ namespace Net.Zxnn.Dnd.Core
                 {
                     while (c001.HitPoints > 0 && c002.HitPoints > 0)
                     {
-                        c001.attack(c002);
-                        if (c002.HitPoints > 0)
+                        if (i % 2 == 0) {
+                            c001.attack(c002);
+                            if (c002.HitPoints > 0)
+                            {
+                                c002.attack(c001);
+                            }
+                        }
+                        else
                         {
                             c002.attack(c001);
+                            if (c001.HitPoints > 0)
+                            {
+                                c001.attack(c002);
+                            }
                         }
                     }
 
