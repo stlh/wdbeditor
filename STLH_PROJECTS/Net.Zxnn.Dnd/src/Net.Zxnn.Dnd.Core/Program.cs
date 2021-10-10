@@ -19,7 +19,7 @@ namespace Net.Zxnn.Dnd.Core
             {
                 new Option<int>(
                     "--round-count",
-                    getDefaultValue: () => 10000,
+                    getDefaultValue: () => 1000,
                     description: "how many rounds to be fight"
                 )
             };
