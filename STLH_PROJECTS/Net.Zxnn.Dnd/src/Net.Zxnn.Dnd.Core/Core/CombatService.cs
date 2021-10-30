@@ -1,18 +1,19 @@
 using System;
 
-using Net.Zxnn.Dnd.Core.Class;
-using Net.Zxnn.Dnd.Core.Race;
+using Microsoft.Extensions.Logging;
 
 namespace Net.Zxnn.Dnd.Core
 {
     public class CombatService
     {
-        public CombatService()
-        {
+        private readonly ILogger _logger;
 
+        public CombatService(ILogger<Scene> logger)
+        {
+            _logger = logger;
         }
 
-        public static void attack(Character a, Character target)
+        public void attack(Character a, Character target)
         {
             // Attack Rolls
             int attackRoll = Dice.d20.Roll();
@@ -20,14 +21,14 @@ namespace Net.Zxnn.Dnd.Core
             // TODO: attacher's proficiency bonus
             int proficiencyBonus = 0;
 
-            Console.WriteLine($"{a.Name} roll(d20): {attackRoll} + {abilityModifier} + {proficiencyBonus}");
+            _logger.LogDebug($"{a.Name} roll(d20): {attackRoll} + {abilityModifier} + {proficiencyBonus}");
 
             bool isCriticalHit = false;
             bool isMiss = false;
 
             switch (attackRoll) {
                 case 20:
-                    Console.WriteLine("!!!Critical!!!");
+                    _logger.LogDebug("!!!Critical!!!");
                     isCriticalHit = true;
                     break;
                 case 1:
@@ -46,7 +47,7 @@ namespace Net.Zxnn.Dnd.Core
             
             if (isMiss)
             {
-                Console.WriteLine($"{a.Name} is miss");
+                _logger.LogDebug($"{a.Name} is miss");
                 return;
             }
             else
@@ -56,12 +57,12 @@ namespace Net.Zxnn.Dnd.Core
 
             int totalPoints = weaponPoints +  abilityModifier;
             
-            Console.WriteLine($"{a.Name} use {a.EquipmentSockets?.Weapon.Name} hit roll({a.EquipmentSockets?.Weapon.DiceType}) {weaponPoints} + {abilityModifier} total {totalPoints}");
-            Console.WriteLine($"{target.Name} been hit {totalPoints}, hit points: {target.HitPoints -= totalPoints}");
+            _logger.LogDebug($"{a.Name} use {a.EquipmentSockets?.Weapon.Name} hit roll({a.EquipmentSockets?.Weapon.DiceType}) {weaponPoints} + {abilityModifier} total {totalPoints}");
+            _logger.LogDebug($"{target.Name} been hit {totalPoints}, hit points: {target.HitPoints -= totalPoints}");
 
             if (target.HitPoints <= 0) {
                 target.HitPoints = 0;
-                Console.WriteLine($"{target.Name} Falling Unconscious");
+                _logger.LogDebug($"{target.Name} Falling Unconscious");
             }
         }
     }

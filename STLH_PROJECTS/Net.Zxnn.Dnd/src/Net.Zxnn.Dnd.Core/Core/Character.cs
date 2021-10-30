@@ -40,7 +40,7 @@ namespace Net.Zxnn.Dnd.Core
 
         public void attack(Character target)
         {
-            CombatService.attack(this, target);
+            throw new NotImplementedException();
         }
 
         public void move()
