@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace Net.Zxnn.Dnd.Core.Race.Races
 {
@@ -11,6 +12,10 @@ namespace Net.Zxnn.Dnd.Core.Race.Races
         public override int Age => throw new NotImplementedException();
         public override RaceSize Size => RaceSize.Medium;
         public override double Speed  => 30d;
-        public override string Languages => throw new NotImplementedException();
+        public override ISet<Language> Languages => new HashSet<Language> {
+            Language.Common
+        };
+        public override ISet<Proficiency> WeaponTraining => new HashSet<Proficiency> {
+        };
     }
 }

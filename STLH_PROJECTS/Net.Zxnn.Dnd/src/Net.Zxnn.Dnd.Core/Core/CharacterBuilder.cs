@@ -5,7 +5,7 @@ using Net.Zxnn.Dnd.Core.Class.Classes;
 using Net.Zxnn.Dnd.Core.Race;
 using Net.Zxnn.Dnd.Core.Race.Races;
 
-  namespace Net.Zxnn.Dnd.Core
+namespace Net.Zxnn.Dnd.Core
 {
     public class CharacterBuilder
     {

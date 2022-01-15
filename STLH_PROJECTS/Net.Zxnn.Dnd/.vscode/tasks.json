@@ -4,7 +4,20 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "build",
+            "label": "build dnd console",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/src/Net.Zxnn.Dnd.Console/Net.Zxnn.Dnd.Console.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile",
+            "dependsOn": ["build dnd core"]
+        },
+        {
+            "label": "build dnd core",
             "command": "dotnet",
             "type": "process",
             "args": [
