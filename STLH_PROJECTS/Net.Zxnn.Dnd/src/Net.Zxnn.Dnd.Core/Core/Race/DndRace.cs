@@ -15,6 +15,6 @@ namespace Net.Zxnn.Dnd.Core.Race
         public abstract double Speed { get; }
         public abstract ISet<Language> Languages { get; }
 
-        public abstract ISet<Proficiency> WeaponTraining { get; }
+        public abstract IProficiencies Proficiencies { get; }
     }
 }

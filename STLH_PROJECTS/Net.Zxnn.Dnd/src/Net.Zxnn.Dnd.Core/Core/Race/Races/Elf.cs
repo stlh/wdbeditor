@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 
 namespace Net.Zxnn.Dnd.Core.Race.Races
 {
@@ -17,11 +18,8 @@ namespace Net.Zxnn.Dnd.Core.Race.Races
             Language.Elvish
         };
 
-        public override ISet<Proficiency> WeaponTraining => new HashSet<Proficiency> {
-            Proficiency.LongSword,
-            Proficiency.ShortSword,
-            Proficiency.ShortBow,
-            Proficiency.LongBow
+        public override IProficiencies Proficiencies => new ImmutableProficiencies() {
+            Weapons = ImmutableHashSet.Create<string>("LongSword", "ShortSword", "ShortBow", "LongBow"),
         };
     }
 }

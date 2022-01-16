@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Immutable;
 
 namespace Net.Zxnn.Dnd.Core.Class.Classes
 {
@@ -9,7 +10,7 @@ namespace Net.Zxnn.Dnd.Core.Class.Classes
         {
             if (level == 1)
             {
-                return 8 + constitutionModifier;
+                return HitDice.Max + constitutionModifier;
             }
             else
             {
@@ -21,5 +22,10 @@ namespace Net.Zxnn.Dnd.Core.Class.Classes
         {
             return 10 + dexterityModifier + constitutionModifier;
         }
+        public override IProficiencies Proficiencies => new ImmutableProficiencies() {
+            Armor = ImmutableHashSet.Create<string>("LightArmor"),
+            Weapons = ImmutableHashSet.Create<string>("SimpleWeapons", "HandCrossbows", "LongSwords", "Rapiers", "ShortSwords"),
+            SavingThrows = ImmutableHashSet.Create<string>("Dexterity", "Charisma")
+        };
     } 
 }

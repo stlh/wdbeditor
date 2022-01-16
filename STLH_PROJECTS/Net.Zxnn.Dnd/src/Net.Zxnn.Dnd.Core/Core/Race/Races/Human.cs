@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 
 namespace Net.Zxnn.Dnd.Core.Race.Races
 {
@@ -9,13 +10,17 @@ namespace Net.Zxnn.Dnd.Core.Race.Races
         {
             _abilityScoresIncrease = new AbilityScores(1, 1, 1, 1, 1, 1);
         }
+        
         public override int Age => throw new NotImplementedException();
+        
         public override RaceSize Size => RaceSize.Medium;
+        
         public override double Speed  => 30d;
+        
         public override ISet<Language> Languages => new HashSet<Language> {
             Language.Common
         };
-        public override ISet<Proficiency> WeaponTraining => new HashSet<Proficiency> {
-        };
+
+        public override IProficiencies Proficiencies => new ImmutableProficiencies() {};
     }
 }
