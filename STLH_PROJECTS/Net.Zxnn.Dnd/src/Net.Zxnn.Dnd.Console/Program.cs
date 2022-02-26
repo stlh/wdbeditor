@@ -31,9 +31,9 @@ namespace Net.Zxnn.Dnd
 
                 using (ServiceProvider serviceProvider = services.BuildServiceProvider())
                 {
-                    Scene scene = serviceProvider.GetService<Scene>();
+                    Scene? scene = serviceProvider.GetService<Scene>();
                     
-                    scene.Run(roundCount);
+                    scene?.Run(roundCount);
                 }
             });
 

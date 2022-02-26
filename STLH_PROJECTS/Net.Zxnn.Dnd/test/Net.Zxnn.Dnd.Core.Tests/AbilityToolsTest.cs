@@ -4,7 +4,7 @@ using Net.Zxnn.Dnd.Core;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace Net.Zxnn.Dnd.Test
+namespace Net.Zxnn.Dnd.Core.Tests
 {
     public class AbilityToolsTest
     {

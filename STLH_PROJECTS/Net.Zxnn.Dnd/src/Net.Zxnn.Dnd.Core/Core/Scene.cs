@@ -39,8 +39,8 @@ namespace Net.Zxnn.Dnd.Core
                     .WithName("Dwarf-Barbarian")
                     .Build();
 
-                c001.EquipmentSockets.Weapon = new Battleaxe();
-                c002.EquipmentSockets.Weapon = new Battleaxe();
+                c001.EquipmentSockets.Weapon = new BattleAxe();
+                c002.EquipmentSockets.Weapon = new BattleAxe();
 
                 while (c001.HitPoints > 0 && c002.HitPoints > 0)
                 {

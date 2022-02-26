@@ -14,7 +14,9 @@
                 "/consoleloggerparameters:NoSummary"
             ],
             "problemMatcher": "$msCompile",
-            "dependsOn": ["build dnd core"]
+            "dependsOn": [
+                "build dnd core"
+            ]
         },
         {
             "label": "build dnd core",
@@ -26,7 +28,28 @@
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
-            "problemMatcher": "$msCompile"
+            "problemMatcher": "$msCompile",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "test dnd core",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "test",
+                "${workspaceFolder}/test/Net.Zxnn.Dnd.Core.Tests/Net.Zxnn.Dnd.Core.Tests.csproj"
+            ],
+            "problemMatcher": "$msCompile",
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "dependsOn": [
+                "build dnd core"
+            ]
         },
         {
             "label": "publish",

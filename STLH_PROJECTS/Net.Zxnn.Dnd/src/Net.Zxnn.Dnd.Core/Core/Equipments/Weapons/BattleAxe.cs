@@ -3,9 +3,9 @@ using Net.Zxnn.Dnd.Core.Equipments;
 
 namespace Net.Zxnn.Dnd.Core.Equipments.Weapons
 {
-    public class Battleaxe : Weapon
+    public class BattleAxe : Weapon
     {
-        public Battleaxe() : base("Battleaxe", "1d8") {
+        public BattleAxe() : base("BattleAxe", "1d8") {
         }
     }
 }

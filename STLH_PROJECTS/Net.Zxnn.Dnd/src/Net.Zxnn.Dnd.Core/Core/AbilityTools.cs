@@ -6,7 +6,8 @@ namespace Net.Zxnn.Dnd.Core
     public static class AbilityTools {
         public static int GetAbilityModifier(int score)
         {
-            return (score - 10) / 2;
+            // return (score - 10) / 2;
+            return (score - 10) >> 1;
         }
 
         public static int[] StandardSetOfScores = new int[] {15, 14, 13, 12, 10, 8};

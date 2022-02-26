@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Immutable;
 
 using Net.Zxnn.Dnd.Core.Class;
 using Net.Zxnn.Dnd.Core.Race;
@@ -37,6 +38,24 @@ namespace Net.Zxnn.Dnd.Core
         public int HitPointMax { get; set; }
         
         public int ExperlencePoints { get; set; }
+
+        public IProficiencies Proficiencies {
+            get {
+                return  new ImmutableProficiencies() {
+                    Armor = ImmutableHashSet<string>.Empty,
+                    Weapons = ImmutableHashSet.Create<string>("BattleAxe", "HandAxe", "LightHammer", "WarHammer"),
+                    Tools = ImmutableHashSet<string>.Empty,
+                    SavingThrows = ImmutableHashSet<string>.Empty,
+                    Skills = ImmutableHashSet<string>.Empty
+                };
+            }
+        }
+
+        public int WeaponProficiencyBonus {
+            get {
+                return this.Proficiencies.Weapons.Contains(this.EquipmentSockets.Weapon.Name) ? 1 : 0;
+            }
+        }
 
         public void attack(Character target)
         {

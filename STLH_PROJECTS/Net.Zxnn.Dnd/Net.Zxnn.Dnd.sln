@@ -4,7 +4,7 @@ VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Net.Zxnn.Dnd.Core", "src\Net.Zxnn.Dnd.Core\Net.Zxnn.Dnd.Core.csproj", "{649AC2F4-881C-4939-ADF0-82F4E77154CD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Net.Zxnn.Dnd.CoreTests", "test\Net.Zxnn.Dnd.CoreTests\Net.Zxnn.Dnd.CoreTests.csproj", "{FB6EDB0D-3C69-4157-87A3-BF56098B2BAC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Net.Zxnn.Dnd.CoreTests", "test\Net.Zxnn.Dnd.Core.Tests\Net.Zxnn.Dnd.Core.Tests.csproj", "{FB6EDB0D-3C69-4157-87A3-BF56098B2BAC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{6499C194-CA1C-4515-A10C-9D61CE4E4AEF}"
 EndProject

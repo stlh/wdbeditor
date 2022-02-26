@@ -17,11 +17,13 @@ namespace Net.Zxnn.Dnd.Core
         {
             // Attack Rolls
             int attackRoll = Dice.d20.Roll();
-            int abilityModifier = AbilityTools.GetAbilityModifier(a.AbilityScores?.Strength ?? 10);
-            // TODO: attacher's proficiency bonus
-            int proficiencyBonus = 0;
 
-            _logger.LogDebug($"{a.Name} roll(d20): {attackRoll} + {abilityModifier} + {proficiencyBonus}");
+            // Modifiers to the Roll
+            int abilityModifier = AbilityTools.GetAbilityModifier(a.AbilityScores?.Strength ?? 10);
+            // Proficiency Bonus
+            int weaponProficiencyBonus = a.WeaponProficiencyBonus;
+
+            _logger.LogDebug($"{a.Name} roll(d20): {attackRoll} + {abilityModifier} + {weaponProficiencyBonus}");
 
             bool isCriticalHit = false;
             bool isMiss = false;
@@ -32,10 +34,11 @@ namespace Net.Zxnn.Dnd.Core
                     isCriticalHit = true;
                     break;
                 case 1:
+                    _logger.LogDebug("!!!Miss!!!");
                     isMiss = true;
                     break;
                 default:
-                    isMiss = attackRoll + abilityModifier + proficiencyBonus < target.ArmorClass;
+                    isMiss = attackRoll + abilityModifier + weaponProficiencyBonus < target.ArmorClass;
                     break;
             }
             
