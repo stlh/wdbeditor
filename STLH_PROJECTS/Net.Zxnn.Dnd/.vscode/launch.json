@@ -14,7 +14,7 @@
             "preLaunchTask": "build dnd console",
             // If you have changed target frameworks, make sure to update the program path.
             "program": "${workspaceFolder}/src/Net.Zxnn.Dnd.Console/bin/Debug/net6.0/Net.Zxnn.Dnd.Console.dll",
-            "args": ["--round-count",  "99999"],
+            "args": ["--round-count",  "9999", "--log-level", "info"],
             "cwd": "${workspaceFolder}/src/Net.Zxnn.Dnd.Console",
             // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console
             "console": "internalConsole",
