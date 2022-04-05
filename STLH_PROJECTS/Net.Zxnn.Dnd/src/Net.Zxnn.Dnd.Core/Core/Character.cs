@@ -37,9 +37,10 @@ namespace Net.Zxnn.Dnd.Core
         
         public int HitPointMax { get; set; }
         
-        public int ExperlencePoints { get; set; }
+        public int ExperiencePoints { get; set; }
 
-        public IProficiencies Proficiencies {
+        public IProficiencies Proficiencies
+        {
             get {
                 return  new ImmutableProficiencies() {
                     Armor = ImmutableHashSet<string>.Empty,
@@ -51,9 +52,19 @@ namespace Net.Zxnn.Dnd.Core
             }
         }
 
-        public int WeaponProficiencyBonus {
-            get {
-                return this.Proficiencies.Weapons.Contains(this.EquipmentSockets.Weapon.Name) ? 1 : 0;
+        public int WeaponProficiencyBonus
+        {
+            get
+            {
+                return this.Proficiencies.Weapons.Contains(this.EquipmentSockets.Weapon.Name) ? this.ProficiencyBonus : 0;
+            }
+        }
+
+        public int ProficiencyBonus
+        {
+            get
+            {
+                return AbilityTools.GetProficiencienBonus(this.Level);
             }
         }
 

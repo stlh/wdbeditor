@@ -10,6 +10,11 @@ public static class AbilityTools
         return (score - 10) >> 1;
     }
 
+    public static int GetProficiencienBonus(int level)
+    {
+        return (level -1) / 4 + 2;
+    }
+
     public static int[] StandardSetOfScores = new int[] {15, 14, 13, 12, 10, 8};
 
     public static AbilityScores GetStandardSetOfScores()

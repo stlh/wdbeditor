@@ -1,30 +1,40 @@
 using System;
 
+using Net.Zxnn.Dnd.Core;
 using Net.Zxnn.Dnd.Core.Class;
 using Net.Zxnn.Dnd.Core.Equipments.Weapons;
 using Net.Zxnn.Dnd.Core.Race;
 
 using Microsoft.Extensions.Logging;
 
-namespace Net.Zxnn.Dnd.Core;
-public class Scene
+namespace Net.Zxnn.Dnd.Scenes;
+
+public class Scene001 : IScene
 {
     private readonly ILogger _logger;
     private readonly CombatService _combatService;
+    public int RoundCount { get; set; }
 
-    public Scene(ILogger<Scene> logger, CombatService combatService)
+    public Scene001(ILogger<Scene001> logger, CombatService combatService)
     {
         _logger = logger;
         _combatService = combatService;
     }
 
+    public void Run()
+    {
+        Run(1);
+    }
+
     public void Run(int roundCount)
     {
-        _logger.LogInformation($"round count: {roundCount}");
+        this.RoundCount = roundCount;
+
+        _logger.LogInformation($"round count: {this.RoundCount}");
 
         int c001Win = 0;
         int c002Win = 0;
-        for (int i = 0; i < roundCount; ++i) 
+        for (int i = 0; i < this.RoundCount; ++i) 
         {
             Character c001 = new CharacterBuilder()
                 .WithRace(DndRace.Human)

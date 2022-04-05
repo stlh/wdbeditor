@@ -60,5 +60,34 @@ namespace Net.Zxnn.Dnd.Core.Tests
             Assert.Equal(11, AbilityTools.GetAbilityModifier(32));
             Assert.Equal(11, AbilityTools.GetAbilityModifier(33));
         }
+
+        [Fact]
+        public void TesProficiencienBonus()
+        {
+            Assert.Equal(2, AbilityTools.GetProficiencienBonus(1));
+            Assert.Equal(2, AbilityTools.GetProficiencienBonus(2));
+            Assert.Equal(2, AbilityTools.GetProficiencienBonus(3));
+            Assert.Equal(2, AbilityTools.GetProficiencienBonus(4));
+
+            Assert.Equal(3, AbilityTools.GetProficiencienBonus(5));
+            Assert.Equal(3, AbilityTools.GetProficiencienBonus(6));
+            Assert.Equal(3, AbilityTools.GetProficiencienBonus(7));
+            Assert.Equal(3, AbilityTools.GetProficiencienBonus(8));
+
+            Assert.Equal(4, AbilityTools.GetProficiencienBonus(9));
+            Assert.Equal(4, AbilityTools.GetProficiencienBonus(10));
+            Assert.Equal(4, AbilityTools.GetProficiencienBonus(11));
+            Assert.Equal(4, AbilityTools.GetProficiencienBonus(12));
+
+            Assert.Equal(5, AbilityTools.GetProficiencienBonus(13));
+            Assert.Equal(5, AbilityTools.GetProficiencienBonus(14));
+            Assert.Equal(5, AbilityTools.GetProficiencienBonus(15));
+            Assert.Equal(5, AbilityTools.GetProficiencienBonus(16));
+
+            Assert.Equal(6, AbilityTools.GetProficiencienBonus(17));
+            Assert.Equal(6, AbilityTools.GetProficiencienBonus(18));
+            Assert.Equal(6, AbilityTools.GetProficiencienBonus(19));
+            Assert.Equal(6, AbilityTools.GetProficiencienBonus(20));
+        }
     }
 }

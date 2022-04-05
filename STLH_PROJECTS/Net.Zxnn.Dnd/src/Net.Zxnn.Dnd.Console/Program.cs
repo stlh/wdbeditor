@@ -4,14 +4,13 @@ using System.CommandLine.Invocation;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Net.Zxnn.Dnd.Core;
+using Net.Zxnn.Dnd.Scenes;
 
 namespace Net.Zxnn.Dnd;
 class Program
 {
     static int Main(string[] args)
     {
-        Console.WriteLine("Hello World!");
-
         var rootCommand = new RootCommand
         {
             new Option<int>(
@@ -35,9 +34,9 @@ class Program
 
             using (ServiceProvider serviceProvider = services.BuildServiceProvider())
             {
-                Scene? scene = serviceProvider.GetService<Scene>();
+                Scene001? scene001 = serviceProvider.GetService<Scene001>();
                 
-                scene?.Run(roundCount);
+                scene001?.Run(roundCount);
             }
         });
 
@@ -49,7 +48,7 @@ class Program
         services.AddLogging(configure => 
                 configure.AddFilter("Net.Zxnn.Dnd", getLogLevel(logLevel))
                     .AddConsole())
-            .AddTransient<Scene>()
+            .AddTransient<Scene001>()
             .AddTransient<CombatService>();
     }
 
