@@ -1,0 +1,50 @@
+@page "/dnd"
+
+<PageTitle>Dungeons & Dragons</PageTitle>
+
+<h1>Dungeons & Dragons</h1>
+
+<h2>Create Character</h2>
+<div class="row">
+<div class="col-2">
+    <form>
+        <div class="form-group">
+            <label for="chName">Name</label>
+            <input type="input" class="form-control" name="chName" @bind="character.Name" placeholder="Enter Name">
+        </div>
+        <div class="form-group">
+            <label for="chRace">Race</label>
+            <select name="chRace" class="form-control" @bind="character.Race">
+                <option value="">Select a Race</option>
+                <option value="Human">Human</option>
+                <option value="Dwalf">Dwalf</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="chClass">Class</label>
+            <select name="chClass" class="form-control" @bind="character.Class">
+                <option value="">Select a Class</option>
+                <option value="Fight">Fight</option>
+                <option value="Ba">Ba</option>
+            </select>
+        </div>
+    </form>
+</div>
+<div class="col">
+    <span>@character.Name</span><br />
+    <span>@character.Race</span><br />
+    <span>@character.Class</span>
+</div>
+</div>
+
+@code {
+    class Character {
+        public string Name { get; set; }
+
+        public string Race { get; set; }
+
+        public string Class { get; set; }
+    }
+
+    private Character character = new Character();
+}

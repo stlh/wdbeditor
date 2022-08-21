@@ -75,6 +75,32 @@
                 "/consoleloggerparameters:NoSummary"
             ],
             "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "build dnd webapp",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/src/Net.Zxnn.Dnd.WebApp/Net.Zxnn.Dnd.WebApp.csproj"
+            ],
+            "problemMatcher": "$msCompile",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "run dnd webapp",
+            "command": "dotnet",
+            "type": "process",
+            "dependsOn":["build dnd webapp"],
+            "args": [
+                "run",
+                "--project",
+                "${workspaceFolder}/src/Net.Zxnn.Dnd.WebApp/Net.Zxnn.Dnd.WebApp.csproj"
+            ],
+            "problemMatcher": "$msCompile"
         }
     ]
 }
