@@ -7,45 +7,55 @@ using Net.Zxnn.Dnd.Core;
 using Net.Zxnn.Dnd.Scenes;
 
 namespace Net.Zxnn.Dnd;
+
 class Program
 {
     static int Main(string[] args)
     {
-        var rootCommand = new RootCommand
-        {
-            new Option<int>(
-                "--round-count",
-                getDefaultValue: () => 1000,
-                description: "how many rounds to be fight"
-            ),
-            new Option<String>(
-                "--log-level",
-                getDefaultValue: () => "Info",
-                description: "log level"
-            )
-        };
+        var rootCommand = ConfigureCommand();
+        
+        return rootCommand.InvokeAsync(args).Result;
+    }
+
+    private static RootCommand ConfigureCommand()
+    {
+        var rootCommand = new RootCommand();
+
+        var countOption = new Option<int>(
+            "--round-count",
+            getDefaultValue: () => 1000,
+            description: "how many rounds to be fight"
+        );
+
+        var logLevelOption = new Option<string>(
+            "--log-level",
+            getDefaultValue: () => "Info",
+            description: "log level"
+        );
+
+        rootCommand.AddOption(countOption);
+        rootCommand.AddOption(logLevelOption);
 
         rootCommand.Description = "DnD test application";
 
-        rootCommand.Handler = CommandHandler.Create<int, string>((int roundCount, string logLevel) => {
+        rootCommand.SetHandler((roundCount, logLevel) =>
+        {
             var services = new ServiceCollection();
 
             ConfigureServices(services, logLevel);
 
-            using (ServiceProvider serviceProvider = services.BuildServiceProvider())
-            {
-                Scene001? scene001 = serviceProvider.GetService<Scene001>();
-                
-                scene001?.Run(roundCount);
-            }
-        });
+            using ServiceProvider serviceProvider = services.BuildServiceProvider();
+            Scene001? scene001 = serviceProvider.GetService<Scene001>();
 
-        return rootCommand.InvokeAsync(args).Result;
+            scene001?.Run(roundCount);
+        }, countOption, logLevelOption);
+
+        return rootCommand;
     }
 
     private static void ConfigureServices(ServiceCollection services, string logLevel)
     {
-        services.AddLogging(configure => 
+        services.AddLogging(configure =>
                 configure.AddFilter("Net.Zxnn.Dnd", getLogLevel(logLevel))
                     .AddConsole())
             .AddTransient<Scene001>()
